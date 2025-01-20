@@ -112,7 +112,7 @@ The straightforward way is to implement a First Come First Server (FCFS) system 
 
 In a concurrent environment, whenever there's a two step process to reserve a job, there's bound to be race conditions - two requests could come up on the same job, reserve them, and then proceed with the processing of the same job. Even if we were to look past the race condition, this approach would take *O(N)* time to service to request in the worst case, with *N* being the total number of jobs in the queue. Ideally, we'd prefer to have a single operation to reserve the job.
 
-![FCFS](/image-1.png)
+[[/image-1.png][FCFS]]
 
 
 ** The ID Store
