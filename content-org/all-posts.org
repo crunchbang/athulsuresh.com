@@ -117,27 +117,27 @@ In a concurrent environment, whenever there's a two step process to reserve a jo
 
 ** The ID Store
 
-To prevent each request traversing the entire length of the job queue we set up a job `ID Store` which contains the list of all unprocessed jobs.
+To prevent each request traversing the entire length of the job queue we set up a job ~ID Store~ which contains the list of all unprocessed jobs.
 
 This was implemented in Aerospike using the list aggregate type, which we used to store the list of unprocessed job IDs. List pop operation (provided by Aerospike) allowed us to get a Job ID while still ensuring isolation between requests. In addition, the jobs were indexed based on job IDs for faster access.
 
-Thus each request would first pop off from the `ID store` and select the corresponding job from the jobs set. This has the dual benefit of avoiding race conditions by leaning on the storage engine to ensure isolation, and decreasing the worst case job assignment complexity to *O(1)*.
+Thus each request would first pop off from the ~ID store~ and select the corresponding job from the jobs set. This has the dual benefit of avoiding race conditions by leaning on the storage engine to ensure isolation, and decreasing the worst case job assignment complexity to *O(1)*.
 
 [[/image-2.png]]
 
-The only downside here is the Aerospike record limit. Each record in Aerospike is like a row in a SQL DB and Aerospike has a (configurable) limit on the size of each record. Unlucky for me, this limit was set at `128KB` in our system. If we assume each job ID to be `8B`, then we can accommodate only 16000 IDs per record.
+The only downside here is the Aerospike record limit. Each record in Aerospike is like a row in a SQL DB and Aerospike has a (configurable) limit on the size of each record. Unlucky for me, this limit was set at ~128KB~ in our system. If we assume each job ID to be ~8B~, then we can accommodate only 16000 IDs per record.
 
 Can we do better?
 
 ** The Token Store Optimization
 
-We had to store the list of job IDs because they're usually non-contiguous numeric identifiers. We can forego this list, if we assign sequential token IDs to each job. This indexed field provides an alternative way to refer to jobs within a set. The `ID Store`, which we'll now call the `Token Store`, will contain the token ID of the next job to be processed. You can think of it as a pointer to the job queue. This will help us tide over the record size limitations.
+We had to store the list of job IDs because they're usually non-contiguous numeric identifiers. We can forego this list, if we assign sequential token IDs to each job. This indexed field provides an alternative way to refer to jobs within a set. The ~ID Store~, which we'll now call the ~Token Store~, will contain the token ID of the next job to be processed. You can think of it as a pointer to the job queue. This will help us tide over the record size limitations.
 
-To reserve a job, a request would get the current token ID in the `Token Store`, fetch the corresponding record from the job set and then increment the token value so that it points to the next unprocessed job.
+To reserve a job, a request would get the current token ID in the ~Token Store~, fetch the corresponding record from the job set and then increment the token value so that it points to the next unprocessed job.
 
 While this looks efficient, it brings back the inevitable race condition - two jobs could read the same value and reserve the same job. What we need is an atomic operation to deal with the token ID.
 
-Aersopike provides the facility to define *User Defined Functions(UDF)* in Lua which allows us to define new functions that are guaranteed to be atomic by the storage engine. So, we defined a UDF to implement the read-increment-write operation which would read the token value, increment it, write the incremented value, and return the old value. Thus, each incoming request would invoke the read-increment-write UDF on `Token Store` to get the token ID, and would use this ID to get the corresponding job.
+Aersopike provides the facility to define *User Defined Functions(UDF)* in Lua which allows us to define new functions that are guaranteed to be atomic by the storage engine. So, we defined a UDF to implement the read-increment-write operation which would read the token value, increment it, write the incremented value, and return the old value. Thus, each incoming request would invoke the read-increment-write UDF on ~Token Store~ to get the token ID, and would use this ID to get the corresponding job.
 
 We've thus managed to stick to *O(1)* for job assignment while cutting down the space requirement of the list.
 
@@ -151,7 +151,7 @@ The primary downside is that we have no way to ensure fault tolerance. If a requ
 
 *** Using a SQL DB
 
-Aerospike is a NoSQL datastore and thus do not provide the rich set of operations made available by SQL. As outlined in this [[https://dba.stackexchange.com/questions/98311/best-way-to-implement-concurrent-table-based-queue?newreg=fdb55e93bbf64b1ca64778fd25518934][answer on Database Administrator]], SQL databases like MySQL enables us to use a combination of `Transactions` and `SELECT FOR UPDATE` to achieve the same result, albeit with a slightly higher performance penalty.
+Aerospike is a NoSQL datastore and thus do not provide the rich set of operations made available by SQL. As outlined in this [[https://dba.stackexchange.com/questions/98311/best-way-to-implement-concurrent-table-based-queue?newreg=fdb55e93bbf64b1ca64778fd25518934][answer on Database Administrator]], SQL databases like MySQL enables us to use a combination of ~Transactions~ and ~SELECT FOR UPDATE~ to achieve the same result, albeit with a slightly higher performance penalty.
 
 We couldn't use it for our use-case as our MySQL DB was /far too/ precious to be put under heavy load from such a bursty workflow.
 
