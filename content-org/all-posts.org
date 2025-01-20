@@ -271,19 +271,15 @@ In addition to all of this there's the Big Kernel Lock (BKL) that was added to e
 Just when you thought you couldn't need another locking mechanism, the kernel throws ~seqlocks~ in your face. This is sort of like the RW locks seen earlier, with the difference being that writers are preferred over readers. Each locked data is associated with a sequence counter (which is the thing that's protected by the lock). During a write, the counter is incremented. A read operation checks the sequence counter prior to and after the read. A read succeeds(as in, a write did not happen in between), if the values match. Thus, writers are never blocked, and dirty reads would just cause the reader to retry the read until the counter conditions are satisfied.
 
 ** Ordering & Barriers
-
 The processor and compiler might reorder memory accesses (reads and write) in code for a variety of reasons which might break some implicit assumptions that the code relies on. Barriers can be used to enforce the ordering and to indicate to the compiler / processor to maintain the order of operations. ~mb()/rmb()/wmb()~ provide memory barrier / read memory barrier / write memory barrier which ensure that rw / reads / writes are not reordered across them i.e all corresponding ops before the barrier are guaranteed to complete before the ops after it.
 
 ** Memory Management
-
 Pages are treated as the smallest unit of memory management. Memory is divided in multiple zone, each zone with a particular characteristic (DMA, normal, high memory etc). Allocations will never cross zone boundaries. Pages returned to user-space are zeroed out to ensure security. ~kmalloc~ allocates memory that is physically contiguous while ~vmalloc~ allocates memory that is contiguous in the virtual address space.
 
 ** File Managements
-
 VFS abstraction layers allows userland programs to be agnostic of the underlying fs. Main components: superblock, inode, dentry, file.
 
 ** Block Devices
-
 Sectors, blocks, buffers, and buffer heads. The IO scheduler mergers and sorts requests on the block device to maximize "global" throughput. Anticipatory, deadline, completely fair queuing, and noop variant.
 
 ** TODO
