@@ -141,7 +141,7 @@ Aersopike provides the facility to define *User Defined Functions(UDF)* in Lua w
 
 We've thus managed to stick to *O(1)* for job assignment while cutting down the space requirement of the list.
 
-![Token Store](/image-3.png)
+[[/image-3.png]]
 
 ** Drawbacks
 
