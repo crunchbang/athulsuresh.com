@@ -1,3 +1,52 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://athulsuresh.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Core Dump'
+pagination.pagerSize = 5
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
+
+
+[menu]
+main = [
+    { name = "Search", url = "search" },
+    { name = "Tags", url = "tags" },
+    { name = "RSS", url = "index.xml" },
+    { name = "Source", url = "https://github.com/ocfox/den" },
+]
+
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  env =  "production"
+  DateFormat = "2006-01-02"
+  ShowCodeCopyButtons = true
+  social = true
+  # Fix these
+  socialIcons = [
+      { name = "github", url = "https://github.com/ocfox" },
+      { name = "telegram", url = "https://t.me/ocfox" },
+      { name = "matrix", url = "https://matrix.to/#/@ocfox:matrix.org" },
+      { name = "mastodon", url = "https://mastodon.ocfox.me/@ocfox" },
+      { name = "rss", url = "index.xml" },
+  ]
+
+[params.homeInfoParams]
+  Title = "Hello!"
+  # Fix this
+  Content = """
+I'm athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल)!
+
+
+I'm a programmer from a small town in Kerala, in the southern part of India.
+
+
+There is no grand theme or unifying thread that ties these posts together. They are mostly anecdotes, experiences, and notes that I’ve collected over the years while I tinkered around with telephony systems and payment platforms.
+
+Caveat emptor.
+  """
