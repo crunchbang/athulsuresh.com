@@ -184,7 +184,7 @@ All diagrams were created using [[https://sketchviz.com/new][Sketchviz]].
 
 This book had been on my TO-READ list for a long time. It came up again while I was perusing [[https://danluu.com/programming-books/][Dan Luu's Programming book list]]. I've always wanted to look behind the curtains and see how the magic worked, so I finally bought it.
 
-I used [bootlin](https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct) to read through Linux 5.7.2 source. They provide a really good search system and linked definitions. The book describes kernel version 2.6. You might want to keep this site open to see how things have changed since then.
+I used [[https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct][bootlin]] to read through Linux 5.7.2 source. They provide a really good search system and linked definitions. The book describes kernel version 2.6. You might want to keep this site open to see how things have changed since then.
 
 ### Process & Threads
 
