@@ -6,13 +6,47 @@
     <description>Recent content on Core Dump</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jun 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My first post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;p&gt;This is my post body&lt;/p&gt;</description>
+      <title>Notes from &#39;Linux Kernel Development&#39;</title>
+      <link>http://localhost:1313/posts/04-notes-linux-dev/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/04-notes-linux-dev/</guid>
+      <description>&lt;p&gt;This book had been on my TO-READ list for a long time. It came up again while I was perusing &lt;a href=&#34;https://danluu.com/programming-books/&#34;&gt;Dan Luu&amp;rsquo;s Programming book list&lt;/a&gt;. I&amp;rsquo;ve always wanted to look behind the curtains and see how the magic worked, so I finally bought it.&lt;/p&gt;
+&lt;p&gt;I used &lt;a href=&#34;https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct&#34;&gt;bootlin&lt;/a&gt; to read through Linux 5.7.2 source. They provide a really good search system and linked definitions. The book describes kernel version 2.6. You might want to keep this site open to see how things have changed since then.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wrong Tool For The Job: Concurrent Queues with Aerospike</title>
+      <link>http://localhost:1313/posts/03-wrong-tool/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/03-wrong-tool/</guid>
+      <description>&lt;h2 id=&#34;if-all-you-have-is-a-hammer-dot-dot-dot&#34;&gt;If all you have is a hammer&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;Organizational choices and system architecture sometimes forces you to use sub-optimal tools for a problem. In fact, this is part of the challenge that work throws at you - having to retrofit or abuse tools to get the job done.&lt;/p&gt;
+&lt;p&gt;If you always had the right set of tools, what fun would life be? This is one such problem.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;We had an antiquated use case which allowed customers to create a deferred list of jobs. These jobs would then be processed based on API requests from the customer&amp;rsquo;s end. These lists would usually range from about 100 - 100000 jobs. We also provided a provision whereby the customer could trigger multiple requests in parallel to enable concurrent processing of these jobs. The original design dumped these jobs into MySQL, given that these jobs had to be persisted indefinitely until a trigger was detected.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bug Story: It&#39;s not you, it&#39;s the environment</title>
+      <link>http://localhost:1313/posts/02-bug-ttl/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/02-bug-ttl/</guid>
+      <description>&lt;p&gt;It all started with a deployment to the production cluster.&lt;/p&gt;
+&lt;p&gt;It always does. The worst things happen when you deploy to prod.&lt;/p&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;In our production cluster, we use Aerospike as the primary data store, with data being synced to MySQL for long term storage. For the uninitiated, Aerospike is a high speed, distributed key-value NoSQL database which provides a lot of cool features. Check it &lt;a href=&#34;https://www.aerospike.com/&#34;&gt;out&lt;/a&gt; if you haven&amp;rsquo;t already. In our cluster, all transactional data gets written to or read from AS, with MySQL being used only as a fallback option. We have a dedicated service that sync data from AS to MySQL and keeps things in check. The speed of access and the ability to scale by adding new nodes helps us keep the pressure off our central MySQL datastore.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/posts/01-hello-world/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/01-hello-world/</guid>
+      <description>&lt;p&gt;Hello!&lt;/p&gt;
+&lt;p&gt;Is there anybody out there?&lt;/p&gt;
+&lt;p&gt;Nod if you can hear me&lt;/p&gt;
+&lt;p&gt;This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they&amp;rsquo;ve taught me.&lt;/p&gt;
+&lt;p&gt;It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

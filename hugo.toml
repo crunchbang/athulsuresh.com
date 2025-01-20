@@ -27,18 +27,15 @@ main = [
   DateFormat = "2006-01-02"
   ShowCodeCopyButtons = true
   social = true
-  # Fix these
+  # TODO Fix these
   socialIcons = [
-      { name = "github", url = "https://github.com/ocfox" },
-      { name = "telegram", url = "https://t.me/ocfox" },
-      { name = "matrix", url = "https://matrix.to/#/@ocfox:matrix.org" },
-      { name = "mastodon", url = "https://mastodon.ocfox.me/@ocfox" },
+      { name = "github", url = "https://github.com/crunchbang" },
       { name = "rss", url = "index.xml" },
   ]
 
 [params.homeInfoParams]
   Title = "Hello!"
-  # Fix this
+  # TODO Fix this
   Content = """
 I'm athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल)!
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tech on Core Dump</title>
+    <link>http://localhost:1313/categories/tech/</link>
+    <description>Recent content in Tech on Core Dump</description>
+    <generator>Hugo -- 0.141.0</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bug Story: It&#39;s not you, it&#39;s the environment</title>
+      <link>http://localhost:1313/posts/02-bug-ttl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/02-bug-ttl/</guid>
+      <description>&lt;p&gt;It all started with a deployment to the production cluster.&lt;/p&gt;
+&lt;p&gt;It always does. The worst things happen when you deploy to prod.&lt;/p&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;In our production cluster, we use Aerospike as the primary data store, with data being synced to MySQL for long term storage. For the uninitiated, Aerospike is a high speed, distributed key-value NoSQL database which provides a lot of cool features. Check it &lt;a href=&#34;https://www.aerospike.com/&#34;&gt;out&lt;/a&gt; if you haven&amp;rsquo;t already. In our cluster, all transactional data gets written to or read from AS, with MySQL being used only as a fallback option. We have a dedicated service that sync data from AS to MySQL and keeps things in check. The speed of access and the ability to scale by adding new nodes helps us keep the pressure off our central MySQL datastore.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

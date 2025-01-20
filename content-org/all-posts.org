@@ -189,9 +189,7 @@ I used [[https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct][bootlin]] 
 ** Process & Threads
 A process begins it life with ~fork()~
 
-Lifecycle
-
-~fork()~ [Create a copy of the current running process] -> ~exec()~ [Load a binary into memory] -> ~exit()~
+Lifecycle: ~fork()~ [Create a copy of the current running process] -> ~exec()~ [Load a binary into memory] -> ~exit()~
 
 Metadata about each process is stored in a ~task_struct~. Info about all processes are maintained in a linked-list called the tasklist. They're often referred to as process descriptors.
 
