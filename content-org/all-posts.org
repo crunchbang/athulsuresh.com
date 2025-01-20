@@ -123,7 +123,7 @@ This was implemented in Aerospike using the list aggregate type, which we used t
 
 Thus each request would first pop off from the `ID store` and select the corresponding job from the jobs set. This has the dual benefit of avoiding race conditions by leaning on the storage engine to ensure isolation, and decreasing the worst case job assignment complexity to *O(1)*.
 
-![ID Store](/image-2.png)
+[[/image-2.png]]
 
 The only downside here is the Aerospike record limit. Each record in Aerospike is like a row in a SQL DB and Aerospike has a (configurable) limit on the size of each record. Unlucky for me, this limit was set at `128KB` in our system. If we assume each job ID to be `8B`, then we can accommodate only 16000 IDs per record.
 
