@@ -1,7 +1,178 @@
 #+hugo_base_dir: ../
 
-* DONE My first post :tag1:@category1:
+* Hello World :@life:
 :PROPERTIES:
-:EXPORT_FILE_NAME: my-first-post
+:EXPORT_DATE: 2020-05-03
+:EXPORT_FILE_NAME: 01-hello-world
 :END:
-This is my post body
+Hello!
+
+Is there anybody out there?
+
+Nod if you can hear me
+
+This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they've taught me.
+
+It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.
+* Bug Story: It's not you, it's the environment :@tech:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 02-bug-ttl
+:EXPORT_DATE: 2020-05-03
+:END:
+
+It all started with a deployment to the production cluster.
+
+It always does. The worst things happen when you deploy to prod.
+
+*** Background
+In our production cluster, we use Aerospike as the primary data store, with data being synced to MySQL for long term storage. For the uninitiated, Aerospike is a high speed, distributed key-value NoSQL database which provides a lot of cool features. Check it [[https://www.aerospike.com/][out]] if you haven't already. In our cluster, all transactional data gets written to or read from AS, with MySQL being used only as a fallback option. We have a dedicated service that sync data from AS to MySQL and keeps things in check. The speed of access and the ability to scale by adding new nodes helps us keep the pressure off our central MySQL datastore.
+
+I was working on a project that migrated one of our legacy use cases from MySQL to Aerospike. Like all legacy software, this one had a bunch of implicit assumptions about the data store baked into the code, the primary one being persistence. A note about Aersopike - typically data are stored in Aerospike records with a *TTL* (Time To Live). The data gets evicted automatically by the Aerospike engine and this reduces a lot of manual garbage collection from our side. Sadly, this would not be a preferable trait for my use case, as the data was expected to be persisted for weeks or even months, while our typical *TTL* was about a week. Fortunately for me, AS provided a way to persist data indefinitely using ~-1~ as the *TTL*. Yes! Problem solved. This was the least of my worries as I had to abuse Aersopike in ways that would make its creators cry. That is a story for another post.
+
+I made the required changes, tested out the code, and things seemed to have improved drastically. After a round of code review, I was ready for deployment. The deployment progressed as usual. The use-case was served by a set of APIs, so I was monitoring the cluster for 5xx or any usual errors. The whole thing was done in about 10 mins and all the signals from the cluster were green. No 5xx. No uncaught errors. I patted myself on the back for a smooth deployment (those seem to be a rarity in my life these days).
+
+*** A series of unfortunate events
+
+Remember all those movie characters who celebrated early and later gets killed? A similar, but much less gruesome fate awaited me.
+
+It started with the load balancer throwing 5xx. On further investigation, I found that the backend instance was not responding to certain requests. Digging deeper and grepping through the logs, I saw that request processing for one of the APIs for a completely different use-case was causing it. From the logs, it looked like the request was processed midway and then things abruptly stopped.
+
+Weird indeed.
+
+I did not have a lot of time as this was hitting production traffic (Blue-Green deployments, you say? We've never heard of it). So I quickly reverted the code to the previous stable version and dug deeper.
+
+Delving into the code, I saw that processing stopped abruptly at a point where we were inserting some data into Aersopike with a *TTL* of ~-1~. A little bit of context here - our internal wrapper over the AS client library had put some checks in place to prevent people from persisting data forever (*TTL* = ~-1~). Whenever someone passed in ~-1~, it'd quietly change that into 7 days and pass it along to the AS library. This was abused in several places in our code base where ~-1~ would be passed in since they expected the lib to put in some default value. This would not do for my case and I'd changed the wrapper to pass ~-1~ as is to the underlying layers. The offending piece of code was one where ~-1~ was being passed. So I narrowed down my search and tried calling our client wrapper with ~-1~ on the instance. I was greeted with a Segmentation Fault from the underlying library. Ah ha! Problem solved!
+
+Well, not exactly. Why did I not get this bug while testing? Our deployments process is a little weird. We have a copy of each dependency stashed away in an S3 bucket which we pull during the deployment. I had used the same version of the lib during testing and the bug did not manifest for me. I dug even deeper (God, when will this stop?!!).
+
+On checking the library version in one of the instances, I found that it had an older version of the lib installed. Suspecting something wrong with the deployment, I pulled up the deployment scripts, expecting to see something amiss. The Aerospike client deployment part was pretty straight forward:
+
+#+begin_src bash
+# script set up
+
+cd /usr/src
+wget https://s3.xyz.com/abc/aerospike_client.zip -O aerospike_client.zip
+unzip aerospike_client.zip
+cd <unzipped dir>
+
+# make and install
+#+end_src
+
+Things looks right. Nothing out of place. I ran just the client deployment script and checked again. It was still showing the older version of the library!
+
+Super werid.
+
+Somehow it dawned on me to check the man pages for unzip. Usually when you uzip a file and if the resulting directory already exists then unzip will prompt you regarding the next course of action. But when the same script is triggered through an ansible role, it'll silently do nothing and move on with the rest of the flow. Therein lies the problem!
+
+The base AMI we were using already had the unzipped folder baked in with the old version of the library. Whenever the deployment script ran, we downloaded the library code, and tried to unzip it. With no-one to tell it what to do, unzip silently did nothing. Not a single thing. Looking closer, I found that this had been the case since 2016. For 4 years, we had happily deployed code with not a single soul knowing that things were not being deployed as expected.
+
+The fix was a simple addition of the ~-o~ flag to the unzip command so that it could pummel through anyone and anything that stood in its way.
+
+This seemingly innocuous bug took me from high level application code, to Aerospike client library code, and then, down to our deployment script. All of this because someone did not explicitly instruct unzip to replace while extracting its contents.
+
+All for want of a ~-o~ flag.
+
+*** Lessons Learned
+- Don't deploy on a Friday. Have some heart and think about your on-call engineers.
+- Things can blow up in your face. Be ready to log it when it happens. I had to manually test the client wrapper to find that it was a SEGFAULT.
+- Don't always assume the fault is in your code. Never blindly trust client libraries to do the right thing. We're all human after all.
+- Don't put conflicting defaults in client wrapper code.
+- Don't be an idiot like me and try to change those defaults. Once out in the wild, every perceivable behavior of a lib will be (ab)used by programmers.
+- Read the Frickin' Manual & Be EXPLICIT with your command. Bash has enough red tape around it as is. Make sure that your favorite tools behave the way you
+  expect when you plug it into a script. Always err on the side of verbosity and add flags to ensure the expected behavior.
+- Always be ready to dig further. You will most definitely end up learning a lot with a good story to boot.
+
+Ping me your thoughts and comments.
+* Wrong Tool For The Job: Concurrent Queues with Aerospike
+:PROPERTIES:
+:EXPORT_FILE_NAME: 03-wrong-tool
+:EXPORT_DATE: 2020-05-16
+:END:
+** If all you have is a hammer...
+Organizational choices and system architecture sometimes forces you to use sub-optimal tools for a problem. In fact, this is part of the challenge that work throws at you - having to retrofit or abuse tools to get the job done.
+
+If you always had the right set of tools, what fun would life be? This is one such problem.
+
+** The Problem
+
+We had an antiquated use case which allowed customers to create a deferred list of jobs. These jobs would then be processed based on API requests from the customer's end. These lists would usually range from about 100 - 100000 jobs. We also provided a provision whereby the customer could trigger multiple requests in parallel to enable concurrent processing of these jobs. The original design dumped these jobs into MySQL, given that these jobs had to be persisted indefinitely until a trigger was detected.
+
+Stepping back from the nitty-gritty details, you can see that this is in essence a concurrent queue modeled on MySQL. The original implementation was not optimized for our traffic and it suffered from race conditions. We were handling a level of traffic which had caused DB outages in the past, so we did not want to lean on MySQL too much.
+
+Given the scale of the traffic, the criticality of the DB to serve our operations, and the sensitivity of this use-case to latency, it was decided that Aersopike would be used as the primary data store instead of MySQL. As I'd mentioned in my previous post, we use Aerospike A LOT - mostly because it's blazing fast and scalable, but also because it's free. We have a data sync mechanism that syncs data from Aerospike to MySQL once the records have been processed.
+
+Data stores were never meant to be used as a job queue and it required some effort to get Aerospike to do the same.
+
+** The FCFS Way
+:PROPERTIES:
+:ID:       31e60ff5-37a0-454b-b913-95473a9f5d9d
+:END:
+
+The straightforward way is to implement a First Come First Server (FCFS) system whereby each incoming request would find the first unprocessed job, reserve it, and then proceed with its processing.
+
+In a concurrent environment, whenever there's a two step process to reserve a job, there's bound to be race conditions - two requests could come up on the same job, reserve them, and then proceed with the processing of the same job. Even if we were to look past the race condition, this approach would take *O(N)* time to service to request in the worst case, with *N* being the total number of jobs in the queue. Ideally, we'd prefer to have a single operation to reserve the job.
+
+![FCFS](/image-1.png)
+
+
+** The ID Store
+
+To prevent each request traversing the entire length of the job queue we set up a job `ID Store` which contains the list of all unprocessed jobs.
+
+This was implemented in Aerospike using the list aggregate type, which we used to store the list of unprocessed job IDs. List pop operation (provided by Aerospike) allowed us to get a Job ID while still ensuring isolation between requests. In addition, the jobs were indexed based on job IDs for faster access.
+
+Thus each request would first pop off from the `ID store` and select the corresponding job from the jobs set. This has the dual benefit of avoiding race conditions by leaning on the storage engine to ensure isolation, and decreasing the worst case job assignment complexity to *O(1)*.
+
+![ID Store](/image-2.png)
+
+The only downside here is the Aerospike record limit. Each record in Aerospike is like a row in a SQL DB and Aerospike has a (configurable) limit on the size of each record. Unlucky for me, this limit was set at `128KB` in our system. If we assume each job ID to be `8B`, then we can accommodate only 16000 IDs per record.
+
+Can we do better?
+
+** The Token Store Optimization
+
+We had to store the list of job IDs because they're usually non-contiguous numeric identifiers. We can forego this list, if we assign sequential token IDs to each job. This indexed field provides an alternative way to refer to jobs within a set. The `ID Store`, which we'll now call the `Token Store`, will contain the token ID of the next job to be processed. You can think of it as a pointer to the job queue. This will help us tide over the record size limitations.
+
+To reserve a job, a request would get the current token ID in the `Token Store`, fetch the corresponding record from the job set and then increment the token value so that it points to the next unprocessed job.
+
+While this looks efficient, it brings back the inevitable race condition - two jobs could read the same value and reserve the same job. What we need is an atomic operation to deal with the token ID.
+
+Aersopike provides the facility to define *User Defined Functions(UDF)* in Lua which allows us to define new functions that are guaranteed to be atomic by the storage engine. So, we defined a UDF to implement the read-increment-write operation which would read the token value, increment it, write the incremented value, and return the old value. Thus, each incoming request would invoke the read-increment-write UDF on `Token Store` to get the token ID, and would use this ID to get the corresponding job.
+
+We've thus managed to stick to *O(1)* for job assignment while cutting down the space requirement of the list.
+
+![Token Store](/image-3.png)
+
+** Drawbacks
+
+The primary downside is that we have no way to ensure fault tolerance. If a request, which reserved a job, dies then we have no way to put that job back into the pool of reserved jobs. Thus the optimization might not be useful in the general context, but was acceptable for our specific use-case.
+
+** Alternatives
+
+*** Using a SQL DB
+
+Aerospike is a NoSQL datastore and thus do not provide the rich set of operations made available by SQL. As outlined in this [[https://dba.stackexchange.com/questions/98311/best-way-to-implement-concurrent-table-based-queue?newreg=fdb55e93bbf64b1ca64778fd25518934][answer on Database Administrator]], SQL databases like MySQL enables us to use a combination of `Transactions` and `SELECT FOR UPDATE` to achieve the same result, albeit with a slightly higher performance penalty.
+
+We couldn't use it for our use-case as our MySQL DB was /far too/ precious to be put under heavy load from such a bursty workflow.
+
+*** Using a Message Queue
+
+A simple persistent message queue like [[https://beanstalkd.github.io/][Beanstalkd]] would've been a perfect fit for this problem. Message Queues have the concept of tubes, which provides a high level way to group messages, which could be used for organizing jobs from different customers into different tubes. They also provide facilities like delays, whereby a job is put back into the queue if the reserved consumer has not responded withing a stipulated time frame, which would take care of the fault tolerance aspect.
+
+We couldn't use this solution because our services had some design decisions baked in, which made integrating a message queue into the flow a non-trivial exercise.
+
+** Lessons Learned
+
+-   Your problem does not exist in a vacuum. Your possible solutions would be constrained by the environment you operate in.
+-   Technical decisions, especially in the context of services, have long term repercussions that would influence the enhancements and modifications that could be carried out on it.
+-   Be realistic about the effort involved in implementing the perfect solution, in view of the time constraints - job Queues would've been perfect, but an optimized Aerospike setup was the next best option.
+-   Know when to stop. Optimization are an unending rabbit hole.
+-   Prefer clarity over cleverness /wherever possible/.
+
+This blog post is my explanation for future maintainers of my code as to how things reached the state they are in now. I did what had to be done. :P
+
+Ping me your thoughts and comments.
+
+Check out [[https://www.aerospike.com/][Aerospike]] and [[https://beanstalkd.github.io/][Beanstalkd]], if you haven't already!
+
+All diagrams were created using [[https://sketchviz.com/new][Sketchviz]].
