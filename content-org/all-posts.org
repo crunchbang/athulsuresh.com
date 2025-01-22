@@ -295,18 +295,17 @@ Owing to some changes we had done as part of another unification project, we man
 We had two MySQL databases housing telephone server related information in each of our two regions. The goal was to unify the view of data so that it would be the same everywhere. Essentially, the result of running a query on this data should yield the same result regardless of the region it was executed in. We had about 9 tables whose data had to be merged.
 
 There were two impediments that faced us:
-- **Primary Key(PK) conflicts**: PKs were reused across regions, since they were agnostic of each other, which would cause problems if we went for a blind merge.
-- **Foreign Key(FK) dependency**: This is primarily a side effect on the above. Any change in PKs should take the FK relationships into account so that data consistency is maintained at the end of the operation.
+- *Primary Key(PK) conflicts*: PKs were reused across regions, since they were agnostic of each other, which would cause problems if we went for a blind merge.
+- *Foreign Key(FK) dependency*: This is primarily a side effect on the above. Any change in PKs should take the FK relationships into account so that data consistency is maintained at the end of the operation.
 
 ** The Solution
-
 Our databases were slightly asymmetrical such that one region had significantly more data than the other. Adding an offset to the PKs in the smaller DB would ensure that the PKs are continuous and conflict free between the regions. Once the PKs were fixed, we could take a dump and merge the data.
 
 ![DB](/db.png)
 
 To keep the foreign key relationships intact, the changes would have to be propagated to all the tables that referenced these PK columns. The reference relationship can be obtained using the [INFORMATION_SCHEMA.KEY_COLUMN_USAGE](https://dev.mysql.com/doc/refman/8.0/en/information-schema-key-column-usage-table.html) table. A simple query like the one detailed in [this SO answer](https://stackoverflow.com/questions/806989/how-to-find-all-tables-that-have-foreign-keys-that-reference-particular-table-co) would get us all the tables referring to a particular column of a chosen table. When you're working with multiple tables with multiple relationships, it's always best to visualize this information to make tracking a little easier. The edges on the graph below denote the column of the referring table which refers to the PK of the referred table.
 
-![FK](/fk.png)
+[[/fk.png]]
 
 We prepared the list of queries and scripts to be executed beforehand to minimize downtime and to prevent manual errors. MySQL supports [Prepared Statements](https://dev.mysql.com/doc/refman/8.0/en/sql-prepared-statements.html) which is sort of like a DSL that allows us to create (or "prepare") SQL statements and then execute them. It has basic support for variables, which allows us to write generic SQL queries that can be applied to a lot of tables through the use of variables. This enabled us to cut the canned query size to a large extent.
 
