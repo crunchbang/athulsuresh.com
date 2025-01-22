@@ -416,17 +416,17 @@ func TestDefer(input *string) {
 
 Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
 
-```
+#+BEGIN_SRC
 world
 world
-```
+#+END_SRC
 
 But, on execution it actually prints
 
-```
+#+BEGIN_SRC
 world
 hello
-```
+#+END_SRC
 
 This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [specifically about this behavior](https://golang.org/doc/effective_go#defer) (which I discovered later).
 
