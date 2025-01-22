@@ -320,6 +320,6 @@ We started by taking a backup of the DBs in both the regions, just to be extra s
 - Freeze access to your DBs during data migration: We found that one of the update queries from an automated script had gotten through during the migration phase which resulted in the FK relations getting screwed up. Thankfully, MySQL prevents any updates to a tables once it detects a violation of FK constraints. This allowed us to zero in on the problem and fix it.
 -Use prepared statements and canned SQL statements for execution to minimize human error.
 
-Supposedly, the whole process would've been a lot easier if we used UUIDs instead of auto incremented ints for our PKs. There's a wealth of opinions on the web arguing [[https://medium.com/@Mareks_082/auto-increment-keys-vs-uuid-a74d81f7476a][for]] and [against](https://www.percona.com/blog/2019/11/22/uuids-are-popular-but-bad-for-performance-lets-discuss/) this approach.
+Supposedly, the whole process would've been a lot easier if we used UUIDs instead of auto incremented ints for our PKs. There's a wealth of opinions on the web arguing [[https://medium.com/@Mareks_082/auto-increment-keys-vs-uuid-a74d81f7476a][for]] and [[https://www.percona.com/blog/2019/11/22/uuids-are-popular-but-bad-for-performance-lets-discuss/][against]] this approach.
 
 Ping me your thoughts and comments.
