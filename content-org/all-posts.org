@@ -434,7 +434,7 @@ This makes sense if you think of `defer` as a function that gets executed each t
 
 This whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.
 
-```go
+#+BEGIN_SRC go
 func doSomething(txn, ....) {
   ...
   defer store.Save(txn)
@@ -443,7 +443,7 @@ func doSomething(txn, ....) {
   ...
   return
 }
-```
+#+END_SRC
 
 Wrapping it in an anonymous function helped alleviate my problem
 
