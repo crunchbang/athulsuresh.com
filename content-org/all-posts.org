@@ -397,7 +397,7 @@ P.S: You might see new posts with older dates. This is just me moving my notes f
 
 What do you think the output of the following code would be?
 
-```go
+#+BEGIN_SRC go
 package main
 
 import "fmt"
@@ -412,7 +412,7 @@ func TestDefer(input *string) {
 	*input = "world"
 	fmt.Println(*input)
 }
-```
+#+END_SRC
 
 Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
 
