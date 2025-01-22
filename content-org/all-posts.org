@@ -329,10 +329,7 @@ Ping me your thoughts and comments.
 :EXPORT_DATE: 2021-05-07
 :END:
 
-Recently, I started randomly going through the Go standard library, mostly to
-satiate my curiosity and to find out what goes on behind the curtains. While
-checking out the testing package, I found this interesting little snippet of
-code in `src/testing/testing.go`:
+Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in ~src/testing/testing.go~:
 
 #+BEGIN_SRC go
 // TB is the interface common to T and B.
@@ -362,10 +359,6 @@ type TB interface {
 }
 #+END_SRC
 
-This seems pretty evident once you see it. It makes sense for the Go standard
-library where the private function enables them to circumvent the compatibility
-promise by ensuring that no one would be able to use this interface outside of
-the standard library because of the private function. This gives them the
-flexibility to add functionality later without breaking anything.
+This seems pretty evident once you see it. It makes sense for the Go standard library where the private function enables them to circumvent the compatibility promise by ensuring that no one would be able to use this interface outside of the standard library because of the private function. This gives them the flexibility to add functionality later without breaking anything.
 
 I wonder if there's a general lib out in the wild which uses this technique.
