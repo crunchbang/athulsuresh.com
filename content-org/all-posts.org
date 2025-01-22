@@ -301,7 +301,7 @@ There were two impediments that faced us:
 ** The Solution
 Our databases were slightly asymmetrical such that one region had significantly more data than the other. Adding an offset to the PKs in the smaller DB would ensure that the PKs are continuous and conflict free between the regions. Once the PKs were fixed, we could take a dump and merge the data.
 
-![DB](/db.png)
+[[/db.png]]
 
 To keep the foreign key relationships intact, the changes would have to be propagated to all the tables that referenced these PK columns. The reference relationship can be obtained using the [INFORMATION_SCHEMA.KEY_COLUMN_USAGE](https://dev.mysql.com/doc/refman/8.0/en/information-schema-key-column-usage-table.html) table. A simple query like the one detailed in [this SO answer](https://stackoverflow.com/questions/806989/how-to-find-all-tables-that-have-foreign-keys-that-reference-particular-table-co) would get us all the tables referring to a particular column of a chosen table. When you're working with multiple tables with multiple relationships, it's always best to visualize this information to make tracking a little easier. The edges on the graph below denote the column of the referring table which refers to the PK of the referred table.
 
