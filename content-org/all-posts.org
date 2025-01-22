@@ -323,3 +323,49 @@ We started by taking a backup of the DBs in both the regions, just to be extra s
 Supposedly, the whole process would've been a lot easier if we used UUIDs instead of auto incremented ints for our PKs. There's a wealth of opinions on the web arguing [[https://medium.com/@Mareks_082/auto-increment-keys-vs-uuid-a74d81f7476a][for]] and [[https://www.percona.com/blog/2019/11/22/uuids-are-popular-but-bad-for-performance-lets-discuss/][against]] this approach.
 
 Ping me your thoughts and comments.
+* Un-implementable Interfaces In Go
+:PROPERTIES:
+:EXPORT_FILE_NAME: 06-unimplementable-interfaces-go
+:EXPORT_DATE: 2021-05-07
+:END:
+
+Recently, I started randomly going through the Go standard library, mostly to
+satiate my curiosity and to find out what goes on behind the curtains. While
+checking out the testing package, I found this interesting little snippet of
+code in `src/testing/testing.go`:
+
+#+BEGIN_SRC go
+// TB is the interface common to T and B.
+type TB interface {
+	Cleanup(func())
+	Error(args ...interface{})
+	Errorf(format string, args ...interface{})
+	Fail()
+	FailNow()
+	Failed() bool
+	Fatal(args ...interface{})
+	Fatalf(format string, args ...interface{})
+	Helper()
+	Log(args ...interface{})
+	Logf(format string, args ...interface{})
+	Name() string
+	Skip(args ...interface{})
+	SkipNow()
+	Skipf(format string, args ...interface{})
+	Skipped() bool
+	TempDir() string
+
+	// A private method to prevent users implementing the
+	// interface and so future additions to it will not
+	// violate Go 1 compatibility.
+	private()
+}
+#+END_SRC
+
+This seems pretty evident once you see it. It makes sense for the Go standard
+library where the private function enables them to circumvent the compatibility
+promise by ensuring that no one would be able to use this interface outside of
+the standard library because of the private function. This gives them the
+flexibility to add functionality later without breaking anything.
+
+I wonder if there's a general lib out in the wild which uses this technique.
