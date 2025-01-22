@@ -447,7 +447,7 @@ func doSomething(txn, ....) {
 
 Wrapping it in an anonymous function helped alleviate my problem
 
-```go
+#+BEGIN_SRC go
 func doSomething(txn, ....) {
   ...
   // fugly, but works!
@@ -459,6 +459,6 @@ func doSomething(txn, ....) {
   ...
   return
 }
-```
+#+END_SRC
 
 That was an evening well spent. I do find that I enjoy these sort of bug adventures which end up correcting some flawed mental model I previously had about a system. They're the most fulfilling.
