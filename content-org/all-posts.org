@@ -389,3 +389,76 @@ I needed another form to publish the little snippets of information that I usual
 Also, huge shout-out to [[https://simonwillison.net/][Simon Willison]] who's been blogging since 2002. When I got into a funk, I checked out his early posts to see how he had started. They were mostly a few lines describing what he'd done, or about stuff he had found on the internet. That gave me a huge boost in putting my own stuff out there.
 
 P.S: You might see new posts with older dates. This is just me moving my notes from a private git-repo into the blog.
+* Sneaky Defers In Go
+:PROPERTIES:
+:EXPORT_FILE_NAME: 09-sneaky-defers-in-go
+:EXPORT_DATE: 2021-07-06
+:END:
+
+What do you think the output of the following code would be?
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	input := "hello"
+	TestDefer(&input)
+}
+
+func TestDefer(input *string) {
+	defer fmt.Println(*input)
+	*input = "world"
+	fmt.Println(*input)
+}
+```
+
+Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+
+```
+world
+world
+```
+
+But, on execution it actually prints
+
+```
+world
+hello
+```
+
+This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [specifically about this behavior](https://golang.org/doc/effective_go#defer) (which I discovered later).
+
+This makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
+
+This whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.
+
+```go
+func doSomething(txn, ....) {
+  ...
+  defer store.Save(txn)
+  ...
+  // modify txn here
+  ...
+  return
+}
+```
+
+Wrapping it in an anonymous function helped alleviate my problem
+
+```go
+func doSomething(txn, ....) {
+  ...
+  // fugly, but works!
+  defer func() {
+    store.Save(txn)
+  }()
+  ...
+  // modify txn here
+  ...
+  return
+}
+```
+
+That was an evening well spent. I do find that I enjoy these sort of bug adventures which end up correcting some flawed mental model I previously had about a system. They're the most fulfilling.
