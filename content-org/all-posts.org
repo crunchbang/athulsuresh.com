@@ -374,3 +374,18 @@ I realized that I hadn't touched my blog in over a year. A lot had happened sinc
 I thought I'd change the theme and tweak things a bit just for the sake of it. Lo and behold, I ended up spending an entire day trying out themes and tweaking knobs and controls to see how things looked. Sometimes, I feel like I waste a lot of time on preliminary aspects of a task.
 
 Hopefully, I should be able to hammer out something tomorrow.
+* Writer's Block
+:PROPERTIES:
+:EXPORT_FILE_NAME: 08-writers-block
+:EXPORT_DATE: 2021-07-04
+:END:
+
+A while back, I came across [[https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9][this article]] by Josh Branchaud where he talked about TIL posts and learning in public (among many other things). This really appealed to me. Over the years, I had accumulated immense amount of information from posts and articles that people had put out and the whole idea of paying it forward by putting out things that I'd learned along the way sounded interesting.
+
+The primary impediment I faced here was the amount of time it took to create a well-crafted post. Most of the longer pieces here were summaries of months of effort squeezed into a single page post with pictures. Those were few and far apart.
+
+I needed another form to publish the little snippets of information that I usually encountered on a day-to-day basis. This could be trivial things like an obscure command line flag or an interesting HN comment. As opposed to posts, which were original pieces, these would mostly be derivate content with comments.
+
+Also, huge shout-out to [Simon Willison](https://simonwillison.net/) who's been blogging since 2002. When I got into a funk, I checked out his early posts to see how he had started. They were mostly a few lines describing what he'd done, or about stuff he had found on the internet. That gave me a huge boost in putting my own stuff out there.
+
+P.S: You might see new posts with older dates. This is just me moving my notes from a private git-repo into the blog.
