@@ -362,3 +362,15 @@ type TB interface {
 This seems pretty evident once you see it. It makes sense for the Go standard library where the private function enables them to circumvent the compatibility promise by ensuring that no one would be able to use this interface outside of the standard library because of the private function. This gives them the flexibility to add functionality later without breaking anything.
 
 I wonder if there's a general lib out in the wild which uses this technique.
+* Back After A Hiatus
+:PROPERTIES:
+:EXPORT_FILE_NAME: 07-back-after-hiatus
+:EXPORT_DATE: 2021-06-03
+:END:
+
+
+I realized that I hadn't touched my blog in over a year. A lot had happened since then, but I hadn't taken the time to note anything down. Looking through my old posts, I remember how good it felt to actually sit and write things down.
+
+I thought I'd change the theme and tweak things a bit just for the sake of it. Lo and behold, I ended up spending an entire day trying out themes and tweaking knobs and controls to see how things looked. Sometimes, I feel like I waste a lot of time on preliminary aspects of a task.
+
+Hopefully, I should be able to hammer out something tomorrow.
