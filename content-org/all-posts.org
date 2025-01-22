@@ -428,7 +428,7 @@ world
 hello
 #+END_SRC
 
-This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [specifically about this behavior](https://golang.org/doc/effective_go#defer) (which I discovered later).
+This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [[https://golang.org/doc/effective_go#defer][specifically about this behavior]] (which I discovered later).
 
 This makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
 
