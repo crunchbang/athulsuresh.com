@@ -515,11 +515,13 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 - erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.
 - concurrency is about structure. parallelism is about execution.
 - each expression must end with a =.=
-- variables in erlang can only be bound once. Variables start with UPPER CASE letters. atoms begin with lowercase letters.
+- variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters.
 - processes evaluate fns that are defined in modules. Modules are files with =.erl= extension.
 - =pid ! {client_pid, message}= for sending message to pid.
 - =c(module_name)= to compile the module. =f()=  to forget the bindings.
-- file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. **aside**: It's refreshing how Joe Armstrong doesn't talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see.
+- file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client.
+
+  /It's refreshing how Joe Armstrong doesn't talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see./
 - erlang can handle arbitrary precision numbers. Like really big numbers.
 - = is more of a pattern matching operator rather than assignment operator.
 - atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them.
