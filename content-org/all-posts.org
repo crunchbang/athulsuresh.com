@@ -558,7 +558,9 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 - A pattern that I've seen is that the proc file contains method that can be used for invoking all the messages that the proc expects.
 - Calls that require reply follow the pattern ={Pid, Ref, Msg}=
 
-> "Walking on water and developing software from a specification are easy if both are frozen."
+#+BEGIN_QUOTE
+"Walking on water and developing software from a specification are easy if both are frozen."
+#+END_QUOTE
 
 Modeling Event Notification System
 - Event Proc
