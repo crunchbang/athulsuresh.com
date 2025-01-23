@@ -561,21 +561,3 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 #+BEGIN_QUOTE
 "Walking on water and developing software from a specification are easy if both are frozen."
 #+END_QUOTE
-
-Modeling Event Notification System
-- Event Proc
-	- State - Server, Event Name, Time Left
-		- Server would spawn the Event Proc. That would be the source of all the messages to this proc.
-	- Incoming Events: cancel
-		- {Server, Ref, cancel}: We care about the server cos that's the expected source for all msgs. We want the Ref cos that server would match against it to ensure that it gets a reply from the event proc it messaged. cancel being the control word.
-	- Outgoing Events: Event completion notification
-		- {done, event name}: The incoming server doesn't really care about where the event came from, just that it received a notification for an event.
-- Event Server
-	- {subscribe, Self()} / ok
-	- {add, Name, Description, TimeOut} / ok | {error, Reason}
-	- {cancel, Name} / ok
-	- {done, Name, Description}
-	- shutdown / {'DOWN', Ref, process, PID, Reason=shutdown}
-# * Q: Are all clients notified when an event fires?
-
-- =erl -make= to compile the project. =erl -pa <folder_with_bins>=
