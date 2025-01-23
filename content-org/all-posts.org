@@ -312,7 +312,7 @@ We prepared the list of queries and scripts to be executed beforehand to minimiz
 ** The Execution
 Because of the nature of our system, we could never completely freeze access to the DBs. So we started with the activity during a lean period, when traffic was negligible to minimize outward impacts.
 
-We started by taking a backup of the DBs in both the regions, just to be extra safe. There are a few system level variables that MySQL maintains which dictates the behaviour of the database engine. One of them is [[https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_foreign_key_checks][foreign_key_checks]] which indicates whether foreign key constraints would be respected or not. This constraint flag was disabled during the migration, since there was no way to alter the PK without violating the FK relationships. The canned statements were then executed on the smaller DB to fix the PKs and FKs. Once the PK changes were back-propagated, foreign_key_checks were enabled again. Once the changes were made and canned queries were executed in the smaller DB, it was merely a matter of taking a `mysqldump` from each region and applying it in the other region.
+We started by taking a backup of the DBs in both the regions, just to be extra safe. There are a few system level variables that MySQL maintains which dictates the behaviour of the database engine. One of them is [[https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_foreign_key_checks][foreign_key_checks]] which indicates whether foreign key constraints would be respected or not. This constraint flag was disabled during the migration, since there was no way to alter the PK without violating the FK relationships. The canned statements were then executed on the smaller DB to fix the PKs and FKs. Once the PK changes were back-propagated, foreign_key_checks were enabled again. Once the changes were made and canned queries were executed in the smaller DB, it was merely a matter of taking a =mysqldump= from each region and applying it in the other region.
 
 ** Lessons Learned
 
@@ -414,7 +414,7 @@ func TestDefer(input *string) {
 }
 #+END_SRC
 
-Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+Given how =defer=-ed functions are executed just before the parent function exits, I expected the output to be
 
 #+BEGIN_SRC
 world
@@ -430,7 +430,7 @@ hello
 
 This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [[https://golang.org/doc/effective_go#defer][specifically about this behavior]] (which I discovered later).
 
-This makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
+This makes sense if you think of =defer= as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
 
 This whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.
 
@@ -462,3 +462,44 @@ func doSomething(txn, ....) {
 #+END_SRC
 
 That was an evening well spent. I do find that I enjoy these sort of bug adventures which end up correcting some flawed mental model I previously had about a system. They're the most fulfilling.
+* Faster Multitasking with Hammerspoon
+:PROPERTIES:
+:EXPORT_FILE_NAME: 10-multitasking-hammerspoon
+:EXPORT_DATE: 2021-07-11
+:END:
+
+
+When I'm working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I've noticed that switching between them via =cmd+tab= is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.
+
+I wanted a smoother transition between my umpteen apps without getting stuck in =cmd+tab= hell.
+
+I needed static key-bindings!
+
+That's when I found [Hammerspoon](http://www.hammerspoon.org/). Hammerspoon is a neat little tool that allows you to write little automations for a wide range of stuff on Mac. It's completely configurable and supports Lua as the extension langague, which is even cooler. And to top it all off, the documentation is thorough and on-point.
+
+I was able to hack together a tiny script to serve my needs.
+
+=init.lua= for Hammerspoon:
+
+#+BEGIN_SRC lua
+function open_app(name)
+    return function()
+        hs.application.launchOrFocus(name)
+    end
+end
+
+hs.hotkey.bind({"cmd"}, "1", open_app("iTerm"))
+hs.hotkey.bind({"cmd"}, "2", open_app("Visual Studio Code - Insiders"))
+hs.hotkey.bind({"cmd"}, "3", open_app("Visual Studio Code"))
+hs.hotkey.bind({"cmd"}, "4", open_app("Slack"))
+hs.hotkey.bind({"cmd"}, "5", open_app("Preview"))
+hs.hotkey.bind({"cmd"}, "7", open_app("MacVim"))
+hs.hotkey.bind({"cmd"}, "8", open_app("Google Chrome"))
+hs.hotkey.bind({"cmd"}, "9", open_app("Firefox"))
+hs.hotkey.bind({"cmd"}, "'", open_app("Spotify"))
+hs.hotkey.bind({"cmd"}, ";", open_app("Postman"))
+#+END_SRC
+
+This might seem trivial and even borderline insane, but the payout has been immense with a smoother workflow with fewer impediments.
+
+This was inspired by [[https://github.com/jasonrudolph/keyboard][jasonrudolph/keyboard]] who has done some pretty cool stuff with Hammerspoon.
