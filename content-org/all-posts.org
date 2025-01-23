@@ -475,7 +475,7 @@ I wanted a smoother transition between my umpteen apps without getting stuck in 
 
 I needed static key-bindings!
 
-That's when I found [Hammerspoon](http://www.hammerspoon.org/). Hammerspoon is a neat little tool that allows you to write little automations for a wide range of stuff on Mac. It's completely configurable and supports Lua as the extension langague, which is even cooler. And to top it all off, the documentation is thorough and on-point.
+That's when I found [[http://www.hammerspoon.org/][Hammerspoon]]. Hammerspoon is a neat little tool that allows you to write little automations for a wide range of stuff on Mac. It's completely configurable and supports Lua as the extension langague, which is even cooler. And to top it all off, the documentation is thorough and on-point.
 
 I was able to hack together a tiny script to serve my needs.
 
