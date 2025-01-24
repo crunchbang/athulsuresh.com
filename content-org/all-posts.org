@@ -323,7 +323,7 @@ We started by taking a backup of the DBs in both the regions, just to be extra s
 Supposedly, the whole process would've been a lot easier if we used UUIDs instead of auto incremented ints for our PKs. There's a wealth of opinions on the web arguing [[https://medium.com/@Mareks_082/auto-increment-keys-vs-uuid-a74d81f7476a][for]] and [[https://www.percona.com/blog/2019/11/22/uuids-are-popular-but-bad-for-performance-lets-discuss/][against]] this approach.
 
 Ping me your thoughts and comments.
-* Un-implementable Interfaces In Go
+* Un-implementable Interfaces In Go :go:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 06-unimplementable-interfaces-go
 :EXPORT_DATE: 2021-05-07
@@ -389,7 +389,7 @@ I needed another form to publish the little snippets of information that I usual
 Also, huge shout-out to [[https://simonwillison.net/][Simon Willison]] who's been blogging since 2002. When I got into a funk, I checked out his early posts to see how he had started. They were mostly a few lines describing what he'd done, or about stuff he had found on the internet. That gave me a huge boost in putting my own stuff out there.
 
 P.S: You might see new posts with older dates. This is just me moving my notes from a private git-repo into the blog.
-* Sneaky Defers In Go
+* Sneaky Defers In Go :go:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 09-sneaky-defers-in-go
 :EXPORT_DATE: 2021-07-06
