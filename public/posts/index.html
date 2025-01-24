@@ -123,13 +123,13 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/index.xml" title="RSS">
-                    <span>RSS</span>
+                <a href="http://localhost:1313/archive" title="Archive">
+                    <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
+                <a href="http://localhost:1313/index.xml" title="RSS">
+                    <span>RSS</span>
                 </a>
             </li>
             <li>
@@ -160,16 +160,82 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">My first post
+    <h2 class="entry-hint-parent">Notes On Erlang
     </h2>
   </header>
   <div class="entry-content">
-    <p>This is my post body
-</p>
+    <p>Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.
+erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency. concurrency is about structure. parallelism is about execution. each expression must end with a . variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters. processes evaluate fns that are defined in modules. Modules are files with .erl extension. pid ! {client_pid, message} for sending message to pid. c(module_name) to compile the module. f() to forget the bindings. file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It’s refreshing how Joe Armstrong doesn’t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see. erlang can handle arbitrary precision numbers. Like really big numbers. = is more of a pattern matching operator rather than assignment operator. atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them. {item1, blah} represents a tuple of fixed size. Since tuples don’t have type, it’s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works! strings are represented as a list of integers with each int representing an unicode point. fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses. fun(arg) -&gt; body end. to define anonymous fns. [f(X) || X &lt;- L] list comprehension. X &lt;- L follows the pattern logic for =. Named function F/n should be passed in as fun F/n when used as an argument -record(Name { field1 = DefaultValue1, .... fieldN }. undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(&#34;record_file.hrl&#34;) to bring it into the erl. X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed. Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =&gt; for adding a new key. The update follows the same pattern as records. ; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values. clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD! &lt;&lt;&#34;binaries&#34;&gt;&gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term. a type is binary when it’s size is divisible by 8, otherwise it’s a bitstring. &lt;&lt;R:5, B:6, G:5&gt;&gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking. type test BIFs are allowed in guard clauses. is_xxx self() to get the PID of the current process. Sending the current process’s PID in the message is a convention that allows the receiver to know whom to reply to. Storing state of the function on the stack i.e on function parameters Modules have functions and attributes. attrs start with - -define(MACRO, val) would be used as ?MACRO receive..after..end to specify timeouts. Sounds similar to Go timer ticks spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list. with a full mail box, the messages are tried in order. If a msg doesn’t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive. messages that do not match a pattern are never lost. They’re always around. The downside is this could lead to mailbox pollution if the proc doesn’t have the patterns to receive the msg. In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution. link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional. Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way. exit(blah) gets propagated as a special message (“signal”) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {&#39;EXIT&#39;, Pid, msg} can be caught. monitors are like links, but they’re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative. exit(Pid, reason) to kill another process. Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect. Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don’t care about the source, then the ref can be omitted. If a monitor is set for a process that’s already down using erlang:monitor(process, PID) then we receive a {&#39;DOWN&#39;, MonitorRef, process, PID, &lt;reason&gt;} message as the reply. A pattern that I’ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects. Calls that require reply follow the pattern {Pid, Ref, Msg} “Walking on water and developing software from a specification are easy if both are frozen.”
+...</p>
   </div>
-  <footer class="entry-footer">Athul Suresh</footer>
-  <a class="entry-link" aria-label="post link to My first post" href="http://localhost:1313/posts/my-first-post/"></a>
+  <footer class="entry-footer"><span title='2022-11-23 00:00:00 +0000 UTC'>2022-11-23</span>&nbsp;·&nbsp;Athul Suresh</footer>
+  <a class="entry-link" aria-label="post link to Notes On Erlang" href="http://localhost:1313/posts/11-notes-erlang/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Faster Multitasking with Hammerspoon
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When I’m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I’ve noticed that switching between them via cmd&#43;tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.
+I wanted a smoother transition between my umpteen apps without getting stuck in cmd&#43;tab hell.
+I needed static key-bindings!
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-11 00:00:00 +0000 UTC'>2021-07-11</span>&nbsp;·&nbsp;Athul Suresh</footer>
+  <a class="entry-link" aria-label="post link to Faster Multitasking with Hammerspoon" href="http://localhost:1313/posts/10-multitasking-hammerspoon/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sneaky Defers In Go
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>What do you think the output of the following code would be?
+package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+world world But, on execution it actually prints
+world hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-06 00:00:00 +0000 UTC'>2021-07-06</span>&nbsp;·&nbsp;Athul Suresh</footer>
+  <a class="entry-link" aria-label="post link to Sneaky Defers In Go" href="http://localhost:1313/posts/09-sneaky-defers-in-go/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Writer&#39;s Block
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A while back, I came across this article by Josh Branchaud where he talked about TIL posts and learning in public (among many other things). This really appealed to me. Over the years, I had accumulated immense amount of information from posts and articles that people had put out and the whole idea of paying it forward by putting out things that I’d learned along the way sounded interesting.
+The primary impediment I faced here was the amount of time it took to create a well-crafted post. Most of the longer pieces here were summaries of months of effort squeezed into a single page post with pictures. Those were few and far apart.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-04 00:00:00 +0000 UTC'>2021-07-04</span>&nbsp;·&nbsp;Athul Suresh</footer>
+  <a class="entry-link" aria-label="post link to Writer&#39;s Block" href="http://localhost:1313/posts/08-writers-block/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Back After A Hiatus
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I realized that I hadn’t touched my blog in over a year. A lot had happened since then, but I hadn’t taken the time to note anything down. Looking through my old posts, I remember how good it felt to actually sit and write things down.
+I thought I’d change the theme and tweak things a bit just for the sake of it. Lo and behold, I ended up spending an entire day trying out themes and tweaking knobs and controls to see how things looked. Sometimes, I feel like I waste a lot of time on preliminary aspects of a task.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-03 00:00:00 +0000 UTC'>2021-06-03</span>&nbsp;·&nbsp;Athul Suresh</footer>
+  <a class="entry-link" aria-label="post link to Back After A Hiatus" href="http://localhost:1313/posts/07-back-after-hiatus/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/posts/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

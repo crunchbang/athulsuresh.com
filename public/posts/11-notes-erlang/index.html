@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Notes On Erlang | Core Dump</title>
+<meta name="keywords" content="">
+<meta name="description" content="Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.
+
+erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.
+concurrency is about structure. parallelism is about execution.
+each expression must end with a .
+variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters.
+processes evaluate fns that are defined in modules. Modules are files with .erl extension.
+pid ! {client_pid, message} for sending message to pid.
+c(module_name) to compile the module. f()  to forget the bindings.
+file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It&rsquo;s refreshing how Joe Armstrong doesn&rsquo;t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see.
+erlang can handle arbitrary precision numbers. Like really big numbers.
+= is more of a pattern matching operator rather than assignment operator.
+atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them.
+{item1, blah} represents a tuple of fixed size. Since tuples don&rsquo;t have type, it&rsquo;s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works!
+strings are represented as a list of integers with each int representing an unicode point.
+fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses.
+fun(arg) -&gt; body end. to define anonymous fns.
+[f(X) || X &lt;- L] list comprehension. X &lt;- L follows the pattern logic for =.
+Named function F/n should be passed in as fun F/n when used as an argument
+-record(Name { field1 = DefaultValue1, .... fieldN }.  undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(&quot;record_file.hrl&quot;) to bring it into the erl.
+X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed.
+Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =&gt; for adding a new key. The update follows the same pattern as records.
+; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values.
+clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD!
+&lt;&lt;&quot;binaries&quot;&gt;&gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term.
+a type is binary when it&rsquo;s size is divisible by 8, otherwise it&rsquo;s a bitstring.
+&lt;&lt;R:5, B:6, G:5&gt;&gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking.
+type test BIFs are allowed in guard clauses. is_xxx
+self() to get the PID of the current process. Sending the current process&rsquo;s PID in the message is a convention that allows the receiver to know whom to reply to.
+Storing state of the function on the stack i.e on function parameters
+Modules have functions and attributes. attrs start with -
+-define(MACRO, val) would be used as ?MACRO
+receive..after..end to specify timeouts. Sounds similar to Go timer ticks
+spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list.
+with a full mail box, the messages are tried in order. If a msg doesn&rsquo;t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive.
+messages that do not match a pattern are never lost. They&rsquo;re always around. The downside is this could lead to mailbox pollution if the proc doesn&rsquo;t have the patterns to receive the msg.
+In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution.
+link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional.
+Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way.
+exit(blah) gets propagated as a special message (&ldquo;signal&rdquo;) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {&#39;EXIT&#39;, Pid, msg} can be caught.
+monitors are like links, but they&rsquo;re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative.
+exit(Pid, reason) to kill another process.
+Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect.
+Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don&rsquo;t care about the source, then the ref can be omitted.
+If a monitor is set for a process that&rsquo;s already down using erlang:monitor(process, PID) then we receive a {&#39;DOWN&#39;, MonitorRef, process, PID, &lt;reason&gt;} message as the reply.
+A pattern that I&rsquo;ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects.
+Calls that require reply follow the pattern {Pid, Ref, Msg}
+
+
+&ldquo;Walking on water and developing software from a specification are easy if both are frozen.&rdquo;">
+<meta name="author" content="Athul Suresh">
+<link rel="canonical" href="http://localhost:1313/posts/11-notes-erlang/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/11-notes-erlang/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/posts/11-notes-erlang/">
+  <meta property="og:site_name" content="Core Dump">
+  <meta property="og:title" content="Notes On Erlang">
+  <meta property="og:description" content="Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.
+erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency. concurrency is about structure. parallelism is about execution. each expression must end with a . variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters. processes evaluate fns that are defined in modules. Modules are files with .erl extension. pid ! {client_pid, message} for sending message to pid. c(module_name) to compile the module. f() to forget the bindings. file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It’s refreshing how Joe Armstrong doesn’t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see. erlang can handle arbitrary precision numbers. Like really big numbers. = is more of a pattern matching operator rather than assignment operator. atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them. {item1, blah} represents a tuple of fixed size. Since tuples don’t have type, it’s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works! strings are represented as a list of integers with each int representing an unicode point. fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses. fun(arg) -&gt; body end. to define anonymous fns. [f(X) || X &lt;- L] list comprehension. X &lt;- L follows the pattern logic for =. Named function F/n should be passed in as fun F/n when used as an argument -record(Name { field1 = DefaultValue1, .... fieldN }. undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(&#34;record_file.hrl&#34;) to bring it into the erl. X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed. Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =&gt; for adding a new key. The update follows the same pattern as records. ; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values. clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD! &lt;&lt;&#34;binaries&#34;&gt;&gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term. a type is binary when it’s size is divisible by 8, otherwise it’s a bitstring. &lt;&lt;R:5, B:6, G:5&gt;&gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking. type test BIFs are allowed in guard clauses. is_xxx self() to get the PID of the current process. Sending the current process’s PID in the message is a convention that allows the receiver to know whom to reply to. Storing state of the function on the stack i.e on function parameters Modules have functions and attributes. attrs start with - -define(MACRO, val) would be used as ?MACRO receive..after..end to specify timeouts. Sounds similar to Go timer ticks spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list. with a full mail box, the messages are tried in order. If a msg doesn’t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive. messages that do not match a pattern are never lost. They’re always around. The downside is this could lead to mailbox pollution if the proc doesn’t have the patterns to receive the msg. In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution. link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional. Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way. exit(blah) gets propagated as a special message (“signal”) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {&#39;EXIT&#39;, Pid, msg} can be caught. monitors are like links, but they’re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative. exit(Pid, reason) to kill another process. Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect. Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don’t care about the source, then the ref can be omitted. If a monitor is set for a process that’s already down using erlang:monitor(process, PID) then we receive a {&#39;DOWN&#39;, MonitorRef, process, PID, &lt;reason&gt;} message as the reply. A pattern that I’ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects. Calls that require reply follow the pattern {Pid, Ref, Msg} “Walking on water and developing software from a specification are easy if both are frozen.”">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-23T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes On Erlang">
+<meta name="twitter:description" content="Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.
+
+erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.
+concurrency is about structure. parallelism is about execution.
+each expression must end with a .
+variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters.
+processes evaluate fns that are defined in modules. Modules are files with .erl extension.
+pid ! {client_pid, message} for sending message to pid.
+c(module_name) to compile the module. f()  to forget the bindings.
+file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It&rsquo;s refreshing how Joe Armstrong doesn&rsquo;t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see.
+erlang can handle arbitrary precision numbers. Like really big numbers.
+= is more of a pattern matching operator rather than assignment operator.
+atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them.
+{item1, blah} represents a tuple of fixed size. Since tuples don&rsquo;t have type, it&rsquo;s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works!
+strings are represented as a list of integers with each int representing an unicode point.
+fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses.
+fun(arg) -&gt; body end. to define anonymous fns.
+[f(X) || X &lt;- L] list comprehension. X &lt;- L follows the pattern logic for =.
+Named function F/n should be passed in as fun F/n when used as an argument
+-record(Name { field1 = DefaultValue1, .... fieldN }.  undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(&quot;record_file.hrl&quot;) to bring it into the erl.
+X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed.
+Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =&gt; for adding a new key. The update follows the same pattern as records.
+; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values.
+clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD!
+&lt;&lt;&quot;binaries&quot;&gt;&gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term.
+a type is binary when it&rsquo;s size is divisible by 8, otherwise it&rsquo;s a bitstring.
+&lt;&lt;R:5, B:6, G:5&gt;&gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking.
+type test BIFs are allowed in guard clauses. is_xxx
+self() to get the PID of the current process. Sending the current process&rsquo;s PID in the message is a convention that allows the receiver to know whom to reply to.
+Storing state of the function on the stack i.e on function parameters
+Modules have functions and attributes. attrs start with -
+-define(MACRO, val) would be used as ?MACRO
+receive..after..end to specify timeouts. Sounds similar to Go timer ticks
+spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list.
+with a full mail box, the messages are tried in order. If a msg doesn&rsquo;t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive.
+messages that do not match a pattern are never lost. They&rsquo;re always around. The downside is this could lead to mailbox pollution if the proc doesn&rsquo;t have the patterns to receive the msg.
+In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution.
+link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional.
+Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way.
+exit(blah) gets propagated as a special message (&ldquo;signal&rdquo;) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {&#39;EXIT&#39;, Pid, msg} can be caught.
+monitors are like links, but they&rsquo;re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative.
+exit(Pid, reason) to kill another process.
+Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect.
+Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don&rsquo;t care about the source, then the ref can be omitted.
+If a monitor is set for a process that&rsquo;s already down using erlang:monitor(process, PID) then we receive a {&#39;DOWN&#39;, MonitorRef, process, PID, &lt;reason&gt;} message as the reply.
+A pattern that I&rsquo;ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects.
+Calls that require reply follow the pattern {Pid, Ref, Msg}
+
+
+&ldquo;Walking on water and developing software from a specification are easy if both are frozen.&rdquo;">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Notes On Erlang",
+      "item": "http://localhost:1313/posts/11-notes-erlang/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Notes On Erlang",
+  "name": "Notes On Erlang",
+  "description": "Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.\nerlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency. concurrency is about structure. parallelism is about execution. each expression must end with a . variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters. processes evaluate fns that are defined in modules. Modules are files with .erl extension. pid ! {client_pid, message} for sending message to pid. c(module_name) to compile the module. f() to forget the bindings. file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It\u0026rsquo;s refreshing how Joe Armstrong doesn\u0026rsquo;t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see. erlang can handle arbitrary precision numbers. Like really big numbers. = is more of a pattern matching operator rather than assignment operator. atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them. {item1, blah} represents a tuple of fixed size. Since tuples don\u0026rsquo;t have type, it\u0026rsquo;s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works! strings are represented as a list of integers with each int representing an unicode point. fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses. fun(arg) -\u0026gt; body end. to define anonymous fns. [f(X) || X \u0026lt;- L] list comprehension. X \u0026lt;- L follows the pattern logic for =. Named function F/n should be passed in as fun F/n when used as an argument -record(Name { field1 = DefaultValue1, .... fieldN }. undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(\u0026quot;record_file.hrl\u0026quot;) to bring it into the erl. X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed. Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =\u0026gt; for adding a new key. The update follows the same pattern as records. ; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values. clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD! \u0026lt;\u0026lt;\u0026quot;binaries\u0026quot;\u0026gt;\u0026gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term. a type is binary when it\u0026rsquo;s size is divisible by 8, otherwise it\u0026rsquo;s a bitstring. \u0026lt;\u0026lt;R:5, B:6, G:5\u0026gt;\u0026gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking. type test BIFs are allowed in guard clauses. is_xxx self() to get the PID of the current process. Sending the current process\u0026rsquo;s PID in the message is a convention that allows the receiver to know whom to reply to. Storing state of the function on the stack i.e on function parameters Modules have functions and attributes. attrs start with - -define(MACRO, val) would be used as ?MACRO receive..after..end to specify timeouts. Sounds similar to Go timer ticks spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list. with a full mail box, the messages are tried in order. If a msg doesn\u0026rsquo;t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive. messages that do not match a pattern are never lost. They\u0026rsquo;re always around. The downside is this could lead to mailbox pollution if the proc doesn\u0026rsquo;t have the patterns to receive the msg. In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution. link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional. Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way. exit(blah) gets propagated as a special message (\u0026ldquo;signal\u0026rdquo;) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {'EXIT', Pid, msg} can be caught. monitors are like links, but they\u0026rsquo;re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative. exit(Pid, reason) to kill another process. Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect. Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don\u0026rsquo;t care about the source, then the ref can be omitted. If a monitor is set for a process that\u0026rsquo;s already down using erlang:monitor(process, PID) then we receive a {'DOWN', MonitorRef, process, PID, \u0026lt;reason\u0026gt;} message as the reply. A pattern that I\u0026rsquo;ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects. Calls that require reply follow the pattern {Pid, Ref, Msg} \u0026ldquo;Walking on water and developing software from a specification are easy if both are frozen.\u0026rdquo;\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Collection of unstructed notes that I accumulated while learning Erlang. This is a work-in-progress.\nerlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency. concurrency is about structure. parallelism is about execution. each expression must end with a . variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters. processes evaluate fns that are defined in modules. Modules are files with .erl extension. pid ! {client_pid, message} for sending message to pid. c(module_name) to compile the module. f() to forget the bindings. file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. It’s refreshing how Joe Armstrong doesn’t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see. erlang can handle arbitrary precision numbers. Like really big numbers. = is more of a pattern matching operator rather than assignment operator. atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them. {item1, blah} represents a tuple of fixed size. Since tuples don’t have type, it’s a convention to add an atom as the first element indicating the type. {point, 0, 1}. {point, C, C} = {point, 25, 25} works! strings are represented as a list of integers with each int representing an unicode point. fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses. fun(arg) -\u003e body end. to define anonymous fns. [f(X) || X \u003c- L] list comprehension. X \u003c- L follows the pattern logic for =. Named function F/n should be passed in as fun F/n when used as an argument -record(Name { field1 = DefaultValue1, .... fieldN }. undefined is the default value. .hrl files are like C header files where common definitions can be kept. #Name{key1=val1...}. to instantiate the struct. rr(\"record_file.hrl\") to bring it into the erl. X#Name{field1=NewValue} to create a new record from an existing record X with a field value changed. Maps are weird. #{ key Op val, key2 Op val2}. := for updating an existing key. =\u003e for adding a new key. The update follows the same pattern as records. ; is OR and , is AND for guard sequences. maps : get/find etc for acessing map values. clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD! \u003c\u003c\"binaries\"\u003e\u003e. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term. a type is binary when it’s size is divisible by 8, otherwise it’s a bitstring. \u003c\u003e to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking. type test BIFs are allowed in guard clauses. is_xxx self() to get the PID of the current process. Sending the current process’s PID in the message is a convention that allows the receiver to know whom to reply to. Storing state of the function on the stack i.e on function parameters Modules have functions and attributes. attrs start with - -define(MACRO, val) would be used as ?MACRO receive..after..end to specify timeouts. Sounds similar to Go timer ticks spawn(Module, Fn, Arg) to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will always be a list. with a full mail box, the messages are tried in order. If a msg doesn’t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the after 0 block to do selective receive. messages that do not match a pattern are never lost. They’re always around. The downside is this could lead to mailbox pollution if the proc doesn’t have the patterns to receive the msg. In a defensive programming style, the Unexpected match is used as a catchall to prevent mailbox pollution. link(pid) links the current process with pid. unlink(pid). When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional. Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way. exit(blah) gets propagated as a special message (“signal”) which cannot be caught using normal receive. It can be caught if process_flag(trap_exit, true) is set. Then {'EXIT', Pid, msg} can be caught. monitors are like links, but they’re unidirectional and can be stacked. erlang:monitor(process, spawn(...)). spawn_monitor is the atomic alternative. exit(Pid, reason) to kill another process. Each process can be registered against a name which can then be used for sending messages instead of Pid. register(name, pid). unregister(name). registered() / regs() to get info about the registered processes. A process can have only name and a name can only be registered once. whereis(registered_name) to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect. Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. make_ref(). Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don’t care about the source, then the ref can be omitted. If a monitor is set for a process that’s already down using erlang:monitor(process, PID) then we receive a {'DOWN', MonitorRef, process, PID, } message as the reply. A pattern that I’ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects. Calls that require reply follow the pattern {Pid, Ref, Msg} “Walking on water and developing software from a specification are easy if both are frozen.”\n",
+  "wordCount" : "1059",
+  "inLanguage": "en",
+  "datePublished": "2022-11-23T00:00:00Z",
+  "dateModified": "2022-11-23T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Athul Suresh"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/11-notes-erlang/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Core Dump",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Core Dump (Alt + H)">Core Dump</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archive" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Notes On Erlang
+    </h1>
+    <div class="post-meta"><span title='2022-11-23 00:00:00 +0000 UTC'>2022-11-23</span>&nbsp;·&nbsp;Athul Suresh
+
+</div>
+  </header> 
+  <div class="post-content"><p>Collection of unstructed notes that I accumulated while learning Erlang. This is a <em>work-in-progress</em>.</p>
+<ul>
+<li>erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.</li>
+<li>concurrency is about structure. parallelism is about execution.</li>
+<li>each expression must end with a <code>.</code></li>
+<li>variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters.</li>
+<li>processes evaluate fns that are defined in modules. Modules are files with <code>.erl</code> extension.</li>
+<li><code>pid ! {client_pid, message}</code> for sending message to pid.</li>
+<li><code>c(module_name)</code> to compile the module. <code>f()</code>  to forget the bindings.</li>
+<li>file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. <em>It&rsquo;s refreshing how Joe Armstrong doesn&rsquo;t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see.</em></li>
+<li>erlang can handle arbitrary precision numbers. Like really big numbers.</li>
+<li>= is more of a pattern matching operator rather than assignment operator.</li>
+<li>atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them.</li>
+<li><code>{item1, blah}</code> represents a tuple of fixed size. Since tuples don&rsquo;t have type, it&rsquo;s a convention to add an atom as the first element indicating the type. <code>{point, 0, 1}</code>. <code>{point, C, C} = {point, 25, 25}</code> works!</li>
+<li>strings are represented as a list of integers with each int representing an unicode point.</li>
+<li>fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses.</li>
+<li><code>fun(arg) -&gt; body end.</code> to define anonymous fns.</li>
+<li><code>[f(X) || X &lt;- L]</code> list comprehension. <code>X &lt;- L</code> follows the pattern logic for =.</li>
+<li>Named function F/n should be passed in as <code>fun F/n</code> when used as an argument</li>
+<li><code>-record(Name { field1 = DefaultValue1, .... fieldN }</code>.  <code>undefined</code> is the default value. <code>.hrl</code> files are like C header files where common definitions can be kept. <code>#Name{key1=val1...}.</code> to instantiate the struct. <code>rr(&quot;record_file.hrl&quot;)</code> to bring it into the erl.</li>
+<li><code>X#Name{field1=NewValue}</code> to create a new record from an existing record X with a field value changed.</li>
+<li>Maps are weird. <code>#{ key Op val, key2 Op val2}</code>. <code>:=</code> for updating an existing key. =&gt; for adding a new key. The update follows the same pattern as records.</li>
+<li><code>;</code> is OR and <code>,</code> is AND for guard sequences. maps : get/find etc for acessing map values.</li>
+<li>clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD!</li>
+<li><code>&lt;&lt;&quot;binaries&quot;&gt;&gt;</code>. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term.</li>
+<li>a type is binary when it&rsquo;s size is divisible by 8, otherwise it&rsquo;s a bitstring.</li>
+<li><code>&lt;&lt;R:5, B:6, G:5&gt;&gt;</code> to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking.</li>
+<li>type test BIFs are allowed in guard clauses. <code>is_xxx</code></li>
+<li><code>self()</code> to get the PID of the current process. Sending the current process&rsquo;s PID in the message is a convention that allows the receiver to know whom to reply to.</li>
+<li>Storing state of the function on the stack i.e on function parameters</li>
+<li>Modules have functions and attributes. attrs start with <code>-</code></li>
+<li><code>-define(MACRO, val)</code> would be used as <code>?MACRO</code></li>
+<li><code>receive..after..end</code> to specify timeouts. Sounds similar to Go timer ticks</li>
+<li><code>spawn(Module, Fn, Arg)</code> to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will <strong>always</strong> be a list.</li>
+<li>with a full mail box, the messages are tried in order. If a msg doesn&rsquo;t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the <code>after 0</code> block to do selective receive.</li>
+<li>messages that do not match a pattern are never lost. They&rsquo;re always around. The downside is this could lead to mailbox pollution if the proc doesn&rsquo;t have the patterns to receive the msg.</li>
+<li>In a defensive programming style, the <code>Unexpected</code> match is used as a catchall to prevent mailbox pollution.</li>
+<li><code>link(pid)</code> links the current process with pid. <code>unlink(pid)</code>. When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional.</li>
+<li>Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way.</li>
+<li><code>exit(blah)</code> gets propagated as a special message (&ldquo;signal&rdquo;) which cannot be caught using normal receive. It can be caught if <code>process_flag(trap_exit, true)</code> is set. Then <code>{'EXIT', Pid, msg}</code> can be caught.</li>
+<li>monitors are like links, but they&rsquo;re unidirectional and can be stacked. <code>erlang:monitor(process, spawn(...))</code>. spawn_monitor is the atomic alternative.</li>
+<li><code>exit(Pid, reason)</code> to kill another process.</li>
+<li>Each process can be registered against a name which can then be used for sending messages instead of Pid. <code>register(name, pid)</code>. <code>unregister(name)</code>. <code>registered() / regs()</code> to get info about the registered processes. A process can have only name and a name can only be registered once. <code>whereis(registered_name)</code> to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect.</li>
+<li>Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. <code>make_ref()</code>. Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don&rsquo;t care about the source, then the ref can be omitted.</li>
+<li>If a monitor is set for a process that&rsquo;s already down using <code>erlang:monitor(process, PID)</code> then we receive a <code>{'DOWN', MonitorRef, process, PID, &lt;reason&gt;}</code> message as the reply.</li>
+<li>A pattern that I&rsquo;ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects.</li>
+<li>Calls that require reply follow the pattern <code>{Pid, Ref, Msg}</code></li>
+</ul>
+<blockquote>
+<p>&ldquo;Walking on water and developing software from a specification are easy if both are frozen.&rdquo;</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Core Dump</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@ home = ["HTML", "JSON", "RSS"]
 
 [menu]
 main = [
-    { name = "Search", url = "search" },
+    { name = "Archive", url = "archive" },
     { name = "Tags", url = "tags" },
     { name = "RSS", url = "index.xml" },
     { name = "Source", url = "https://github.com/ocfox/den" },

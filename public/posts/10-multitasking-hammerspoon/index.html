@@ -5,15 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Hello World | Core Dump</title>
+<title>Faster Multitasking with Hammerspoon | Core Dump</title>
 <meta name="keywords" content="">
-<meta name="description" content="Hello!
-Is there anybody out there?
-Nod if you can hear me
-This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they&rsquo;ve taught me.
-It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.">
+<meta name="description" content="When I&rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I&rsquo;ve noticed that switching between them via cmd&#43;tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.
+I wanted a smoother transition between my umpteen apps without getting stuck in cmd&#43;tab hell.
+I needed static key-bindings!">
 <meta name="author" content="Athul Suresh">
-<link rel="canonical" href="http://localhost:1313/posts/01-hello-world/">
+<link rel="canonical" href="http://localhost:1313/posts/10-multitasking-hammerspoon/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -22,7 +20,7 @@ It took me 5 attempts just to get this page up and running. Hmm. There must be s
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/01-hello-world/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/10-multitasking-hammerspoon/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,26 +57,22 @@ It took me 5 attempts just to get this page up and running. Hmm. There must be s
         }
 
     </style>
-</noscript><meta property="og:url" content="http://localhost:1313/posts/01-hello-world/">
+</noscript><meta property="og:url" content="http://localhost:1313/posts/10-multitasking-hammerspoon/">
   <meta property="og:site_name" content="Core Dump">
-  <meta property="og:title" content="Hello World">
-  <meta property="og:description" content="Hello!
-Is there anybody out there?
-Nod if you can hear me
-This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they’ve taught me.
-It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.">
+  <meta property="og:title" content="Faster Multitasking with Hammerspoon">
+  <meta property="og:description" content="When I’m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I’ve noticed that switching between them via cmd&#43;tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.
+I wanted a smoother transition between my umpteen apps without getting stuck in cmd&#43;tab hell.
+I needed static key-bindings!">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-05-03T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-05-03T00:00:00+00:00">
+    <meta property="article:published_time" content="2021-07-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-07-11T00:00:00+00:00">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Hello!
-Is there anybody out there?
-Nod if you can hear me
-This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they&rsquo;ve taught me.
-It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.">
+<meta name="twitter:title" content="Faster Multitasking with Hammerspoon">
+<meta name="twitter:description" content="When I&rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I&rsquo;ve noticed that switching between them via cmd&#43;tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.
+I wanted a smoother transition between my umpteen apps without getting stuck in cmd&#43;tab hell.
+I needed static key-bindings!">
 
 
 <script type="application/ld+json">
@@ -95,8 +89,8 @@ It took me 5 attempts just to get this page up and running. Hmm. There must be s
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Hello World",
-      "item": "http://localhost:1313/posts/01-hello-world/"
+      "name": "Faster Multitasking with Hammerspoon",
+      "item": "http://localhost:1313/posts/10-multitasking-hammerspoon/"
     }
   ]
 }
@@ -105,24 +99,24 @@ It took me 5 attempts just to get this page up and running. Hmm. There must be s
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Hello World",
-  "name": "Hello World",
-  "description": "Hello!\nIs there anybody out there?\nNod if you can hear me\nThis blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they\u0026rsquo;ve taught me.\nIt took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.\n",
+  "headline": "Faster Multitasking with Hammerspoon",
+  "name": "Faster Multitasking with Hammerspoon",
+  "description": "When I\u0026rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I\u0026rsquo;ve noticed that switching between them via cmd+tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.\nI wanted a smoother transition between my umpteen apps without getting stuck in cmd+tab hell.\nI needed static key-bindings!\n",
   "keywords": [
     
   ],
-  "articleBody": "Hello!\nIs there anybody out there?\nNod if you can hear me\nThis blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they’ve taught me.\nIt took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.\n",
-  "wordCount" : "63",
+  "articleBody": "When I’m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I’ve noticed that switching between them via cmd+tab is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.\nI wanted a smoother transition between my umpteen apps without getting stuck in cmd+tab hell.\nI needed static key-bindings!\nThat’s when I found Hammerspoon. Hammerspoon is a neat little tool that allows you to write little automations for a wide range of stuff on Mac. It’s completely configurable and supports Lua as the extension langague, which is even cooler. And to top it all off, the documentation is thorough and on-point.\nI was able to hack together a tiny script to serve my needs.\ninit.lua for Hammerspoon:\nfunction open_app(name) return function() hs.application.launchOrFocus(name) end end hs.hotkey.bind({\"cmd\"}, \"1\", open_app(\"iTerm\")) hs.hotkey.bind({\"cmd\"}, \"2\", open_app(\"Visual Studio Code - Insiders\")) hs.hotkey.bind({\"cmd\"}, \"3\", open_app(\"Visual Studio Code\")) hs.hotkey.bind({\"cmd\"}, \"4\", open_app(\"Slack\")) hs.hotkey.bind({\"cmd\"}, \"5\", open_app(\"Preview\")) hs.hotkey.bind({\"cmd\"}, \"7\", open_app(\"MacVim\")) hs.hotkey.bind({\"cmd\"}, \"8\", open_app(\"Google Chrome\")) hs.hotkey.bind({\"cmd\"}, \"9\", open_app(\"Firefox\")) hs.hotkey.bind({\"cmd\"}, \"'\", open_app(\"Spotify\")) hs.hotkey.bind({\"cmd\"}, \";\", open_app(\"Postman\")) This might seem trivial and even borderline insane, but the payout has been immense with a smoother workflow with fewer impediments.\nThis was inspired by jasonrudolph/keyboard who has done some pretty cool stuff with Hammerspoon.\n",
+  "wordCount" : "218",
   "inLanguage": "en",
-  "datePublished": "2020-05-03T00:00:00Z",
-  "dateModified": "2020-05-03T00:00:00Z",
+  "datePublished": "2021-07-11T00:00:00Z",
+  "dateModified": "2021-07-11T00:00:00Z",
   "author":[{
     "@type": "Person",
     "name": "Athul Suresh"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/01-hello-world/"
+    "@id": "http://localhost:1313/posts/10-multitasking-hammerspoon/"
   },
   "publisher": {
     "@type": "Organization",
@@ -211,17 +205,36 @@ It took me 5 attempts just to get this page up and running. Hmm. There must be s
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Hello World
+      Faster Multitasking with Hammerspoon
     </h1>
-    <div class="post-meta"><span title='2020-05-03 00:00:00 +0000 UTC'>2020-05-03</span>&nbsp;·&nbsp;Athul Suresh
+    <div class="post-meta"><span title='2021-07-11 00:00:00 +0000 UTC'>2021-07-11</span>&nbsp;·&nbsp;Athul Suresh
 
 </div>
   </header> 
-  <div class="post-content"><p>Hello!</p>
-<p>Is there anybody out there?</p>
-<p>Nod if you can hear me</p>
-<p>This blog is my poor attempt to document all the werid bugs I have encountered in production and the valuable lessons they&rsquo;ve taught me.</p>
-<p>It took me 5 attempts just to get this page up and running. Hmm. There must be story here that I can stretch to a blog post.</p>
+  <div class="post-content"><p>When I&rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I&rsquo;ve noticed that switching between them via <code>cmd+tab</code> is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.</p>
+<p>I wanted a smoother transition between my umpteen apps without getting stuck in <code>cmd+tab</code> hell.</p>
+<p>I needed static key-bindings!</p>
+<p>That&rsquo;s when I found <a href="http://www.hammerspoon.org/">Hammerspoon</a>. Hammerspoon is a neat little tool that allows you to write little automations for a wide range of stuff on Mac. It&rsquo;s completely configurable and supports Lua as the extension langague, which is even cooler. And to top it all off, the documentation is thorough and on-point.</p>
+<p>I was able to hack together a tiny script to serve my needs.</p>
+<p><code>init.lua</code> for Hammerspoon:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">open_app</span>(name)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>        hs.application.launchOrFocus(name)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;1&#34;</span>, open_app(<span style="color:#e6db74">&#34;iTerm&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;2&#34;</span>, open_app(<span style="color:#e6db74">&#34;Visual Studio Code - Insiders&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;3&#34;</span>, open_app(<span style="color:#e6db74">&#34;Visual Studio Code&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;4&#34;</span>, open_app(<span style="color:#e6db74">&#34;Slack&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;5&#34;</span>, open_app(<span style="color:#e6db74">&#34;Preview&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;7&#34;</span>, open_app(<span style="color:#e6db74">&#34;MacVim&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;8&#34;</span>, open_app(<span style="color:#e6db74">&#34;Google Chrome&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;9&#34;</span>, open_app(<span style="color:#e6db74">&#34;Firefox&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;&#39;&#34;</span>, open_app(<span style="color:#e6db74">&#34;Spotify&#34;</span>))
+</span></span><span style="display:flex;"><span>hs.hotkey.bind({<span style="color:#e6db74">&#34;cmd&#34;</span>}, <span style="color:#e6db74">&#34;;&#34;</span>, open_app(<span style="color:#e6db74">&#34;Postman&#34;</span>))
+</span></span></code></pre></div><p>This might seem trivial and even borderline insane, but the payout has been immense with a smoother workflow with fewer impediments.</p>
+<p>This was inspired by <a href="https://github.com/jasonrudolph/keyboard">jasonrudolph/keyboard</a> who has done some pretty cool stuff with Hammerspoon.</p>
 
 
   </div>
