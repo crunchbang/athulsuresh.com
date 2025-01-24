@@ -504,7 +504,7 @@ This might seem trivial and even borderline insane, but the payout has been imme
 
 This was inspired by [[https://github.com/jasonrudolph/keyboard][jasonrudolph/keyboard]] who has done some pretty cool stuff with Hammerspoon.
 
-* Notes On Erlang
+* Notes On Erlang :erlang:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 11-notes-erlang
 :EXPORT_DATE: 2022-11-23
