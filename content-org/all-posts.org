@@ -573,4 +573,4 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 
 This is my review of book 1: It sucks!
 
-Booo!
+Booo...
