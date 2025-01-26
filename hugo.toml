@@ -7,6 +7,7 @@ home = ["HTML", "JSON", "RSS"]
 
 [menu]
 main = [
+  {identifier = "Books", name = "Books", url = "/posts/books/"},
   {identifier = "Archive", name = "Archive", url = "/archive/"},
   {identifier = "Search", name = "Search", url = "/search/"},
   {identifier = "Tabs", name = "Tags", url = "/tags/"},

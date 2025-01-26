@@ -6,8 +6,16 @@
     <description>Recent content in Posts on Core Dump</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Book 1</title>
+      <link>//localhost:1313/posts/books/1-book1/</link>
+      <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/books/1-book1/</guid>
+      <description>&lt;p&gt;This is my review of book 1: It sucks!&lt;/p&gt;
+&lt;p&gt;Booo!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Notes On Erlang</title>
       <link>//localhost:1313/posts/11-notes-erlang/</link>
