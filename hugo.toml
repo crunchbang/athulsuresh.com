@@ -1,42 +1,56 @@
 baseURL = 'https://athulsuresh.com/'
 languageCode = 'en-us'
-title = 'Core Dump'
 pagination.pagerSize = 5
+title = 'Core Dump'
 
 [outputs]
 home = ["HTML", "JSON", "RSS"]
 
-
 [menu]
 main = [
-    { name = "Archive", url = "archive" },
-    { name = "Tags", url = "tags" },
-    { name = "RSS", url = "index.xml" },
-    { name = "Source", url = "https://github.com/ocfox/den" },
+  {identifier = "Archive", name = "Archive", url = "/archive/"},
+  {identifier = "Search", name = "Search", url = "/search/"},
+  {identifier = "Tabs", name = "Tags", url = "/tags/"},
+  {identifier = "RSS", name = "RSS", url = "index.xml"},
+  {identifier = "Source", name = "Source", url = "https://github.com/crunchbang/athulsuresh.com"},
 ]
 
+[taxonomies]
+tag = 'tags'
+
 [module]
-  [[module.imports]]
-    path = "github.com/adityatelange/hugo-PaperMod"
+[[module.imports]]
+path = "github.com/adityatelange/hugo-PaperMod"
 
 [markup.goldmark.renderer]
-  unsafe = true
+unsafe = true
 
 [params]
-  env =  "production"
-  DateFormat = "2006-01-02"
-  ShowCodeCopyButtons = true
-  social = true
-  # TODO Fix these
-  socialIcons = [
-      { name = "github", url = "https://github.com/crunchbang" },
-      { name = "rss", url = "index.xml" },
-  ]
+DateFormat = "2006-01-02"
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+env = "production"
+social = true
+# TODO Fix these
+socialIcons = [
+  {name = "github", url = "https://github.com/crunchbang"},
+  {name = "rss", url = "index.xml"},
+]
+
+[fuseOpts]
+distance = 0
+igNoreLocation = true
+isCaseSensitive = true
+keys = ["title", "permalink", "summary", "content"]
+limit = 10
+minMatchCharLength = 0
+shouldSort = true
+threshold = 0.0
 
 [params.homeInfoParams]
-  Title = "Hello!"
-  # TODO Fix this
-  Content = """
+Title = "Hello!"
+# TODO Fix this
+Content = """
 I'm athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल)!
 
 

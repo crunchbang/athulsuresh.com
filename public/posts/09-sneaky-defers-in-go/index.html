@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Sneaky Defers In Go | Core Dump</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="go">
 <meta name="description" content="What do you think the output of the following code would be?
 package main
 
@@ -22,7 +22,7 @@ func TestDefer(input *string) {
 	*input = &#34;world&#34;
 	fmt.Println(*input)
 }
-Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+Given how defer-ed functions are executed just before the parent function exits, I expected the output to be
 world
 world
 But, on execution it actually prints
@@ -80,7 +80,7 @@ This is because the arguments are evaluated when the defer is encountered, and n
   <meta property="og:site_name" content="Core Dump">
   <meta property="og:title" content="Sneaky Defers In Go">
   <meta property="og:description" content="What do you think the output of the following code would be?
-package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how defer-ed functions are executed just before the parent function exits, I expected the output to be
 world world But, on execution it actually prints
 world hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).">
   <meta property="og:locale" content="en-us">
@@ -88,6 +88,7 @@ world hello This is because the arguments are evaluated when the defer is encoun
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-07-06T00:00:00+00:00">
     <meta property="article:modified_time" content="2021-07-06T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sneaky Defers In Go">
 <meta name="twitter:description" content="What do you think the output of the following code would be?
@@ -105,7 +106,7 @@ func TestDefer(input *string) {
 	*input = &#34;world&#34;
 	fmt.Println(*input)
 }
-Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+Given how defer-ed functions are executed just before the parent function exits, I expected the output to be
 world
 world
 But, on execution it actually prints
@@ -140,11 +141,11 @@ This is because the arguments are evaluated when the defer is encountered, and n
   "@type": "BlogPosting",
   "headline": "Sneaky Defers In Go",
   "name": "Sneaky Defers In Go",
-  "description": "What do you think the output of the following code would be?\npackage main import \u0026#34;fmt\u0026#34; func main() { input := \u0026#34;hello\u0026#34; TestDefer(\u0026amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = \u0026#34;world\u0026#34; fmt.Println(*input) } Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be\nworld world But, on execution it actually prints\nworld hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).\n",
+  "description": "What do you think the output of the following code would be?\npackage main import \u0026#34;fmt\u0026#34; func main() { input := \u0026#34;hello\u0026#34; TestDefer(\u0026amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = \u0026#34;world\u0026#34; fmt.Println(*input) } Given how defer-ed functions are executed just before the parent function exits, I expected the output to be\nworld world But, on execution it actually prints\nworld hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).\n",
   "keywords": [
-    
+    "go"
   ],
-  "articleBody": "What do you think the output of the following code would be?\npackage main import \"fmt\" func main() { input := \"hello\" TestDefer(\u0026input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = \"world\" fmt.Println(*input) } Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be\nworld world But, on execution it actually prints\nworld hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).\nThis makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.\nThis whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.\nfunc doSomething(txn, ....) { ... defer store.Save(txn) ... // modify txn here ... return } Wrapping it in an anonymous function helped alleviate my problem\nfunc doSomething(txn, ....) { ... // fugly, but works! defer func() { store.Save(txn) }() ... // modify txn here ... return } That was an evening well spent. I do find that I enjoy these sort of bug adventures which end up correcting some flawed mental model I previously had about a system. They’re the most fulfilling.\n",
+  "articleBody": "What do you think the output of the following code would be?\npackage main import \"fmt\" func main() { input := \"hello\" TestDefer(\u0026input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = \"world\" fmt.Println(*input) } Given how defer-ed functions are executed just before the parent function exits, I expected the output to be\nworld world But, on execution it actually prints\nworld hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).\nThis makes sense if you think of defer as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.\nThis whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.\nfunc doSomething(txn, ....) { ... defer store.Save(txn) ... // modify txn here ... return } Wrapping it in an anonymous function helped alleviate my problem\nfunc doSomething(txn, ....) { ... // fugly, but works! defer func() { store.Save(txn) }() ... // modify txn here ... return } That was an evening well spent. I do find that I enjoy these sort of bug adventures which end up correcting some flawed mental model I previously had about a system. They’re the most fulfilling.\n",
   "wordCount" : "249",
   "inLanguage": "en",
   "datePublished": "2021-07-06T00:00:00Z",
@@ -210,7 +211,7 @@ This is because the arguments are evaluated when the defer is encountered, and n
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archive" title="Archive">
+                <a href="http://localhost:1313/archive/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
@@ -220,7 +221,12 @@ This is because the arguments are evaluated when the defer is encountered, and n
                 </a>
             </li>
             <li>
-                <a href="https://github.com/ocfox/den" title="Source">
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/crunchbang/athulsuresh.com" title="Source">
                     <span>Source</span>&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
@@ -231,7 +237,7 @@ This is because the arguments are evaluated when the defer is encountered, and n
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -242,7 +248,7 @@ This is because the arguments are evaluated when the defer is encountered, and n
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Sneaky Defers In Go
     </h1>
@@ -265,14 +271,14 @@ This is because the arguments are evaluated when the defer is encountered, and n
 </span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span><span style="color:#a6e22e">input</span> = <span style="color:#e6db74">&#34;world&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">input</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be</p>
+</span></span></code></pre></div><p>Given how <code>defer</code>-ed functions are executed just before the parent function exits, I expected the output to be</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">world
 world
 </code></pre><p>But, on execution it actually prints</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">world
 hello
 </code></pre><p>This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line <a href="https://golang.org/doc/effective_go#defer">specifically about this behavior</a> (which I discovered later).</p>
-<p>This makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.</p>
+<p>This makes sense if you think of <code>defer</code> as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.</p>
 <p>This whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">doSomething</span>(<span style="color:#a6e22e">txn</span>, <span style="color:#f92672">...</span>.) {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
@@ -301,6 +307,7 @@ hello
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/go/">Go</a></li>
     </ul>
   </footer>
 </article>

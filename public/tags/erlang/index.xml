@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Erlang on Core Dump</title>
+    <link>http://localhost:1313/tags/erlang/</link>
+    <description>Recent content in Erlang on Core Dump</description>
+    <generator>Hugo -- 0.141.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/erlang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes On Erlang</title>
+      <link>http://localhost:1313/posts/11-notes-erlang/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/11-notes-erlang/</guid>
+      <description>&lt;p&gt;Collection of unstructed notes that I accumulated while learning Erlang. This is a &lt;em&gt;work-in-progress&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.&lt;/li&gt;
+&lt;li&gt;concurrency is about structure. parallelism is about execution.&lt;/li&gt;
+&lt;li&gt;each expression must end with a &lt;code&gt;.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;variables in erlang can only be bound once. Variables start with UPPERCASE letters. atoms begin with lowercase letters.&lt;/li&gt;
+&lt;li&gt;processes evaluate fns that are defined in modules. Modules are files with &lt;code&gt;.erl&lt;/code&gt; extension.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pid ! {client_pid, message}&lt;/code&gt; for sending message to pid.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c(module_name)&lt;/code&gt; to compile the module. &lt;code&gt;f()&lt;/code&gt;  to forget the bindings.&lt;/li&gt;
+&lt;li&gt;file server and client. client provides the abstraction and hides the details of communication with the actual process. This gives use the flexibility to change the underlying implementation without changing the interface exposed through the client. &lt;em&gt;It&amp;rsquo;s refreshing how Joe Armstrong doesn&amp;rsquo;t talk down to the programmer in this book. The innards and complicated lingua franca is exposed for everyone to see.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;erlang can handle arbitrary precision numbers. Like really big numbers.&lt;/li&gt;
+&lt;li&gt;= is more of a pattern matching operator rather than assignment operator.&lt;/li&gt;
+&lt;li&gt;atoms are similar to symbolic constants or enums. atoms are global. atoms can be quoted and can have spaces in them.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{item1, blah}&lt;/code&gt; represents a tuple of fixed size. Since tuples don&amp;rsquo;t have type, it&amp;rsquo;s a convention to add an atom as the first element indicating the type. &lt;code&gt;{point, 0, 1}&lt;/code&gt;. &lt;code&gt;{point, C, C} = {point, 25, 25}&lt;/code&gt; works!&lt;/li&gt;
+&lt;li&gt;strings are represented as a list of integers with each int representing an unicode point.&lt;/li&gt;
+&lt;li&gt;fullstop separates expression. comma separates related subordinate clauses. semicolon separates clauses.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fun(arg) -&amp;gt; body end.&lt;/code&gt; to define anonymous fns.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[f(X) || X &amp;lt;- L]&lt;/code&gt; list comprehension. &lt;code&gt;X &amp;lt;- L&lt;/code&gt; follows the pattern logic for =.&lt;/li&gt;
+&lt;li&gt;Named function F/n should be passed in as &lt;code&gt;fun F/n&lt;/code&gt; when used as an argument&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-record(Name { field1 = DefaultValue1, .... fieldN }&lt;/code&gt;.  &lt;code&gt;undefined&lt;/code&gt; is the default value. &lt;code&gt;.hrl&lt;/code&gt; files are like C header files where common definitions can be kept. &lt;code&gt;#Name{key1=val1...}.&lt;/code&gt; to instantiate the struct. &lt;code&gt;rr(&amp;quot;record_file.hrl&amp;quot;)&lt;/code&gt; to bring it into the erl.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;X#Name{field1=NewValue}&lt;/code&gt; to create a new record from an existing record X with a field value changed.&lt;/li&gt;
+&lt;li&gt;Maps are weird. &lt;code&gt;#{ key Op val, key2 Op val2}&lt;/code&gt;. &lt;code&gt;:=&lt;/code&gt; for updating an existing key. =&amp;gt; for adding a new key. The update follows the same pattern as records.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;;&lt;/code&gt; is OR and &lt;code&gt;,&lt;/code&gt; is AND for guard sequences. maps : get/find etc for acessing map values.&lt;/li&gt;
+&lt;li&gt;clauses of a fn need to be separated by a SEMICOLON instead of a PERIOD!&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;quot;binaries&amp;quot;&amp;gt;&amp;gt;&lt;/code&gt;. Binary values must be in the range 0-255. Any other value would wrap around and be mapped to a value in the 0-255 range. term_to_binary and binary_to_term.&lt;/li&gt;
+&lt;li&gt;a type is binary when it&amp;rsquo;s size is divisible by 8, otherwise it&amp;rsquo;s a bitstring.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;R:5, B:6, G:5&amp;gt;&amp;gt;&lt;/code&gt; to pack elements into a binary while specifying the bit size. The same pattern HAS to be used when unpacking.&lt;/li&gt;
+&lt;li&gt;type test BIFs are allowed in guard clauses. &lt;code&gt;is_xxx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;self()&lt;/code&gt; to get the PID of the current process. Sending the current process&amp;rsquo;s PID in the message is a convention that allows the receiver to know whom to reply to.&lt;/li&gt;
+&lt;li&gt;Storing state of the function on the stack i.e on function parameters&lt;/li&gt;
+&lt;li&gt;Modules have functions and attributes. attrs start with &lt;code&gt;-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-define(MACRO, val)&lt;/code&gt; would be used as &lt;code&gt;?MACRO&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;receive..after..end&lt;/code&gt; to specify timeouts. Sounds similar to Go timer ticks&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;spawn(Module, Fn, Arg)&lt;/code&gt; to spawn a new process that executes Fn. Args is a list of args that will be passed to Fn. Arg will &lt;strong&gt;always&lt;/strong&gt; be a list.&lt;/li&gt;
+&lt;li&gt;with a full mail box, the messages are tried in order. If a msg doesn&amp;rsquo;t match any of the patterns, then it is put on the save q and the next message is tried. If it matches, then the messages from the save q is put back on top of the mailbox. This is called selective receive. nest another receive in a fn within the &lt;code&gt;after 0&lt;/code&gt; block to do selective receive.&lt;/li&gt;
+&lt;li&gt;messages that do not match a pattern are never lost. They&amp;rsquo;re always around. The downside is this could lead to mailbox pollution if the proc doesn&amp;rsquo;t have the patterns to receive the msg.&lt;/li&gt;
+&lt;li&gt;In a defensive programming style, the &lt;code&gt;Unexpected&lt;/code&gt; match is used as a catchall to prevent mailbox pollution.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;link(pid)&lt;/code&gt; links the current process with pid. &lt;code&gt;unlink(pid)&lt;/code&gt;. When one of the linked processes crashes, the other crashes (exits?) too. Links are bidirectional.&lt;/li&gt;
+&lt;li&gt;Since link(spawn(..)) is a multistep op, there could be a case where the process dies before it is spawned. This can cause undefined behaviour. In order to avoid this spawn_link(..) can be used which works in an atomic way.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exit(blah)&lt;/code&gt; gets propagated as a special message (&amp;ldquo;signal&amp;rdquo;) which cannot be caught using normal receive. It can be caught if &lt;code&gt;process_flag(trap_exit, true)&lt;/code&gt; is set. Then &lt;code&gt;{&#39;EXIT&#39;, Pid, msg}&lt;/code&gt; can be caught.&lt;/li&gt;
+&lt;li&gt;monitors are like links, but they&amp;rsquo;re unidirectional and can be stacked. &lt;code&gt;erlang:monitor(process, spawn(...))&lt;/code&gt;. spawn_monitor is the atomic alternative.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exit(Pid, reason)&lt;/code&gt; to kill another process.&lt;/li&gt;
+&lt;li&gt;Each process can be registered against a name which can then be used for sending messages instead of Pid. &lt;code&gt;register(name, pid)&lt;/code&gt;. &lt;code&gt;unregister(name)&lt;/code&gt;. &lt;code&gt;registered() / regs()&lt;/code&gt; to get info about the registered processes. A process can have only name and a name can only be registered once. &lt;code&gt;whereis(registered_name)&lt;/code&gt; to get the pid associated with it. This can be used in patterns to ensure that the reply is indeed from the process we expect.&lt;/li&gt;
+&lt;li&gt;Another pattern is to send a ref to the proc and expect it back in the reply. This prevents us from expecting a reply from a specific Pid and shields us against scenarios where the process gets restarted. &lt;code&gt;make_ref()&lt;/code&gt;. Refs are used when we expect a message from a certain source. In cases, we expect a message (ex: notification) and don&amp;rsquo;t care about the source, then the ref can be omitted.&lt;/li&gt;
+&lt;li&gt;If a monitor is set for a process that&amp;rsquo;s already down using &lt;code&gt;erlang:monitor(process, PID)&lt;/code&gt; then we receive a &lt;code&gt;{&#39;DOWN&#39;, MonitorRef, process, PID, &amp;lt;reason&amp;gt;}&lt;/code&gt; message as the reply.&lt;/li&gt;
+&lt;li&gt;A pattern that I&amp;rsquo;ve seen is that the proc file contains method that can be used for invoking all the messages that the proc expects.&lt;/li&gt;
+&lt;li&gt;Calls that require reply follow the pattern &lt;code&gt;{Pid, Ref, Msg}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Walking on water and developing software from a specification are easy if both are frozen.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,6 +2,7 @@
 title = "Un-implementable Interfaces In Go"
 author = ["Athul Suresh"]
 date = 2021-05-07
+tags = ["go"]
 draft = false
 +++
 

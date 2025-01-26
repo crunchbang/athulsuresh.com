@@ -2,7 +2,6 @@
 title = "Bug Story: It's not you, it's the environment"
 author = ["Athul Suresh"]
 date = 2020-05-03
-categories = ["tech"]
 draft = false
 +++
 

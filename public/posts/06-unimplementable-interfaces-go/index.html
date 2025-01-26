@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Un-implementable Interfaces In Go | Core Dump</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="go">
 <meta name="description" content="Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in src/testing/testing.go:
 // TB is the interface common to T and B.
 type TB interface {
@@ -91,6 +91,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-05-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2021-05-07T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Un-implementable Interfaces In Go">
 <meta name="twitter:description" content="Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in src/testing/testing.go:
@@ -150,7 +151,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
   "name": "Un-implementable Interfaces In Go",
   "description": "Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in src/testing/testing.go:\n// TB is the interface common to T and B. type TB interface { Cleanup(func()) Error(args ...interface{}) Errorf(format string, args ...interface{}) Fail() FailNow() Failed() bool Fatal(args ...interface{}) Fatalf(format string, args ...interface{}) Helper() Log(args ...interface{}) Logf(format string, args ...interface{}) Name() string Skip(args ...interface{}) SkipNow() Skipf(format string, args ...interface{}) Skipped() bool TempDir() string // A private method to prevent users implementing the // interface and so future additions to it will not // violate Go 1 compatibility. private() } This seems pretty evident once you see it. It makes sense for the Go standard library where the private function enables them to circumvent the compatibility promise by ensuring that no one would be able to use this interface outside of the standard library because of the private function. This gives them the flexibility to add functionality later without breaking anything.\n",
   "keywords": [
-    
+    "go"
   ],
   "articleBody": "Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in src/testing/testing.go:\n// TB is the interface common to T and B. type TB interface { Cleanup(func()) Error(args ...interface{}) Errorf(format string, args ...interface{}) Fail() FailNow() Failed() bool Fatal(args ...interface{}) Fatalf(format string, args ...interface{}) Helper() Log(args ...interface{}) Logf(format string, args ...interface{}) Name() string Skip(args ...interface{}) SkipNow() Skipf(format string, args ...interface{}) Skipped() bool TempDir() string // A private method to prevent users implementing the // interface and so future additions to it will not // violate Go 1 compatibility. private() } This seems pretty evident once you see it. It makes sense for the Go standard library where the private function enables them to circumvent the compatibility promise by ensuring that no one would be able to use this interface outside of the standard library because of the private function. This gives them the flexibility to add functionality later without breaking anything.\nI wonder if there’s a general lib out in the wild which uses this technique.\n",
   "wordCount" : "194",
@@ -218,7 +219,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archive" title="Archive">
+                <a href="http://localhost:1313/archive/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
@@ -228,7 +229,12 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
                 </a>
             </li>
             <li>
-                <a href="https://github.com/ocfox/den" title="Source">
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/crunchbang/athulsuresh.com" title="Source">
                     <span>Source</span>&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
@@ -239,7 +245,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -250,7 +256,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Un-implementable Interfaces In Go
     </h1>
@@ -292,6 +298,7 @@ This seems pretty evident once you see it. It makes sense for the Go standard li
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/go/">Go</a></li>
     </ul>
   </footer>
 </article>

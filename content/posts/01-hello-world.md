@@ -2,7 +2,7 @@
 title = "Hello World"
 author = ["Athul Suresh"]
 date = 2020-05-03
-categories = ["life"]
+tags = ["life"]
 draft = false
 +++
 

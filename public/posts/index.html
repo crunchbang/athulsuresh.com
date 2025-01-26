@@ -123,7 +123,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archive" title="Archive">
+                <a href="http://localhost:1313/archive/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
@@ -133,7 +133,12 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/ocfox/den" title="Source">
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/crunchbang/athulsuresh.com" title="Source">
                     <span>Source</span>&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
@@ -144,7 +149,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -152,7 +157,7 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a></div>
   <h1>
     Posts
   </h1>
@@ -194,7 +199,7 @@ I needed static key-bindings!
   </header>
   <div class="entry-content">
     <p>What do you think the output of the following code would be?
-package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
+package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how defer-ed functions are executed just before the parent function exits, I expected the output to be
 world world But, on execution it actually prints
 world hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).
 ...</p>

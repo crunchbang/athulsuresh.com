@@ -2,6 +2,7 @@
 title = "Sneaky Defers In Go"
 author = ["Athul Suresh"]
 date = 2021-07-06
+tags = ["go"]
 draft = false
 +++
 
@@ -24,7 +25,7 @@ func TestDefer(input *string) {
 }
 ```
 
-Given how \`defer\`-ed functions are executed just before the parent function exits, I expected the output to be
+Given how `defer`-ed functions are executed just before the parent function exits, I expected the output to be
 
 ```nil
 world
@@ -40,7 +41,7 @@ hello
 
 This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line [specifically about this behavior](https://golang.org/doc/effective_go#defer) (which I discovered later).
 
-This makes sense if you think of \`defer\` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
+This makes sense if you think of `defer` as a function that gets executed each time it is encountered. The result of the execution is that it sets up the deferred function to be executed right before the parent function exits.
 
 This whole journey started with a piece of code I was debugging where updates to a piece of data were not being saved to the underlying storage layer.
 

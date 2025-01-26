@@ -2,6 +2,7 @@
 title = "Notes On Erlang"
 author = ["Athul Suresh"]
 date = 2022-11-23
+tags = ["erlang"]
 draft = false
 +++
 
