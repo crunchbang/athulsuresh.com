@@ -561,3 +561,14 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 #+BEGIN_QUOTE
 "Walking on water and developing software from a specification are easy if both are frozen."
 #+END_QUOTE
+* Books
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: books
+:END:
+** Book 1
+:PROPERTIES:
+:EXPORT_FILE_NAME: 1-book1
+:EXPORT_DATE: 2025-01-26
+:END:
+
+This is my review of book 1: It's great!
