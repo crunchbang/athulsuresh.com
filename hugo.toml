@@ -30,7 +30,6 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 env = "production"
 social = true
-# TODO Fix these
 socialIcons = [
   {name = "github", url = "https://github.com/crunchbang"},
   {name = "rss", url = "index.xml"},
@@ -47,8 +46,6 @@ shouldSort = true
 threshold = 0.0
 
 [params.homeInfoParams]
-Title = "Hello!"
-# TODO Fix this
 Content = """
 I'm athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल)!
 
@@ -60,3 +57,4 @@ There is no grand theme or unifying thread that ties these posts together. They 
 
 Caveat emptor.
   """
+Title = "Hello!"
