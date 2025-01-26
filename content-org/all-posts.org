@@ -565,23 +565,14 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: books
 :END:
-** Book 1
-:PROPERTIES:
-:EXPORT_FILE_NAME: 1-book1
-:EXPORT_DATE: 2025-01-26
-:END:
-
-This is my review of book 1: It sucks!
-
-Booo...
 ** On Love
-  :PROPERTIES:
-:EXPORT_FILE_NAME: 1-book1
-:EXPORT_DATE: 2025-01-26
-  :AUTHOR:  Alain de Botton
-  :DATE_READ: 03-04-2016
-  :RATING:  5 / 5
-  :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 1-on-love
+:EXPORT_DATE: 2016-04-03
+:AUTHOR:   Alain de Botton
+:DATE_READ: 03-04-2016
+:RATING:   5 / 5
+:END:
 *** Review
 The author puts into beautiful verse everything I've felt and failed to articulate coherently about the complex and elusive phenomenon called love. Through a lengthy exposition of his relationship, from the uncertain beginnings to it's certain demise, the author takes us on a journey of words, wit and wisdom. The author explores in detail the complex underpinnings of love, examining every single influx of emotion at every minute stage, something that is usually relegated to the status of "happily ever after" in most novels and stories.
 The author's shrewd observations and the relative ease with which he picks up each and every emotion and doubt that crosses his mind amidst the whole ordeal make for an interesting read. The nuggets of philosophy strategically interspersed between episodes of his own relationship with Chloe adds to the whole experience.
