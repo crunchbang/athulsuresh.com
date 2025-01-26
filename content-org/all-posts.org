@@ -563,7 +563,7 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 #+END_QUOTE
 * Books
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: /books
+:EXPORT_HUGO_SECTION: posts/books
 :END:
 ** Book 1
 :PROPERTIES:
@@ -571,4 +571,4 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 :EXPORT_DATE: 2025-01-26
 :END:
 
-This is my review of book 1: It's great.
+This is my review of book 1: It's great!
