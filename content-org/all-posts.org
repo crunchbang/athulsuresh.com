@@ -563,7 +563,7 @@ Collection of unstructed notes that I accumulated while learning Erlang. This is
 #+END_QUOTE
 * Books
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: books
+:EXPORT_HUGO_SECTION: posts/books
 :END:
 ** Book 1
 :PROPERTIES:
