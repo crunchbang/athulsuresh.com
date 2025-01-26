@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Core Dump</title>
-    <link>http://localhost:1313/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content on Core Dump</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes On Erlang</title>
-      <link>http://localhost:1313/posts/11-notes-erlang/</link>
+      <link>//localhost:1313/posts/11-notes-erlang/</link>
       <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/11-notes-erlang/</guid>
+      <guid>//localhost:1313/posts/11-notes-erlang/</guid>
       <description>&lt;p&gt;Collection of unstructed notes that I accumulated while learning Erlang. This is a &lt;em&gt;work-in-progress&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.&lt;/li&gt;
@@ -66,18 +66,18 @@
     </item>
     <item>
       <title>Faster Multitasking with Hammerspoon</title>
-      <link>http://localhost:1313/posts/10-multitasking-hammerspoon/</link>
+      <link>//localhost:1313/posts/10-multitasking-hammerspoon/</link>
       <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/10-multitasking-hammerspoon/</guid>
+      <guid>//localhost:1313/posts/10-multitasking-hammerspoon/</guid>
       <description>&lt;p&gt;When I&amp;rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I&amp;rsquo;ve noticed that switching between them via &lt;code&gt;cmd+tab&lt;/code&gt; is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.&lt;/p&gt;
 &lt;p&gt;I wanted a smoother transition between my umpteen apps without getting stuck in &lt;code&gt;cmd+tab&lt;/code&gt; hell.&lt;/p&gt;
 &lt;p&gt;I needed static key-bindings!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sneaky Defers In Go</title>
-      <link>http://localhost:1313/posts/09-sneaky-defers-in-go/</link>
+      <link>//localhost:1313/posts/09-sneaky-defers-in-go/</link>
       <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/09-sneaky-defers-in-go/</guid>
+      <guid>//localhost:1313/posts/09-sneaky-defers-in-go/</guid>
       <description>&lt;p&gt;What do you think the output of the following code would be?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -103,25 +103,25 @@ hello
     </item>
     <item>
       <title>Writer&#39;s Block</title>
-      <link>http://localhost:1313/posts/08-writers-block/</link>
+      <link>//localhost:1313/posts/08-writers-block/</link>
       <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/08-writers-block/</guid>
+      <guid>//localhost:1313/posts/08-writers-block/</guid>
       <description>&lt;p&gt;A while back, I came across &lt;a href=&#34;https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9&#34;&gt;this article&lt;/a&gt; by Josh Branchaud where he talked about TIL posts and learning in public (among many other things). This really appealed to me. Over the years, I had accumulated immense amount of information from posts and articles that people had put out and the whole idea of paying it forward by putting out things that I&amp;rsquo;d learned along the way sounded interesting.&lt;/p&gt;
 &lt;p&gt;The primary impediment I faced here was the amount of time it took to create a well-crafted post. Most of the longer pieces here were summaries of months of effort squeezed into a single page post with pictures. Those were few and far apart.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Back After A Hiatus</title>
-      <link>http://localhost:1313/posts/07-back-after-hiatus/</link>
+      <link>//localhost:1313/posts/07-back-after-hiatus/</link>
       <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/07-back-after-hiatus/</guid>
+      <guid>//localhost:1313/posts/07-back-after-hiatus/</guid>
       <description>&lt;p&gt;I realized that I hadn&amp;rsquo;t touched my blog in over a year. A lot had happened since then, but I hadn&amp;rsquo;t taken the time to note anything down. Looking through my old posts, I remember how good it felt to actually sit and write things down.&lt;/p&gt;
 &lt;p&gt;I thought I&amp;rsquo;d change the theme and tweak things a bit just for the sake of it. Lo and behold, I ended up spending an entire day trying out themes and tweaking knobs and controls to see how things looked. Sometimes, I feel like I waste a lot of time on preliminary aspects of a task.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Un-implementable Interfaces In Go</title>
-      <link>http://localhost:1313/posts/06-unimplementable-interfaces-go/</link>
+      <link>//localhost:1313/posts/06-unimplementable-interfaces-go/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/06-unimplementable-interfaces-go/</guid>
+      <guid>//localhost:1313/posts/06-unimplementable-interfaces-go/</guid>
       <description>&lt;p&gt;Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in &lt;code&gt;src/testing/testing.go&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// TB is the interface common to T and B.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TB&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt; {
@@ -152,25 +152,25 @@ hello
     </item>
     <item>
       <title>A Tale Of Two DBs</title>
-      <link>http://localhost:1313/posts/05-tale-of-two-dbs/</link>
+      <link>//localhost:1313/posts/05-tale-of-two-dbs/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/05-tale-of-two-dbs/</guid>
+      <guid>//localhost:1313/posts/05-tale-of-two-dbs/</guid>
       <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;Work always manages to throw interesting problems my way and this one was particularly interesting. Our telephone server infrastructure and the associated cloud services were spread across two AWS regions - Singapore &amp;amp; Mumbai. This was primarily done to comply with Indian Data Protection Laws which mandated that customer data associated with some critical areas of business must stay within the country. We had run these two regions as independent entities, with code changes being deployed uniformly across them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes from &#39;Linux Kernel Development&#39;</title>
-      <link>http://localhost:1313/posts/04-notes-linux-dev/</link>
+      <link>//localhost:1313/posts/04-notes-linux-dev/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/04-notes-linux-dev/</guid>
+      <guid>//localhost:1313/posts/04-notes-linux-dev/</guid>
       <description>&lt;p&gt;This book had been on my TO-READ list for a long time. It came up again while I was perusing &lt;a href=&#34;https://danluu.com/programming-books/&#34;&gt;Dan Luu&amp;rsquo;s Programming book list&lt;/a&gt;. I&amp;rsquo;ve always wanted to look behind the curtains and see how the magic worked, so I finally bought it.&lt;/p&gt;
 &lt;p&gt;I used &lt;a href=&#34;https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct&#34;&gt;bootlin&lt;/a&gt; to read through Linux 5.7.2 source. They provide a really good search system and linked definitions. The book describes kernel version 2.6. You might want to keep this site open to see how things have changed since then.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wrong Tool For The Job: Concurrent Queues with Aerospike</title>
-      <link>http://localhost:1313/posts/03-wrong-tool/</link>
+      <link>//localhost:1313/posts/03-wrong-tool/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/03-wrong-tool/</guid>
+      <guid>//localhost:1313/posts/03-wrong-tool/</guid>
       <description>&lt;h2 id=&#34;if-all-you-have-is-a-hammer-dot-dot-dot&#34;&gt;If all you have is a hammer&amp;hellip;&lt;/h2&gt;
 &lt;p&gt;Organizational choices and system architecture sometimes forces you to use sub-optimal tools for a problem. In fact, this is part of the challenge that work throws at you - having to retrofit or abuse tools to get the job done.&lt;/p&gt;
 &lt;p&gt;If you always had the right set of tools, what fun would life be? This is one such problem.&lt;/p&gt;
@@ -179,9 +179,9 @@ hello
     </item>
     <item>
       <title>Bug Story: It&#39;s not you, it&#39;s the environment</title>
-      <link>http://localhost:1313/posts/02-bug-ttl/</link>
+      <link>//localhost:1313/posts/02-bug-ttl/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/02-bug-ttl/</guid>
+      <guid>//localhost:1313/posts/02-bug-ttl/</guid>
       <description>&lt;p&gt;It all started with a deployment to the production cluster.&lt;/p&gt;
 &lt;p&gt;It always does. The worst things happen when you deploy to prod.&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
@@ -189,9 +189,9 @@ hello
     </item>
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/posts/01-hello-world/</link>
+      <link>//localhost:1313/posts/01-hello-world/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/01-hello-world/</guid>
+      <guid>//localhost:1313/posts/01-hello-world/</guid>
       <description>&lt;p&gt;Hello!&lt;/p&gt;
 &lt;p&gt;Is there anybody out there?&lt;/p&gt;
 &lt;p&gt;Nod if you can hear me&lt;/p&gt;

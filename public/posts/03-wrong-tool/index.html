@@ -13,16 +13,16 @@ If you always had the right set of tools, what fun would life be? This is one su
 The Problem
 We had an antiquated use case which allowed customers to create a deferred list of jobs. These jobs would then be processed based on API requests from the customer&rsquo;s end. These lists would usually range from about 100 - 100000 jobs. We also provided a provision whereby the customer could trigger multiple requests in parallel to enable concurrent processing of these jobs. The original design dumped these jobs into MySQL, given that these jobs had to be persisted indefinitely until a trigger was detected.">
 <meta name="author" content="Athul Suresh">
-<link rel="canonical" href="http://localhost:1313/posts/03-wrong-tool/">
+<link rel="canonical" href="//localhost:1313/posts/03-wrong-tool/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/03-wrong-tool/">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/03-wrong-tool/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +59,7 @@ We had an antiquated use case which allowed customers to create a deferred list 
         }
 
     </style>
-</noscript><meta property="og:url" content="http://localhost:1313/posts/03-wrong-tool/">
+</noscript><meta property="og:url" content="//localhost:1313/posts/03-wrong-tool/">
   <meta property="og:site_name" content="Core Dump">
   <meta property="og:title" content="Wrong Tool For The Job: Concurrent Queues with Aerospike">
   <meta property="og:description" content="If all you have is a hammer… Organizational choices and system architecture sometimes forces you to use sub-optimal tools for a problem. In fact, this is part of the challenge that work throws at you - having to retrofit or abuse tools to get the job done.
@@ -88,13 +88,13 @@ We had an antiquated use case which allowed customers to create a deferred list 
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/posts/"
+      "item": "//localhost:1313/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Wrong Tool For The Job: Concurrent Queues with Aerospike",
-      "item": "http://localhost:1313/posts/03-wrong-tool/"
+      "item": "//localhost:1313/posts/03-wrong-tool/"
     }
   ]
 }
@@ -120,14 +120,14 @@ We had an antiquated use case which allowed customers to create a deferred list 
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/03-wrong-tool/"
+    "@id": "//localhost:1313/posts/03-wrong-tool/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Core Dump",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "//localhost:1313/favicon.ico"
     }
   }
 }
@@ -149,7 +149,7 @@ We had an antiquated use case which allowed customers to create a deferred list 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Core Dump (Alt + H)">Core Dump</a>
+            <a href="//localhost:1313/" accesskey="h" title="Core Dump (Alt + H)">Core Dump</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -175,17 +175,17 @@ We had an antiquated use case which allowed customers to create a deferred list 
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archive/" title="Archive">
+                <a href="//localhost:1313/archive/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/index.xml" title="RSS">
+                <a href="//localhost:1313/index.xml" title="RSS">
                     <span>RSS</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -201,7 +201,7 @@ We had an antiquated use case which allowed customers to create a deferred list 
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="//localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -212,7 +212,7 @@ We had an antiquated use case which allowed customers to create a deferred list 
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Wrong Tool For The Job: Concurrent Queues with Aerospike
     </h1>
@@ -288,7 +288,7 @@ We had an antiquated use case which allowed customers to create a deferred list 
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Core Dump</a></span> · 
+        <span>&copy; 2025 <a href="//localhost:1313/">Core Dump</a></span> · 
 
     <span>
         Powered by

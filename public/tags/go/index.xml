@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Go on Core Dump</title>
-    <link>http://localhost:1313/tags/go/</link>
+    <link>//localhost:1313/tags/go/</link>
     <description>Recent content in Go on Core Dump</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Jul 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sneaky Defers In Go</title>
-      <link>http://localhost:1313/posts/09-sneaky-defers-in-go/</link>
+      <link>//localhost:1313/posts/09-sneaky-defers-in-go/</link>
       <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/09-sneaky-defers-in-go/</guid>
+      <guid>//localhost:1313/posts/09-sneaky-defers-in-go/</guid>
       <description>&lt;p&gt;What do you think the output of the following code would be?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -38,9 +38,9 @@ hello
     </item>
     <item>
       <title>Un-implementable Interfaces In Go</title>
-      <link>http://localhost:1313/posts/06-unimplementable-interfaces-go/</link>
+      <link>//localhost:1313/posts/06-unimplementable-interfaces-go/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/06-unimplementable-interfaces-go/</guid>
+      <guid>//localhost:1313/posts/06-unimplementable-interfaces-go/</guid>
       <description>&lt;p&gt;Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in &lt;code&gt;src/testing/testing.go&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// TB is the interface common to T and B.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TB&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt; {

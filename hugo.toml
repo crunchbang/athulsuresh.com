@@ -1,4 +1,3 @@
-baseURL = 'https://athulsuresh.com/'
 languageCode = 'en-us'
 pagination.pagerSize = 5
 title = 'Core Dump'

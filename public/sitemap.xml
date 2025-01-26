@@ -2,59 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/erlang/</loc>
+    <loc>//localhost:1313/tags/erlang/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/11-notes-erlang/</loc>
+    <loc>//localhost:1313/posts/11-notes-erlang/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/10-multitasking-hammerspoon/</loc>
+    <loc>//localhost:1313/posts/10-multitasking-hammerspoon/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/go/</loc>
+    <loc>//localhost:1313/tags/go/</loc>
     <lastmod>2021-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/09-sneaky-defers-in-go/</loc>
+    <loc>//localhost:1313/posts/09-sneaky-defers-in-go/</loc>
     <lastmod>2021-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/08-writers-block/</loc>
+    <loc>//localhost:1313/posts/08-writers-block/</loc>
     <lastmod>2021-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/07-back-after-hiatus/</loc>
+    <loc>//localhost:1313/posts/07-back-after-hiatus/</loc>
     <lastmod>2021-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/06-unimplementable-interfaces-go/</loc>
+    <loc>//localhost:1313/posts/06-unimplementable-interfaces-go/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/05-tale-of-two-dbs/</loc>
+    <loc>//localhost:1313/posts/05-tale-of-two-dbs/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/04-notes-linux-dev/</loc>
+    <loc>//localhost:1313/posts/04-notes-linux-dev/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/03-wrong-tool/</loc>
+    <loc>//localhost:1313/posts/03-wrong-tool/</loc>
     <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/02-bug-ttl/</loc>
+    <loc>//localhost:1313/posts/02-bug-ttl/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/01-hello-world/</loc>
+    <loc>//localhost:1313/posts/01-hello-world/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/life/</loc>
+    <loc>//localhost:1313/tags/life/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archive/</loc>
+    <loc>//localhost:1313/archive/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>
