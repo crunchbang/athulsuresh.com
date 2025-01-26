@@ -128,7 +128,7 @@
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/posts/books/" title="Books">
+                <a href="//localhost:1313/books/" title="Books">
                     <span>Books</span>
                 </a>
             </li>
@@ -167,21 +167,6 @@
     Posts
   </h1>
 </header>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bug Story: It&#39;s not you, it&#39;s the environment
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>It all started with a deployment to the production cluster.
-It always does. The worst things happen when you deploy to prod.
-Background In our production cluster, we use Aerospike as the primary data store, with data being synced to MySQL for long term storage. For the uninitiated, Aerospike is a high speed, distributed key-value NoSQL database which provides a lot of cool features. Check it out if you haven’t already. In our cluster, all transactional data gets written to or read from AS, with MySQL being used only as a fallback option. We have a dedicated service that sync data from AS to MySQL and keeps things in check. The speed of access and the ability to scale by adding new nodes helps us keep the pressure off our central MySQL datastore.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-05-03 00:00:00 +0000 UTC'>2020-05-03</span>&nbsp;·&nbsp;Athul Suresh</footer>
-  <a class="entry-link" aria-label="post link to Bug Story: It&#39;s not you, it&#39;s the environment" href="//localhost:1313/posts/02-bug-ttl/"></a>
-</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
