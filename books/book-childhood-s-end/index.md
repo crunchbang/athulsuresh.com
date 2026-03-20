@@ -1,0 +1,18 @@
++++
+id = "book-childhood-s-end"
+title = "Childhood’s End"
+date = "2014-10-21"
+slug = "book-childhood-s-end"
+book_status = "rated"
+original_source = "Goodreads"
+book_author = "Arthur C. Clarke"
+goodreads_book_id = "414999"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_added = "2014-10-21"
+goodreads_publisher = "Del Rey Books"
+goodreads_binding = "Mass Market Paperback"
+goodreads_pages = "224"
+goodreads_publication_year = "1987"
+goodreads_original_publication_year = "1953"
++++

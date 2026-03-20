@@ -7,7 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 )
 
@@ -51,37 +50,56 @@ func ImportGoodreads(root, csvPath string) error {
 	if err := os.MkdirAll(articlesDir, 0o755); err != nil {
 		return err
 	}
+	booksDir := filepath.Join(root, "books")
+	if err := os.MkdirAll(booksDir, 0o755); err != nil {
+		return err
+	}
 
-	usedSlugs := map[string]string{}
+	existingArticles := map[string]bool{}
 	existingEntries, err := os.ReadDir(articlesDir)
 	if err != nil {
 		return err
 	}
 	for _, entry := range existingEntries {
 		if entry.IsDir() {
-			usedSlugs[entry.Name()] = "existing article"
+			existingArticles[entry.Name()] = true
+		}
+	}
+	existingBooks := map[string]bool{}
+	bookEntries, err := os.ReadDir(booksDir)
+	if err != nil {
+		return err
+	}
+	for _, entry := range bookEntries {
+		if entry.IsDir() {
+			existingBooks[entry.Name()] = true
 		}
 	}
 
 	importArticles := make([]Article, 0, len(rows))
-	conflicts := []string{}
+	importBooks := make([]Article, 0, len(rows))
 	reservedSlugs := map[string]string{}
 	for _, row := range rows {
-		article, err := goodreadsRowToArticle(row, reservedSlugs)
-		if err != nil {
-			return fmt.Errorf("convert Goodreads review %q: %w", row.Title, err)
-		}
-		targetDir := filepath.Join(articlesDir, article.Meta.ID)
-		if _, err := os.Stat(targetDir); err == nil {
-			conflicts = append(conflicts, fmt.Sprintf("%s -> %s already exists", row.Title, article.Meta.ID))
+		if strings.TrimSpace(row.MyReview) != "" {
+			article, err := goodreadsRowToArticle(row, reservedSlugs)
+			if err != nil {
+				return fmt.Errorf("convert Goodreads review %q: %w", row.Title, err)
+			}
+			if existingArticles[article.Meta.ID] {
+				continue
+			}
+			importArticles = append(importArticles, article)
 			continue
 		}
-		importArticles = append(importArticles, article)
-	}
 
-	if len(conflicts) > 0 {
-		sort.Strings(conflicts)
-		return fmt.Errorf("refusing to overwrite existing articles:\n%s", strings.Join(conflicts, "\n"))
+		book, err := goodreadsRowToBook(row, reservedSlugs)
+		if err != nil {
+			return fmt.Errorf("convert Goodreads rating %q: %w", row.Title, err)
+		}
+		if existingBooks[book.Meta.ID] {
+			continue
+		}
+		importBooks = append(importBooks, book)
 	}
 
 	for _, article := range importArticles {
@@ -91,6 +109,16 @@ func ImportGoodreads(root, csvPath string) error {
 		}
 		targetFile := filepath.Join(targetDir, "index.md")
 		if err := os.WriteFile(targetFile, []byte(renderSourceArticle(article)), 0o644); err != nil {
+			return err
+		}
+	}
+	for _, book := range importBooks {
+		targetDir := filepath.Join(booksDir, book.Meta.ID)
+		if err := os.MkdirAll(targetDir, 0o755); err != nil {
+			return err
+		}
+		targetFile := filepath.Join(targetDir, "index.md")
+		if err := os.WriteFile(targetFile, []byte(renderSourceBook(book)), 0o644); err != nil {
 			return err
 		}
 	}
@@ -140,7 +168,9 @@ func readGoodreadsRows(path string) ([]GoodreadsRow, error) {
 			ExclusiveShelf:          csvField(record, indexes, "Exclusive Shelf"),
 			MyReview:                csvField(record, indexes, "My Review"),
 		}
-		if strings.TrimSpace(row.MyReview) == "" {
+		hasReview := strings.TrimSpace(row.MyReview) != ""
+		hasRating := strings.TrimSpace(row.MyRating) != "" && strings.TrimSpace(row.MyRating) != "0"
+		if !hasReview && !hasRating {
 			continue
 		}
 		rows = append(rows, row)
@@ -196,6 +226,50 @@ func goodreadsRowToArticle(row GoodreadsRow, reservedSlugs map[string]string) (A
 			GoodreadsOriginalPublicationYear: strings.TrimSpace(row.OriginalPublicationYear),
 		},
 		Body: body,
+	}, nil
+}
+
+func goodreadsRowToBook(row GoodreadsRow, reservedSlugs map[string]string) (Article, error) {
+	date := normalizeDate(row.DateRead)
+	if date == "" {
+		date = normalizeDate(row.DateAdded)
+	}
+	if date == "" {
+		return Article{}, fmt.Errorf("missing date for book %q", row.Title)
+	}
+
+	baseSlug := "book-" + slugifyBookTitle(row.Title)
+	if baseSlug == "book" {
+		return Article{}, fmt.Errorf("unable to derive slug for book %q", row.Title)
+	}
+	slug := baseSlug
+	if previousBookID, ok := reservedSlugs[slug]; ok && previousBookID != row.BookID {
+		slug = fmt.Sprintf("%s-%s", baseSlug, slugifyBookTitle(row.BookID))
+	}
+	reservedSlugs[slug] = row.BookID
+
+	return Article{
+		Meta: ArticleMeta{
+			ID:                               slug,
+			Title:                            strings.TrimSpace(html.UnescapeString(row.Title)),
+			Date:                             date,
+			Slug:                             slug,
+			BookStatus:                       "rated",
+			OriginalSource:                   "Goodreads",
+			BookAuthor:                       strings.TrimSpace(html.UnescapeString(row.Author)),
+			GoodreadsBookID:                  strings.TrimSpace(row.BookID),
+			GoodreadsRating:                  strings.TrimSpace(row.MyRating),
+			GoodreadsExclusiveShelf:          strings.TrimSpace(row.ExclusiveShelf),
+			GoodreadsDateRead:                normalizeDate(row.DateRead),
+			GoodreadsDateAdded:               normalizeDate(row.DateAdded),
+			GoodreadsISBN:                    strings.TrimSpace(row.ISBN),
+			GoodreadsISBN13:                  strings.TrimSpace(row.ISBN13),
+			GoodreadsPublisher:               strings.TrimSpace(html.UnescapeString(row.Publisher)),
+			GoodreadsBinding:                 strings.TrimSpace(html.UnescapeString(row.Binding)),
+			GoodreadsPages:                   strings.TrimSpace(row.NumberOfPages),
+			GoodreadsPublicationYear:         strings.TrimSpace(row.YearPublished),
+			GoodreadsOriginalPublicationYear: strings.TrimSpace(row.OriginalPublicationYear),
+		},
 	}, nil
 }
 

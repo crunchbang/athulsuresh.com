@@ -1,0 +1,18 @@
++++
+id = "book-frankenstein"
+title = "Frankenstein"
+date = "2016-12-21"
+slug = "book-frankenstein"
+book_status = "rated"
+original_source = "Goodreads"
+book_author = "Mary Wollstonecraft Shelley"
+goodreads_book_id = "15994485"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2016-12-21"
+goodreads_date_added = "2016-12-19"
+goodreads_binding = "Kindle Edition"
+goodreads_pages = "126"
+goodreads_publication_year = "2012"
+goodreads_original_publication_year = "1818"
++++

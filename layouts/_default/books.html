@@ -1,23 +1,61 @@
 {{- define "main" }}
 
 {{- $reviews := (where site.RegularPages "Params.article_kind" "review").ByDate.Reverse -}}
+{{- $ratedBooks := site.Data.rated_books | default slice -}}
 {{- $scratch := newScratch -}}
+{{- $scratch.Set "entries" slice -}}
 {{- $scratch.Set "count" 0 -}}
+{{- $scratch.Set "reviewedCount" 0 -}}
 {{- $scratch.Set "ratingSum" 0 -}}
 {{- $scratch.Set "ratingCount" 0 -}}
 {{- $scratch.Set "pageSum" 0 -}}
-{{- $scratch.Set "withDateRead" 0 -}}
 
 {{- range $reviews }}
   {{- if hasPrefix .Title "Book Review:" }}
+    {{- $summary := "" -}}
+    {{- if .Summary }}{{- $summary = printf "%s%s" (.Summary | plainify | htmlUnescape) (cond .Truncated "..." "") -}}{{- end -}}
+    {{- $entry := dict
+      "title" (strings.TrimSpace (strings.TrimPrefix "Book Review: " .Title))
+      "date" (.Date.Format "2006-01-02")
+      "cover_slug" .Slug
+      "book_author" .Params.book_author
+      "goodreads_date_read" .Params.goodreads_date_read
+      "goodreads_rating" .Params.goodreads_rating
+      "goodreads_pages" .Params.goodreads_pages
+      "permalink" .Permalink
+      "summary" $summary
+      "has_notes" true
+    -}}
+    {{- $scratch.Set "entries" ($scratch.Get "entries" | append $entry) -}}
     {{- $scratch.Add "count" 1 -}}
+    {{- $scratch.Add "reviewedCount" 1 -}}
     {{- with .Params.goodreads_rating }}{{- $scratch.Add "ratingSum" (int .) -}}{{- $scratch.Add "ratingCount" 1 -}}{{- end -}}
     {{- with .Params.goodreads_pages }}{{- $scratch.Add "pageSum" (int .) -}}{{- end -}}
-    {{- with .Params.goodreads_date_read }}{{- $scratch.Add "withDateRead" 1 -}}{{- end -}}
   {{- end }}
 {{- end }}
 
+{{- range $ratedBooks }}
+  {{- $entry := dict
+    "title" .title
+    "date" .date
+    "cover_slug" .slug
+    "book_author" .book_author
+    "goodreads_date_read" .goodreads_date_read
+    "goodreads_rating" .goodreads_rating
+    "goodreads_pages" .goodreads_pages
+    "permalink" ""
+    "summary" ""
+    "has_notes" false
+  -}}
+  {{- $scratch.Set "entries" ($scratch.Get "entries" | append $entry) -}}
+  {{- $scratch.Add "count" 1 -}}
+  {{- with .goodreads_rating }}{{- $scratch.Add "ratingSum" (int .) -}}{{- $scratch.Add "ratingCount" 1 -}}{{- end -}}
+  {{- with .goodreads_pages }}{{- $scratch.Add "pageSum" (int .) -}}{{- end -}}
+{{- end }}
+
+{{- $entries := sort ($scratch.Get "entries") "date" "desc" -}}
 {{- $count := $scratch.Get "count" -}}
+{{- $reviewedCount := $scratch.Get "reviewedCount" -}}
 {{- $ratingCount := $scratch.Get "ratingCount" -}}
 {{- $ratingAverage := 0.0 -}}
 {{- if gt $ratingCount 0 -}}
@@ -37,7 +75,7 @@
 <section class="books-stats">
   <div class="book-stat">
     <span class="book-stat-value">{{ $count }}</span>
-    <span class="book-stat-label">books reviewed</span>
+    <span class="book-stat-label">books tracked</span>
   </div>
   <div class="book-stat">
     <span class="book-stat-value">{{ lang.FormatNumber 2 $ratingAverage }}</span>
@@ -48,43 +86,62 @@
     <span class="book-stat-label">pages across rated books</span>
   </div>
   <div class="book-stat">
-    <span class="book-stat-value">{{ $scratch.Get "withDateRead" }}</span>
-    <span class="book-stat-label">with read dates</span>
+    <span class="book-stat-value">{{ $reviewedCount }}</span>
+    <span class="book-stat-label">with notes</span>
   </div>
 </section>
 
 <section class="books-list">
-  {{- range $reviews }}
-  {{- if hasPrefix .Title "Book Review:" }}
-  <article class="book-entry">
+  {{- range $entries }}
+  <article class="book-entry {{ if .has_notes }}book-entry-reviewed{{ else }}book-entry-rated{{ end }}">
     <div class="book-entry-cover">
-      <a href="{{ .Permalink }}" aria-label="cover for {{ .Title }}">
-        {{- $cover := printf "book-covers/%s.jpg" .Slug -}}
-        <img src="{{ printf "/%s" $cover }}" alt="Cover of {{ .Title }}">
+      {{- $cover := printf "book-covers/%s.jpg" .cover_slug -}}
+      {{- if .has_notes }}
+      <a href="{{ .permalink }}" aria-label="cover for {{ .title }}">
+        <img src="{{ printf "/%s" $cover }}" alt="Cover of {{ .title }}">
       </a>
+      {{- else }}
+      <img src="{{ printf "/%s" $cover }}" alt="Cover of {{ .title }}">
+      {{- end }}
     </div>
     <div class="book-entry-body">
-    <header class="book-entry-header">
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <p class="book-entry-meta">
-        {{- with .Params.book_author }}<span>By {{ . }}</span>{{ end -}}
-        {{- with .Params.goodreads_date_read }}<span>Date read: {{ . }}</span>{{ end -}}
-        {{- with .Params.goodreads_rating }}<span>Rating: {{ . }}/5</span>{{ end -}}
+      <header class="book-entry-header">
+        <p class="book-entry-kind">
+          {{- if .has_notes }}
+          <span class="book-entry-kind-badge">Notes</span>
+          {{- else }}
+          <span class="book-entry-kind-badge">Rating only</span>
+          {{- end }}
+        </p>
+        <h2>
+          {{- if .has_notes }}
+          <a href="{{ .permalink }}">{{ .title }}</a>
+          {{- else }}
+          {{ .title }}
+          {{- end }}
+        </h2>
+        <p class="book-entry-meta">
+          {{- with .book_author }}<span>By {{ . }}</span>{{ end -}}
+          {{- with .goodreads_date_read }}<span>Date read: {{ . }}</span>{{ else }}<span>Added: {{ .date }}</span>{{ end -}}
+          {{- with .goodreads_rating }}<span>Rating: {{ . }}/5</span>{{ end -}}
+        </p>
+      </header>
+
+      {{- if .summary }}
+      <div class="book-entry-summary">
+        <p>{{ .summary }}</p>
+      </div>
+      {{- end }}
+
+      <p class="book-entry-links">
+        {{- if .has_notes }}
+        <a href="{{ .permalink }}">Read my notes</a>
+        {{- else }}
+        <span class="book-entry-status">No notes yet</span>
+        {{- end }}
       </p>
-    </header>
-
-    {{- if .Summary }}
-    <div class="book-entry-summary">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </div>
-    {{- end }}
-
-    <p class="book-entry-links">
-      <a href="{{ .Permalink }}">Read my notes</a>
-    </p>
     </div>
   </article>
-  {{- end }}
   {{- end }}
 </section>
 

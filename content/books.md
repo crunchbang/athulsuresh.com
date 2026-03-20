@@ -1,7 +1,7 @@
 ---
 title: "Books"
 layout: "books"
-summary: "Book reviews and notes."
+summary: "Book reviews, ratings, and notes."
 ---
 
-Short reviews and notes from books I've read. This page is generated from my review posts, so each entry links to the full review.
+Short reviews, ratings, and notes from books I've read. Entries with notes link to full review posts; the rest are rating-only logs.

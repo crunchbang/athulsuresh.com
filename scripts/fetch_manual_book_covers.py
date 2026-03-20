@@ -15,6 +15,66 @@ USER_AGENT = "athulsuresh-blog/1.0"
 
 
 MANUAL_SOURCES = {
+    "book-2001-a-space-odyssey": {
+        "type": "page-og-image",
+        "url": "https://www.penguinrandomhouse.com/books/325356/2001-a-space-odyssey-by-arthur-c-clarke/",
+    },
+    "book-apple-in-china-the-capture-of-the-world-s-greatest-company": {
+        "type": "page-og-image",
+        "url": "https://books.apple.com/dk/book/apple-in-china/id6615092235",
+    },
+    "book-delhi-a-novel": {
+        "type": "direct",
+        "url": "https://covers.openlibrary.org/b/isbn/9780140126198-L.jpg?default=false",
+    },
+    "book-dune": {
+        "type": "page-og-image",
+        "url": "https://books.apple.com/us/book/dune/id597944491",
+    },
+    "book-exit-strategy": {
+        "type": "page-og-image",
+        "url": "https://us.macmillan.com/books/9781250185464/exitstrategy/",
+    },
+    "book-into-thin-air-a-personal-account-of-the-mt-everest-disaster": {
+        "type": "page-og-image",
+        "url": "https://www.penguinrandomhouse.com/books/95441/into-thin-air-by-jon-krakauer-new-afterword-by-the-author/",
+    },
+    "book-mort": {
+        "type": "page-og-image",
+        "url": "https://www.penguin.co.uk/books/328514/mort-by-terry-pratchett/9780552166621",
+    },
+    "book-perfume-the-story-of-a-murderer": {
+        "type": "page-og-image",
+        "url": "https://books.apple.com/us/book/perfume/id866755651",
+    },
+    "book-the-da-vinci-code": {
+        "type": "page-og-image",
+        "url": "https://www.penguinrandomhouse.com/books/19309/the-da-vinci-code-by-dan-brown/",
+    },
+    "book-the-hobbit-or-there-and-back-again": {
+        "type": "page-og-image",
+        "url": "https://books.apple.com/us/book/the-hobbit/id1602733630",
+    },
+    "book-the-house-in-the-cerulean-sea": {
+        "type": "page-og-image",
+        "url": "https://us.macmillan.com/books/9781250217288/thehouseintheceruleansea/",
+    },
+    "book-the-name-of-the-wind": {
+        "type": "page-og-image",
+        "url": "https://store.gollancz.co.uk/products/the-name-of-the-wind",
+    },
+    "book-the-nvidia-way-jensen-huang-and-the-making-of-a-tech-giant": {
+        "type": "page-og-image",
+        "url": "https://books.apple.com/us/book/the-nvidia-way/id6670344019",
+    },
+    "book-the-stranger": {
+        "type": "page-og-image",
+        "url": "https://www.penguinrandomhouse.com/books/23477/the-stranger-by-albert-camus-translated-by-matthew-ward-introduction-by-keith-gore/",
+    },
+    "book-the-three-body-problem": {
+        "type": "page-og-image",
+        "url": "https://us.macmillan.com/books/9780765382030/thethreebodyproblem",
+    },
     "book-review-all-systems-red": {
         "type": "direct",
         "url": "https://covers.openlibrary.org/b/olid/OL26818660M-L.jpg?default=false",

@@ -1,0 +1,18 @@
++++
+id = "book-the-da-vinci-code"
+title = "The Da Vinci Code (Robert Langdon, #2)"
+date = "2014-07-03"
+slug = "book-the-da-vinci-code"
+book_status = "rated"
+original_source = "Goodreads"
+book_author = "Dan    Brown"
+goodreads_book_id = "968"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_added = "2014-07-03"
+goodreads_publisher = "Anchor"
+goodreads_binding = "Paperback"
+goodreads_pages = "489"
+goodreads_publication_year = "2006"
+goodreads_original_publication_year = "2003"
++++

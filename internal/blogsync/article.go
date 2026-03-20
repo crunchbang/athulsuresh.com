@@ -2,6 +2,7 @@ package blogsync
 
 import (
 	"bytes"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"html"
@@ -25,6 +26,7 @@ type ArticleMeta struct {
 	Date                             string
 	Slug                             string
 	Kind                             string
+	BookStatus                       string
 	Tags                             []string
 	Draft                            bool
 	Summary                          string
@@ -108,6 +110,13 @@ func GenerateHugoContent(root string) error {
 	if err := validateArticles(articles); err != nil {
 		return err
 	}
+	bookRecords, err := loadBookRecords(root)
+	if err != nil {
+		return err
+	}
+	if err := validateBookRecords(bookRecords); err != nil {
+		return err
+	}
 
 	outputDir := filepath.Join(root, "content", "posts")
 	if err := os.RemoveAll(outputDir); err != nil {
@@ -126,6 +135,9 @@ func GenerateHugoContent(root string) error {
 
 	booksDir := filepath.Join(root, "content", "books")
 	if err := os.RemoveAll(booksDir); err != nil {
+		return err
+	}
+	if err := writeRatedBooksData(root, bookRecords); err != nil {
 		return err
 	}
 
@@ -211,6 +223,8 @@ func parseSimpleTOML(frontMatter string) (ArticleMeta, error) {
 			meta.Slug = trimQuotes(value)
 		case "kind", "article_kind":
 			meta.Kind = trimQuotes(value)
+		case "book_status":
+			meta.BookStatus = trimQuotes(value)
 		case "tags":
 			meta.Tags = parseArray(value)
 		case "draft":
@@ -267,6 +281,19 @@ func renderSourceArticle(article Article) string {
 	buf.WriteString("+++\n\n")
 	buf.WriteString(strings.TrimRight(article.Body, "\n"))
 	buf.WriteString("\n")
+	return buf.String()
+}
+
+func renderSourceBook(book Article) string {
+	var buf bytes.Buffer
+	buf.WriteString("+++\n")
+	writeBookMeta(&buf, book.Meta)
+	buf.WriteString("+++\n")
+	if strings.TrimSpace(book.Body) != "" {
+		buf.WriteString("\n")
+		buf.WriteString(strings.TrimRight(book.Body, "\n"))
+		buf.WriteString("\n")
+	}
 	return buf.String()
 }
 
@@ -421,6 +448,28 @@ func writeArticleMeta(buf *bytes.Buffer, meta ArticleMeta) {
 	writeOptionalStringField(buf, "goodreads_original_publication_year", meta.GoodreadsOriginalPublicationYear)
 }
 
+func writeBookMeta(buf *bytes.Buffer, meta ArticleMeta) {
+	writeStringField(buf, "id", meta.ID)
+	writeStringField(buf, "title", meta.Title)
+	writeStringField(buf, "date", meta.Date)
+	writeStringField(buf, "slug", meta.Slug)
+	writeStringField(buf, "book_status", meta.BookStatus)
+	writeOptionalStringField(buf, "original_source", meta.OriginalSource)
+	writeOptionalStringField(buf, "book_author", meta.BookAuthor)
+	writeOptionalStringField(buf, "goodreads_book_id", meta.GoodreadsBookID)
+	writeOptionalStringField(buf, "goodreads_rating", meta.GoodreadsRating)
+	writeOptionalStringField(buf, "goodreads_exclusive_shelf", meta.GoodreadsExclusiveShelf)
+	writeOptionalStringField(buf, "goodreads_date_read", meta.GoodreadsDateRead)
+	writeOptionalStringField(buf, "goodreads_date_added", meta.GoodreadsDateAdded)
+	writeOptionalStringField(buf, "goodreads_isbn", meta.GoodreadsISBN)
+	writeOptionalStringField(buf, "goodreads_isbn13", meta.GoodreadsISBN13)
+	writeOptionalStringField(buf, "goodreads_publisher", meta.GoodreadsPublisher)
+	writeOptionalStringField(buf, "goodreads_binding", meta.GoodreadsBinding)
+	writeOptionalStringField(buf, "goodreads_pages", meta.GoodreadsPages)
+	writeOptionalStringField(buf, "goodreads_publication_year", meta.GoodreadsPublicationYear)
+	writeOptionalStringField(buf, "goodreads_original_publication_year", meta.GoodreadsOriginalPublicationYear)
+}
+
 func writeHugoMeta(buf *bytes.Buffer, meta ArticleMeta) {
 	hugoMeta := meta
 	hugoMeta.Author = defaultAuthor(meta.Author)
@@ -439,4 +488,73 @@ func defaultAuthor(author []string) []string {
 		return []string{"Athul Suresh"}
 	}
 	return author
+}
+
+type ratedBookData struct {
+	ID                               string `json:"id"`
+	Title                            string `json:"title"`
+	Date                             string `json:"date"`
+	Slug                             string `json:"slug"`
+	BookStatus                       string `json:"book_status"`
+	OriginalSource                   string `json:"original_source,omitempty"`
+	BookAuthor                       string `json:"book_author,omitempty"`
+	GoodreadsBookID                  string `json:"goodreads_book_id,omitempty"`
+	GoodreadsRating                  string `json:"goodreads_rating,omitempty"`
+	GoodreadsExclusiveShelf          string `json:"goodreads_exclusive_shelf,omitempty"`
+	GoodreadsDateRead                string `json:"goodreads_date_read,omitempty"`
+	GoodreadsDateAdded               string `json:"goodreads_date_added,omitempty"`
+	GoodreadsISBN                    string `json:"goodreads_isbn,omitempty"`
+	GoodreadsISBN13                  string `json:"goodreads_isbn13,omitempty"`
+	GoodreadsPublisher               string `json:"goodreads_publisher,omitempty"`
+	GoodreadsBinding                 string `json:"goodreads_binding,omitempty"`
+	GoodreadsPages                   string `json:"goodreads_pages,omitempty"`
+	GoodreadsPublicationYear         string `json:"goodreads_publication_year,omitempty"`
+	GoodreadsOriginalPublicationYear string `json:"goodreads_original_publication_year,omitempty"`
+}
+
+func writeRatedBooksData(root string, books []Article) error {
+	dataDir := filepath.Join(root, "data")
+	if err := os.MkdirAll(dataDir, 0o755); err != nil {
+		return err
+	}
+
+	target := filepath.Join(dataDir, "rated_books.json")
+	if len(books) == 0 {
+		if err := os.Remove(target); err != nil && !errors.Is(err, os.ErrNotExist) {
+			return err
+		}
+		return nil
+	}
+
+	payload := make([]ratedBookData, 0, len(books))
+	for _, book := range books {
+		payload = append(payload, ratedBookData{
+			ID:                               book.Meta.ID,
+			Title:                            book.Meta.Title,
+			Date:                             book.Meta.Date,
+			Slug:                             book.Meta.Slug,
+			BookStatus:                       book.Meta.BookStatus,
+			OriginalSource:                   book.Meta.OriginalSource,
+			BookAuthor:                       book.Meta.BookAuthor,
+			GoodreadsBookID:                  book.Meta.GoodreadsBookID,
+			GoodreadsRating:                  book.Meta.GoodreadsRating,
+			GoodreadsExclusiveShelf:          book.Meta.GoodreadsExclusiveShelf,
+			GoodreadsDateRead:                book.Meta.GoodreadsDateRead,
+			GoodreadsDateAdded:               book.Meta.GoodreadsDateAdded,
+			GoodreadsISBN:                    book.Meta.GoodreadsISBN,
+			GoodreadsISBN13:                  book.Meta.GoodreadsISBN13,
+			GoodreadsPublisher:               book.Meta.GoodreadsPublisher,
+			GoodreadsBinding:                 book.Meta.GoodreadsBinding,
+			GoodreadsPages:                   book.Meta.GoodreadsPages,
+			GoodreadsPublicationYear:         book.Meta.GoodreadsPublicationYear,
+			GoodreadsOriginalPublicationYear: book.Meta.GoodreadsOriginalPublicationYear,
+		})
+	}
+
+	data, err := json.MarshalIndent(payload, "", "  ")
+	if err != nil {
+		return err
+	}
+	data = append(data, '\n')
+	return os.WriteFile(target, data, 0o644)
 }

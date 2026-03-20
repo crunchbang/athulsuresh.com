@@ -34,6 +34,10 @@ func FetchBookCovers(root string) error {
 	if err != nil {
 		return err
 	}
+	bookRecords, err := loadBookRecords(root)
+	if err != nil {
+		return err
+	}
 
 	client := &http.Client{Timeout: 20 * time.Second}
 	outputDir := filepath.Join(root, "static", "book-covers")
@@ -58,6 +62,20 @@ func FetchBookCovers(root string) error {
 			return fmt.Errorf("download cover for %s: %w", article.Meta.Slug, err)
 		}
 	}
+	for _, book := range bookRecords {
+		targetPath := filepath.Join(outputDir, book.Meta.Slug+".jpg")
+		if _, err := os.Stat(targetPath); err == nil {
+			continue
+		}
+
+		coverURL, err := resolveCoverURL(client, book)
+		if err != nil || coverURL == "" {
+			continue
+		}
+		if err := downloadCover(client, coverURL, targetPath); err != nil {
+			return fmt.Errorf("download cover for %s: %w", book.Meta.Slug, err)
+		}
+	}
 
 	return nil
 }
@@ -79,7 +97,7 @@ func resolveCoverURL(client *http.Client, article Article) (string, error) {
 	}
 
 	query := url.Values{}
-	query.Set("title", strings.TrimPrefix(article.Meta.Title, "Book Review: "))
+	query.Set("title", bookDisplayTitle(article.Meta.Title))
 	query.Set("author", article.Meta.BookAuthor)
 	query.Set("limit", "1")
 	searchURL := "https://openlibrary.org/search.json?" + query.Encode()
@@ -130,7 +148,7 @@ func resolveCoverURL(client *http.Client, article Article) (string, error) {
 }
 
 func resolveGoogleBooksCoverURL(client *http.Client, article Article) (string, error) {
-	title := strings.TrimPrefix(article.Meta.Title, "Book Review: ")
+	title := bookDisplayTitle(article.Meta.Title)
 	queries := []string{}
 	for _, isbn := range []string{article.Meta.GoodreadsISBN13, article.Meta.GoodreadsISBN} {
 		isbn = strings.TrimSpace(isbn)
@@ -192,6 +210,10 @@ func resolveGoogleBooksCoverURL(client *http.Client, article Article) (string, e
 	}
 
 	return "", nil
+}
+
+func bookDisplayTitle(title string) string {
+	return strings.TrimSpace(strings.TrimPrefix(title, "Book Review: "))
 }
 
 func remoteFileExists(client *http.Client, rawURL string) (bool, error) {

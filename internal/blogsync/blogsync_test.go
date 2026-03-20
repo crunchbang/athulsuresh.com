@@ -74,7 +74,7 @@ func TestImportGoodreads(t *testing.T) {
 	records := [][]string{
 		{"Book Id", "Title", "Author", "Author l-f", "Additional Authors", "ISBN", "ISBN13", "My Rating", "Average Rating", "Publisher", "Binding", "Number of Pages", "Year Published", "Original Publication Year", "Date Read", "Date Added", "Bookshelves", "Bookshelves with positions", "Exclusive Shelf", "My Review", "Spoiler", "Private Notes", "Read Count", "Owned Copies"},
 		{"1", "Shōgun (Asian Saga, #1)", "James Clavell", "", "", "", "", "5", "", "Hodder", "Paperback", "1000", "1975", "1975", "2024/03/01", "2024/03/02", "", "", "read", "Loved it.<br/><br/>Very immersive.", "", "", "1", "0"},
-		{"2", "No Review Book", "Someone", "", "", "", "", "0", "", "Pub", "Paperback", "200", "2024", "2024", "", "2024/03/03", "", "", "read", "", "", "", "1", "0"},
+		{"2", "No Review Book", "Someone", "", "", "", "", "4", "", "Pub", "Paperback", "200", "2024", "2024", "", "2024/03/03", "", "", "read", "", "", "", "1", "0"},
 		{"3", "Pachinko", "Min Jin Lee", "", "", "", "", "4", "", "Grand Central Publishing", "Paperback", "496", "2017", "2017", "", "2024/04/03", "", "", "read", "Excellent book.", "", "", "1", "0"},
 	}
 	for _, record := range records {
@@ -121,7 +121,19 @@ func TestImportGoodreads(t *testing.T) {
 		t.Fatalf("expected Date Added fallback, got %q", pachinko.Meta.Date)
 	}
 
-	if err := ImportGoodreads(root, csvPath); err == nil {
-		t.Fatalf("expected re-import conflict error")
+	noReviewPath := filepath.Join(root, "books", "book-no-review-book", "index.md")
+	book, err := parseArticleFile(noReviewPath)
+	if err != nil {
+		t.Fatalf("parse imported rated book: %v", err)
+	}
+	if book.Meta.BookStatus != "rated" {
+		t.Fatalf("unexpected book status %#v", book.Meta)
+	}
+	if book.Meta.GoodreadsRating != "4" {
+		t.Fatalf("unexpected rating %q", book.Meta.GoodreadsRating)
+	}
+
+	if err := ImportGoodreads(root, csvPath); err != nil {
+		t.Fatalf("expected idempotent re-import, got %v", err)
 	}
 }
