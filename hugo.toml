@@ -10,9 +10,7 @@ main = [
   {identifier = "Books", name = "Books", url = "/books/"},
   {identifier = "Archive", name = "Archive", url = "/archive/"},
   {identifier = "Search", name = "Search", url = "/search/"},
-  {identifier = "Tabs", name = "Tags", url = "/tags/"},
   {identifier = "RSS", name = "RSS", url = "index.xml"},
-  {identifier = "Source", name = "Source", url = "https://github.com/crunchbang/athulsuresh.com"},
 ]
 
 [taxonomies]
