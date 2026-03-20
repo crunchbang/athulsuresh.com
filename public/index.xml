@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Core Dump</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on Core Dump</description>
     <generator>Hugo -- 0.158.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Book Review: Eleanor Oliphant Is Completely Fine</title>
-      <link>//localhost:1313/posts/book-review-eleanor-oliphant-is-completely-fine/</link>
+      <link>/posts/book-review-eleanor-oliphant-is-completely-fine/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-eleanor-oliphant-is-completely-fine/</guid>
+      <guid>/posts/book-review-eleanor-oliphant-is-completely-fine/</guid>
       <description>&lt;p&gt;I haven&amp;rsquo;t done these in awhile, so I&amp;rsquo;m a bit rusty on verbal flourish.&lt;/p&gt;
 &lt;p&gt;Bookish snobbery, I felt, had constrained my reading diversity to a limited range, directing me to more of the same sort of books as I&amp;rsquo;d read in the past. I found that I was not reading the books that I had researched and bought, choosing to keep them in their pristine condition. I wanted to experience the joy of spontaneity and the experience of working within constraints. So, last September, I decided to only buy used books from charity shops. The added benefit was the fact that everything was quite cheap and the books were already in a &amp;ldquo;well loved&amp;rdquo; condition. This in turn ensured that I wouldn&amp;rsquo;t keep these framed on my bookshelf, and would actually read them, in whatever manner I felt comfortable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The End of the Affair</title>
-      <link>//localhost:1313/posts/book-review-the-end-of-the-affair/</link>
+      <link>/posts/book-review-the-end-of-the-affair/</link>
       <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-end-of-the-affair/</guid>
+      <guid>/posts/book-review-the-end-of-the-affair/</guid>
       <description>&lt;p&gt;I was pleasantly surprised by the depth with which the story portrayed the feelings involved in an affair, capturing the feeling of love that can never be. The later part of the book was an utter disappointment as it devolves into (slightly) incoherent religious blabber.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: House of Huawei: The Secret History of China&#39;s Most Powerful Company</title>
-      <link>//localhost:1313/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</link>
+      <link>/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</guid>
+      <guid>/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</guid>
       <description>&lt;p&gt;My fascination with Huawai began when I walked into what I thought would be the Apple store in Shanghai. Fashioned with high white ceilings and see through windows, they had everything from smartwatches, to trifold phones, to cars.&lt;/p&gt;
 &lt;p&gt;The book captures the journey of this behemoth, interspersing it with the history of Modern China. It&amp;rsquo;s fast paced, sprinkled with ample references, and manages to capture to readers attention even while stitching together pieces of publicly available information.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: A Short Stay in Hell</title>
-      <link>//localhost:1313/posts/book-review-a-short-stay-in-hell/</link>
+      <link>/posts/book-review-a-short-stay-in-hell/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-a-short-stay-in-hell/</guid>
+      <guid>/posts/book-review-a-short-stay-in-hell/</guid>
       <description>&lt;p&gt;Interesting take on religion, hell, eternity, and the impact on human relationships.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Small Things Like These</title>
-      <link>//localhost:1313/posts/book-review-small-things-like-these/</link>
+      <link>/posts/book-review-small-things-like-these/</link>
       <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-small-things-like-these/</guid>
+      <guid>/posts/book-review-small-things-like-these/</guid>
       <description>&lt;p&gt;It was a quick read. I have a soft corner for stories set in the Irish countryside. It evokes feelings of longing for an imagined slow country life that I never had. Strange.&lt;/p&gt;
 &lt;p&gt;The story is well paced, and I especially loved how it managed to flush out the main character within so few pages.&lt;/p&gt;
 &lt;p&gt;Bonus points for teaching me something that I previously had no knowledge about.&lt;/p&gt;
@@ -50,33 +50,33 @@
     </item>
     <item>
       <title>Book Review: Pachinko</title>
-      <link>//localhost:1313/posts/book-review-pachinko/</link>
+      <link>/posts/book-review-pachinko/</link>
       <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-pachinko/</guid>
+      <guid>/posts/book-review-pachinko/</guid>
       <description>&lt;p&gt;5/5 - The best book I&amp;rsquo;ve read this year.&lt;/p&gt;
 &lt;p&gt;The story taught me a great deal about the fractured history of Korea - life under Japanese rule, the division into North and South after the second world war and so much more. The history of the land is seamlessly interwoven with the history of its people.&lt;/p&gt;
 &lt;p&gt;The writing style is fluid and unique, with subtle writing choices that made it easy to digest and follow along the plot and the characters across this 900 something page behemoth of a book.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Girl Who Played with Fire (Millennium #2)</title>
-      <link>//localhost:1313/posts/book-review-the-girl-who-played-with-fire/</link>
+      <link>/posts/book-review-the-girl-who-played-with-fire/</link>
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-girl-who-played-with-fire/</guid>
+      <guid>/posts/book-review-the-girl-who-played-with-fire/</guid>
       <description>&lt;p&gt;Great buildup with a disappointing ending. This would be the last Millennium book I pick up in a while.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Perks of Being a Wallflower</title>
-      <link>//localhost:1313/posts/book-review-the-perks-of-being-a-wallflower/</link>
+      <link>/posts/book-review-the-perks-of-being-a-wallflower/</link>
       <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-perks-of-being-a-wallflower/</guid>
+      <guid>/posts/book-review-the-perks-of-being-a-wallflower/</guid>
       <description>&lt;p&gt;I read the book after I had seen the movie, so I knew what was in  store. The book still managed to surprise me by going deep into some of  the dark corners that were left out from the movie. It adds a lot more  dimension to some of the characters and bit more backstory around some  of the events.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s a tragic but endearing story; one that keeps you turning the pages.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Life for Sale</title>
-      <link>//localhost:1313/posts/book-review-life-for-sale/</link>
+      <link>/posts/book-review-life-for-sale/</link>
       <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-life-for-sale/</guid>
+      <guid>/posts/book-review-life-for-sale/</guid>
       <description>&lt;p&gt;A disappointing read that left me unfulfilled. The plot had potential, with multiple seemingly disconnected threads that I hoped would eventually converge.&lt;/p&gt;
 &lt;p&gt;Hoped.&lt;/p&gt;
 &lt;p&gt;The same hope of a grand reveal kept me turning the pages.&lt;/p&gt;
@@ -85,9 +85,9 @@
     </item>
     <item>
       <title>Notes On Erlang</title>
-      <link>//localhost:1313/posts/notes-erlang/</link>
+      <link>/posts/notes-erlang/</link>
       <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/notes-erlang/</guid>
+      <guid>/posts/notes-erlang/</guid>
       <description>&lt;p&gt;Collection of unstructed notes that I accumulated while learning Erlang. This is a &lt;em&gt;work-in-progress&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;erlang programs are composed on communicating processing. Like modeling objects, processes should be modeled to fit the problem. This is called modeling concurrency.&lt;/li&gt;
@@ -141,42 +141,42 @@
     </item>
     <item>
       <title>Book Review: Educated</title>
-      <link>//localhost:1313/posts/book-review-educated/</link>
+      <link>/posts/book-review-educated/</link>
       <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-educated/</guid>
+      <guid>/posts/book-review-educated/</guid>
       <description>&lt;p&gt;5/5 for managing to evoke a visceral reaction as so few books have.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Stoner</title>
-      <link>//localhost:1313/posts/book-review-stoner/</link>
+      <link>/posts/book-review-stoner/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-stoner/</guid>
+      <guid>/posts/book-review-stoner/</guid>
       <description>&lt;p&gt;This is a review I&amp;rsquo;ve been putting off for a long time now, partly because this book was emotionally exhausting and partly because it is tough to express the enormity of the impact this book had on me.&lt;/p&gt;
 &lt;p&gt;Stoner is a novel about the titular character. In that respect, it is like most other books which follow the life and inner monologues of a central protagonist. Stoner sets itself apart in the fact that it is an utterly hopeless story. This is established right in the beginning when they describe Stoner&amp;rsquo;s death and his uneventful life, which amounted to nothing significant. The tone is set for the rest of the book and it doesn&amp;rsquo;t deviate for a second.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Kafka on the Shore</title>
-      <link>//localhost:1313/posts/book-review-kafka-on-the-shore/</link>
+      <link>/posts/book-review-kafka-on-the-shore/</link>
       <pubDate>Sun, 29 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-kafka-on-the-shore/</guid>
+      <guid>/posts/book-review-kafka-on-the-shore/</guid>
       <description>&lt;p&gt;This book was&amp;hellip; weird, but in a good way.&lt;/p&gt;
 &lt;p&gt;Normally, I&amp;rsquo;m not a fan of magical realism. I generally prefer dead people to stay dead and cats to meow instead of delivering lengthy expositions about other worldly creatures. But, I absolutely love the way Murakami writes, and I couldn&amp;rsquo;t keep delaying this book any longer.&lt;/p&gt;
 &lt;p&gt;As always, Murakami does not disappoint when it comes to prose and flow. The plot progresses pretty fluidly for 3/4 of the book, and despite the supernatural elements, I was genuinely curious to know how the various plot threads would untangle and reconcile. The last 1/4th of the book was slightly heavy on metaphors, and I felt there was a bit too much going on at the same time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Faster Multitasking with Hammerspoon</title>
-      <link>//localhost:1313/posts/multitasking-hammerspoon/</link>
+      <link>/posts/multitasking-hammerspoon/</link>
       <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/multitasking-hammerspoon/</guid>
+      <guid>/posts/multitasking-hammerspoon/</guid>
       <description>&lt;p&gt;When I&amp;rsquo;m working, I usually have at-least 4 windows open including Slack, Chrome, iTerm and a few other stuff. Lately, I&amp;rsquo;ve noticed that switching between them via &lt;code&gt;cmd+tab&lt;/code&gt; is turning out to be a waste of time, since the order of the apps keep changing based on how recently they were used.&lt;/p&gt;
 &lt;p&gt;I wanted a smoother transition between my umpteen apps without getting stuck in &lt;code&gt;cmd+tab&lt;/code&gt; hell.&lt;/p&gt;
 &lt;p&gt;I needed static key-bindings!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sneaky Defers In Go</title>
-      <link>//localhost:1313/posts/sneaky-defers-in-go/</link>
+      <link>/posts/sneaky-defers-in-go/</link>
       <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/sneaky-defers-in-go/</guid>
+      <guid>/posts/sneaky-defers-in-go/</guid>
       <description>&lt;p&gt;What do you think the output of the following code would be?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -202,17 +202,17 @@ hello
     </item>
     <item>
       <title>Writer&#39;s Block</title>
-      <link>//localhost:1313/posts/writers-block/</link>
+      <link>/posts/writers-block/</link>
       <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/writers-block/</guid>
+      <guid>/posts/writers-block/</guid>
       <description>&lt;p&gt;A while back, I came across &lt;a href=&#34;https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9&#34;&gt;this article&lt;/a&gt; by Josh Branchaud where he talked about TIL posts and learning in public (among many other things). This really appealed to me. Over the years, I had accumulated immense amount of information from posts and articles that people had put out and the whole idea of paying it forward by putting out things that I&amp;rsquo;d learned along the way sounded interesting.&lt;/p&gt;
 &lt;p&gt;The primary impediment I faced here was the amount of time it took to create a well-crafted post. Most of the longer pieces here were summaries of months of effort squeezed into a single page post with pictures. Those were few and far apart.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Normal People</title>
-      <link>//localhost:1313/posts/book-review-normal-people/</link>
+      <link>/posts/book-review-normal-people/</link>
       <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-normal-people/</guid>
+      <guid>/posts/book-review-normal-people/</guid>
       <description>&lt;p&gt;Do I hate this book?&lt;/p&gt;
 &lt;p&gt;Yes.&lt;/p&gt;
 &lt;p&gt;Why do I hate this book?&lt;/p&gt;
@@ -222,17 +222,17 @@ hello
     </item>
     <item>
       <title>Back After A Hiatus</title>
-      <link>//localhost:1313/posts/back-after-hiatus/</link>
+      <link>/posts/back-after-hiatus/</link>
       <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/back-after-hiatus/</guid>
+      <guid>/posts/back-after-hiatus/</guid>
       <description>&lt;p&gt;I realized that I hadn&amp;rsquo;t touched my blog in over a year. A lot had happened since then, but I hadn&amp;rsquo;t taken the time to note anything down. Looking through my old posts, I remember how good it felt to actually sit and write things down.&lt;/p&gt;
 &lt;p&gt;I thought I&amp;rsquo;d change the theme and tweak things a bit just for the sake of it. Lo and behold, I ended up spending an entire day trying out themes and tweaking knobs and controls to see how things looked. Sometimes, I feel like I waste a lot of time on preliminary aspects of a task.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Un-implementable Interfaces In Go</title>
-      <link>//localhost:1313/posts/unimplementable-interfaces-go/</link>
+      <link>/posts/unimplementable-interfaces-go/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/unimplementable-interfaces-go/</guid>
+      <guid>/posts/unimplementable-interfaces-go/</guid>
       <description>&lt;p&gt;Recently, I started randomly going through the Go standard library, mostly to satiate my curiosity and to find out what goes on behind the curtains. While checking out the testing package, I found this interesting little snippet of code in &lt;code&gt;src/testing/testing.go&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// TB is the interface common to T and B.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TB&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt; {
@@ -263,128 +263,128 @@ hello
     </item>
     <item>
       <title>Book Review: The Invisible Life of Addie LaRue</title>
-      <link>//localhost:1313/posts/book-review-the-invisible-life-of-addie-larue/</link>
+      <link>/posts/book-review-the-invisible-life-of-addie-larue/</link>
       <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-invisible-life-of-addie-larue/</guid>
+      <guid>/posts/book-review-the-invisible-life-of-addie-larue/</guid>
       <description>&lt;p&gt;I recently came across an article which talked about how brain researchers made strides in understanding the function of specific regions by studying brains with damages or wounds. The whole idea of understanding something by comparing it with a reduced form of itself was fascinating for me. With a protagonist who is cursed with being forgotten, this book presents a similar opportunity for understanding our subjective reality by comparing it with a reduced form of itself, one where all relations are ephemeral.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Imperium (Cicero, #1)</title>
-      <link>//localhost:1313/posts/book-review-imperium/</link>
+      <link>/posts/book-review-imperium/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-imperium/</guid>
+      <guid>/posts/book-review-imperium/</guid>
       <description>&lt;p&gt;“The trouble with Lucious,&amp;quot; he said, putting his feet up on the desk after this cousin has gone,&amp;quot; is that he thinks politics is a fight for justice. Politics is a profession.”&lt;/p&gt;
 &lt;p&gt;Imperium presents the tale of Cicero&amp;rsquo;s rise to power, narrated through the notes of his loyal slave and scribe, Tiro. Through his oratorical prowess and political theatrics, we see Cicero climb the shaky ladder of power. Each passing rung accompanies with it an erosion of the moral values that propelled him into this grand venture, until acquisition of power becomes an end in itself.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: A Gentleman in Moscow</title>
-      <link>//localhost:1313/posts/book-review-a-gentleman-in-moscow/</link>
+      <link>/posts/book-review-a-gentleman-in-moscow/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-a-gentleman-in-moscow/</guid>
+      <guid>/posts/book-review-a-gentleman-in-moscow/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve observed that misanthropic traits in protagonists manifest primarily in two ways - In those that are weak, in whom misanthropy arises as an effect of their inability to hold their own, and in those that are strong, in whom misanthropy arises because of their utter disregard for those who are weaker, poorer, or otherwise unfortunate than them. For me, a heart-warming story usually involves humanizing a strong misanthropic protagonist. A skilled author portrays this &amp;ldquo;thawing of the frozen heart&amp;rdquo; in an artful way, making the character more relatable and empathetic, with bits of humor thrown in along the way to tie the whole package together. In &amp;ldquo;The Man Called Ove&amp;rdquo;, it&amp;rsquo;s the stubborn widower who&amp;rsquo;s set in his ways, and in &amp;ldquo;A Gentleman in Moscow&amp;rdquo;, it&amp;rsquo;s an estranged aristocrat who’s the subject of this artful dissection. Through whimsical adventures and happy little accidents, the author turns The Count into an endearing character whom we root for and relate to with the utmost passion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: How Innovation Works: Serendipity, Energy and the Saving of Time</title>
-      <link>//localhost:1313/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</link>
+      <link>/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</link>
       <pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</guid>
+      <guid>/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</guid>
       <description>&lt;p&gt;This book was my first foray into non-fiction this year.   I believe that human beings, with our incessant need for order and meaning, are obsessed with stories and the deeper meaning that lie behind them. This is exactly why I prefer learning about abstract concepts narrated through a well fleshed out story where the ensconced idea gets communicated in a much better manner as opposed to works of non-fictions where they’re presented, cooked and cleaned, with minimal seasoning to make it palatable for the masses.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Illicit Happiness of Other People</title>
-      <link>//localhost:1313/posts/book-review-the-illicit-happiness-of-other-people/</link>
+      <link>/posts/book-review-the-illicit-happiness-of-other-people/</link>
       <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-illicit-happiness-of-other-people/</guid>
+      <guid>/posts/book-review-the-illicit-happiness-of-other-people/</guid>
       <description>&lt;p&gt;As a reader, I have always been predisposed to seek out “happy books” - the ones with stories where things eventually work out, where the hero accomplishes his quest, where peace is restored in the realm, and where people “lived happily every after”. In these stories death, despair, and sadness caused by heinous crimes were nothing but decoy targets that were used to accentuate and make the eventual triumph of all that is good even more satisfying. They were analyzed and enjoyed merely as instruments of comparison, a convenient plot point, which would eventually be swept under the rug and forgotten in the face of the grand conclusion. This book threw all of those expectations out the window. It spat in the face of my conventional expectations and brought me face to face with some unsavory subjects which I had tried hard to avoid all my life.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Eye of the World (The Wheel of Time, #1)</title>
-      <link>//localhost:1313/posts/book-review-the-eye-of-the-world/</link>
+      <link>/posts/book-review-the-eye-of-the-world/</link>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-eye-of-the-world/</guid>
+      <guid>/posts/book-review-the-eye-of-the-world/</guid>
       <description>&lt;p&gt;Book 1 / 15&lt;/p&gt;
 &lt;p&gt;Being the first part in a long fantasy series, a fair bit of time is spent establishing the world, the characters, and the lore. Despite this overhead, the author has managed to weave a story of adventure and suspense that swoops you in from the start. If you&amp;rsquo;ve read Lord Of The Rings or any of the other fantasy novels, you&amp;rsquo;ll find a fair bit of similarities and a sprinkling of the most common tropes.  Refreshingly, Robert Jordan has kept his focus on the plot without delving into meaningless drivel about trees and outbursts of songs like Tolkien.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Contact</title>
-      <link>//localhost:1313/posts/book-review-contact/</link>
+      <link>/posts/book-review-contact/</link>
       <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-contact/</guid>
+      <guid>/posts/book-review-contact/</guid>
       <description>&lt;p&gt;This is one of those books which I abandoned midway on my first try. Seeing the growing collection of unread titles on my kindle shelf forced me to come back to it, instead of finding solace in a new shiny title.&lt;/p&gt;
 &lt;p&gt;Carl Sagan, being the exemplary scientist that he is, has not taken the medium of science fiction lightly. This is a book that is strongly rooted in &amp;ldquo;real&amp;rdquo; science. Wherever possible, Sagan has referenced and pointed to actual rules, laws, and discoveries. Much like most science fiction, Contact tries to use the tapestry and freedom afforded by this unencumbered genre of story telling to discuss and draw light on a message much deeper and more complicated than what the story holds.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: You Deserve Each Other (You Deserve Each Other, #1)</title>
-      <link>//localhost:1313/posts/book-review-you-deserve-each-other/</link>
+      <link>/posts/book-review-you-deserve-each-other/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-you-deserve-each-other/</guid>
+      <guid>/posts/book-review-you-deserve-each-other/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s famous talk by Kurt Vonnegut where he details the shapes of stories. Most &amp;lsquo;boy meets girl&amp;rsquo; tales have a predictable shape - there&amp;rsquo;s a high in the beginning, when the titular characters meet; a brief period of joy. It is followed by a dip, a change in the story arc where there are bad / unfavourable events. The characters are put into adverse conditions and they are moulded by it. In the final leg, they come out better on the other side, their relationship stronger than before, revitalised even, with a couple of steamy scenes thrown in for good measure. We, as readers, are aware of the story arc and we almost expect it. We choose these books for the familiar comfort that it provides through its crests and troughs. It&amp;rsquo;s a story arc that&amp;rsquo;s close to our heart.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: East of Eden</title>
-      <link>//localhost:1313/posts/book-review-east-of-eden/</link>
+      <link>/posts/book-review-east-of-eden/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-east-of-eden/</guid>
+      <guid>/posts/book-review-east-of-eden/</guid>
       <description>&lt;p&gt;A gripping tale of an entire valley that covers the lives and thoughts of 3 generations. In under 700 pages, Steinbeck has managed to capture the imagination with characters so real and flushed out that you see a part of yourself in everyone. He has masterfully woven a story that sucks you in from the very beginning, where the characters seem real to the point where you get emotionally invested in them. For me, this was a masterclass in the study on human character, particularly how we deal with feelings of virtue and guilt.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Dutch House</title>
-      <link>//localhost:1313/posts/book-review-the-dutch-house/</link>
+      <link>/posts/book-review-the-dutch-house/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-dutch-house/</guid>
+      <guid>/posts/book-review-the-dutch-house/</guid>
       <description>&lt;p&gt;The best book I&amp;rsquo;ve read this year.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Tale Of Two DBs</title>
-      <link>//localhost:1313/posts/tale-of-two-dbs/</link>
+      <link>/posts/tale-of-two-dbs/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/tale-of-two-dbs/</guid>
+      <guid>/posts/tale-of-two-dbs/</guid>
       <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;Work always manages to throw interesting problems my way and this one was particularly interesting. Our telephone server infrastructure and the associated cloud services were spread across two AWS regions - Singapore &amp;amp; Mumbai. This was primarily done to comply with Indian Data Protection Laws which mandated that customer data associated with some critical areas of business must stay within the country. We had run these two regions as independent entities, with code changes being deployed uniformly across them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: A Man Called Ove</title>
-      <link>//localhost:1313/posts/book-review-a-man-called-ove/</link>
+      <link>/posts/book-review-a-man-called-ove/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-a-man-called-ove/</guid>
+      <guid>/posts/book-review-a-man-called-ove/</guid>
       <description>&lt;p&gt;I regret not picking this up sooner. This book represents the epitome of what a good story is for me - lovable characters, a very human story arc, lots of snide humor and an ending that leaves me in tears.&lt;/p&gt;
 &lt;p&gt;5/5! Would recommend it to everyone!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes from &#39;Linux Kernel Development&#39;</title>
-      <link>//localhost:1313/posts/notes-linux-dev/</link>
+      <link>/posts/notes-linux-dev/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/notes-linux-dev/</guid>
+      <guid>/posts/notes-linux-dev/</guid>
       <description>&lt;p&gt;This book had been on my TO-READ list for a long time. It came up again while I was perusing &lt;a href=&#34;https://danluu.com/programming-books/&#34;&gt;Dan Luu&amp;rsquo;s Programming book list&lt;/a&gt;. I&amp;rsquo;ve always wanted to look behind the curtains and see how the magic worked, so I finally bought it.&lt;/p&gt;
 &lt;p&gt;I used &lt;a href=&#34;https://elixir.bootlin.com/linux/v5.7.2/C/ident/task_struct&#34;&gt;bootlin&lt;/a&gt; to read through Linux 5.7.2 source. They provide a really good search system and linked definitions. The book describes kernel version 2.6. You might want to keep this site open to see how things have changed since then.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Jonathan Livingston Seagull</title>
-      <link>//localhost:1313/posts/book-review-jonathan-livingston-seagull/</link>
+      <link>/posts/book-review-jonathan-livingston-seagull/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-jonathan-livingston-seagull/</guid>
+      <guid>/posts/book-review-jonathan-livingston-seagull/</guid>
       <description>&lt;p&gt;This book was a parting gift and I was eager to devour it as soon as I got it. Through it&amp;rsquo;s elegantly typeset pages sprinkled with an assortment of pictures, it details the story of Jonathan Livingston, a seagull who finds flying to be more than a means to an end.&lt;/p&gt;
 &lt;p&gt;The story follows the predictable arc wherein the rookie who finds an inalienable truth gets ostracized and excommunicated for it. Later, after traveling wide and far and having reached uber level greatness, he returns to extol his wisdom to the blind masses in a more digestible form, enlightening  them about the possibilities that lie beyond.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Night Circus</title>
-      <link>//localhost:1313/posts/book-review-the-night-circus/</link>
+      <link>/posts/book-review-the-night-circus/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-night-circus/</guid>
+      <guid>/posts/book-review-the-night-circus/</guid>
       <description>&lt;p&gt;Words cannot describe the excruciating pain I felt as I plowed through this book. It was my stubborn need to finish the book that kept me holding on till the end. The book can be described as a verbal vomit where more time is spent describing the magical circus with little to no attention being paid to the protagonist or any of the characters. The story is bland, and the character development is lacking but the setting is exquisitely described to the last grain of sand. The circus and the description of all the attractions within the circus take up about 80% of the book with a half baked plot thrown in for the sake of it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win</title>
-      <link>//localhost:1313/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</link>
+      <link>/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</guid>
+      <guid>/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</guid>
       <description>&lt;p&gt;I found this book by accident through a recommendation on Twitter. The book beautifully captures the mayhem and mismanagement that is all too familiar to IT folks who are part of an org where IT is a support system, and not seen as a core competency. Written at a time when Dev &amp;amp; Ops had a wide chasm between them, the story of the Phoenix Team and their enlightening struggle to reel in Dev and Ops into a single unit provides an accessible narrative that conveys the enormity of the benefits that DevOps entails.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wrong Tool For The Job: Concurrent Queues with Aerospike</title>
-      <link>//localhost:1313/posts/wrong-tool/</link>
+      <link>/posts/wrong-tool/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/wrong-tool/</guid>
+      <guid>/posts/wrong-tool/</guid>
       <description>&lt;h2 id=&#34;if-all-you-have-is-a-hammer-dot-dot-dot&#34;&gt;If all you have is a hammer&amp;hellip;&lt;/h2&gt;
 &lt;p&gt;Organizational choices and system architecture sometimes forces you to use sub-optimal tools for a problem. In fact, this is part of the challenge that work throws at you - having to retrofit or abuse tools to get the job done.&lt;/p&gt;
 &lt;p&gt;If you always had the right set of tools, what fun would life be? This is one such problem.&lt;/p&gt;
@@ -393,9 +393,9 @@ hello
     </item>
     <item>
       <title>Bug Story: It&#39;s not you, it&#39;s the environment</title>
-      <link>//localhost:1313/posts/bug-ttl/</link>
+      <link>/posts/bug-ttl/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/bug-ttl/</guid>
+      <guid>/posts/bug-ttl/</guid>
       <description>&lt;p&gt;It all started with a deployment to the production cluster.&lt;/p&gt;
 &lt;p&gt;It always does. The worst things happen when you deploy to prod.&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
@@ -403,9 +403,9 @@ hello
     </item>
     <item>
       <title>Hello World</title>
-      <link>//localhost:1313/posts/hello-world/</link>
+      <link>/posts/hello-world/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/hello-world/</guid>
+      <guid>/posts/hello-world/</guid>
       <description>&lt;p&gt;Hello!&lt;/p&gt;
 &lt;p&gt;Is there anybody out there?&lt;/p&gt;
 &lt;p&gt;Nod if you can hear me&lt;/p&gt;
@@ -414,79 +414,79 @@ hello
     </item>
     <item>
       <title>Book Review: Musashi</title>
-      <link>//localhost:1313/posts/book-review-musashi/</link>
+      <link>/posts/book-review-musashi/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-musashi/</guid>
+      <guid>/posts/book-review-musashi/</guid>
       <description>&lt;p&gt;An epic of gargantuan proportions, Musashi follows the life of the legendary Japanese samurai Miyamoto Musashi. Eiji Yoshikawa paints a serene picture of feudal Japan with a particular emphasis on the Samurai way of life.&lt;/p&gt;
 &lt;p&gt;I cannot help but compare this book to The Shogun, since it deals with the same time period and the same events. The Shogun chooses to focus on the unimportant cultural frivolities and paints the Japanese as a mysterious group of people who&amp;rsquo;d jump to commit seppuku at the slightest provocation. Musashi delves deeper beyond the superficialities and presents a detailed breakdown of the Japanese psyche. Even the unadorned language is evocative of the simplistic Japanese way of life.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Rogue Protocol (The Murderbot Diaries, #3)</title>
-      <link>//localhost:1313/posts/book-review-rogue-protocol/</link>
+      <link>/posts/book-review-rogue-protocol/</link>
       <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-rogue-protocol/</guid>
+      <guid>/posts/book-review-rogue-protocol/</guid>
       <description>&lt;p&gt;Murderbot is back! This time with a longer and slightly more detailed plot. It&amp;rsquo;s interesting to see how the series is turning into a mystery-thriller. The best parts of the book are the places where they try to deduce exactly what is going on using the limited set of information that&amp;rsquo;s available to them. The way they piece things together keeps you turning the pages.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Artificial Condition (The Murderbot Diaries, #2)</title>
-      <link>//localhost:1313/posts/book-review-artificial-condition/</link>
+      <link>/posts/book-review-artificial-condition/</link>
       <pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-artificial-condition/</guid>
+      <guid>/posts/book-review-artificial-condition/</guid>
       <description>&lt;p&gt;Muderbot is back again, this time with Asshole Research Transport (ART). I enjoyed this one far more than the first book in the series, as we get to see a lot more of the sarcastic, introverted side of Murderbot.&lt;/p&gt;
 &lt;p&gt;The only downside is, as usual, things ended quickly and a little abruptly, and some details that I was waiting for were conveniently omitted. I expected the side quest to be tied into the primary story line but alas, it has not happened&amp;hellip; yet.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: All Systems Red (The Murderbot Diaries, #1)</title>
-      <link>//localhost:1313/posts/book-review-all-systems-red/</link>
+      <link>/posts/book-review-all-systems-red/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-all-systems-red/</guid>
+      <guid>/posts/book-review-all-systems-red/</guid>
       <description>&lt;p&gt;This was one of those stories that came to an end just as things were getting interesting. The entire story is narrated from the perspective of murderbot, a SecBot with a hacked governor who appears more human than the rest of the crew he (or it?) is travelling with. The cast, setting, and build up are extremely well thought out and exciting, but it flat lines towards the end leaving you confused and unsatisfied.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Shōgun (Asian Saga, #1)</title>
-      <link>//localhost:1313/posts/book-review-shogun/</link>
+      <link>/posts/book-review-shogun/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-shogun/</guid>
+      <guid>/posts/book-review-shogun/</guid>
       <description>&lt;p&gt;Shogun paints a detailed picture of Japan in the 1600, explained mostly through the eyes of a ship-wrecked English pilot. What starts out as a story about people with strange customs and beliefs soon turns into an intricate plot filled with cunning and treachery.&lt;/p&gt;
 &lt;p&gt;It took me about 2 months to plow through this 1200 page behemoth of a book. The plot felt overly complicated to me. Overkill does not begin to describe the plans that the characters in the book hatch, all of whom seem to be proficient in playing out the long game, the very very long game.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Can&#39;t Hurt Me: Master Your Mind and Defy the Odds</title>
-      <link>//localhost:1313/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</link>
+      <link>/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</guid>
+      <guid>/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</guid>
       <description>&lt;p&gt;This book is a life story and motivational piece rolled up into one. It dips into excruciating detail David Goggins&amp;rsquo; painful, and at time unbelievable, journey through an abused childhood, a teenage of suffering, and an adulthood of proving himself against unrealistic odds.&lt;/p&gt;
 &lt;p&gt;Each chapter details a seemingly insurmountable obstacle and his tireless journey of ups and multiples downs that got him over it. The &amp;ldquo;techniques&amp;rdquo; that he uses in each chapter is detailed in an associated section where he encourages the reader to apply them to their everyday problems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Sum: Tales from the Afterlives</title>
-      <link>//localhost:1313/posts/book-review-sum-tales-from-the-afterlives/</link>
+      <link>/posts/book-review-sum-tales-from-the-afterlives/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-sum-tales-from-the-afterlives/</guid>
+      <guid>/posts/book-review-sum-tales-from-the-afterlives/</guid>
       <description>&lt;p&gt;A wonderfully refreshing collection of short stories which offers a varying array of explanations as to what happens in the afterlife.&lt;/p&gt;
 &lt;p&gt;What I loved was how the author was able to give a meaningful commentary on human life through these disjointed stories. Each story provides ample food for thought and manages to touch upon some aspect of the living through its description of death and thereafter.&lt;/p&gt;
 &lt;p&gt;A short book that&amp;rsquo;s jam packed with insights which I&amp;rsquo;ll recommend to everyone.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Boy in the Striped Pyjamas (Boy in the Striped Pyjamas, #1)</title>
-      <link>//localhost:1313/posts/book-review-the-boy-in-the-striped-pyjamas/</link>
+      <link>/posts/book-review-the-boy-in-the-striped-pyjamas/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-boy-in-the-striped-pyjamas/</guid>
+      <guid>/posts/book-review-the-boy-in-the-striped-pyjamas/</guid>
       <description>&lt;p&gt;A harrowing tale of the holocaust narrated from the naive viewpoint of a 9 year old. This book makes you think not about grand things and overarching themes, but about things that you took for granted your whole life. It manages to instil a certain degree of life and vividness to seemingly mundane experiences and leaves you uncomfortably squirming for answers to fortify your preconceived notions of other people and their cultures in the face of blunt questions posed by an innocent boy.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Norwegian Wood</title>
-      <link>//localhost:1313/posts/book-review-norwegian-wood/</link>
+      <link>/posts/book-review-norwegian-wood/</link>
       <pubDate>Tue, 27 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-norwegian-wood/</guid>
+      <guid>/posts/book-review-norwegian-wood/</guid>
       <description>&lt;p&gt;This was my first foray into the works of Murakami and it certainly did not disappoint. With strikingly simple words, he strings together a story of love, lust and death. Set against the backdrop of 60s Japan, the story details the tragic and somewhat adventurous youth of the narrator, Toru Wantanabe.&lt;/p&gt;
 &lt;p&gt;What kept me hooked to the book was definitely the language. He has the rare ability to precisely convey a specific emotion through a carefully worded sentence. Like a trained samurai who slices his foe with carefully measured strikes, Murakami cuts into your heart with his lucidly worded dialogue.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The Princess Bride</title>
-      <link>//localhost:1313/posts/book-review-the-princess-bride/</link>
+      <link>/posts/book-review-the-princess-bride/</link>
       <pubDate>Thu, 02 Jun 2016 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-the-princess-bride/</guid>
+      <guid>/posts/book-review-the-princess-bride/</guid>
       <description>&lt;p&gt;Originally gave it 4 stars.&lt;/p&gt;
 &lt;p&gt;Changed it to 5 after I searched for &amp;ldquo;Morgenstern&amp;rdquo; to get an idea about what&amp;rsquo;s in the original version.&lt;/p&gt;
 &lt;p&gt;S. Morgenstern. Simon &amp;ldquo;S.&amp;rdquo; Morgenstern is the fictional author of The Princess Bride, and a native of the fictional country of Florin. Author William Goldman presents the novel as being an abridged version of Morgenstern&amp;rsquo;s original tale by himself.&lt;/p&gt;
@@ -494,16 +494,16 @@ hello
     </item>
     <item>
       <title>Book Review: On Love</title>
-      <link>//localhost:1313/posts/book-review-on-love/</link>
+      <link>/posts/book-review-on-love/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-on-love/</guid>
+      <guid>/posts/book-review-on-love/</guid>
       <description>&lt;p&gt;The author puts into beautiful verse everything I&amp;rsquo;ve felt and failed to articulate coherently about the complex and elusive phenomenon called love. Through a lengthy exposition of his relationship, from the uncertain beginnings to it&amp;rsquo;s certain demise, the author takes us on a journey of words, wit and wisdom. The author explores in detail the complex underpinnings of love, examining every single influx of emotion at every minute stage, something that is usually relegated to the status of &amp;ldquo;happily ever after&amp;rdquo; in most novels and stories.&lt;/p&gt;</description>
     </item>
     <item>
       <title>On Love</title>
-      <link>//localhost:1313/posts/on-love/</link>
+      <link>/posts/on-love/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/on-love/</guid>
+      <guid>/posts/on-love/</guid>
       <description>&lt;h2 id=&#34;review&#34;&gt;Review&lt;/h2&gt;
 &lt;p&gt;The author puts into beautiful verse everything I&amp;rsquo;ve felt and failed to articulate coherently about the complex and elusive phenomenon called love. Through a lengthy exposition of his relationship, from the uncertain beginnings to it&amp;rsquo;s certain demise, the author takes us on a journey of words, wit and wisdom. The author explores in detail the complex underpinnings of love, examining every single influx of emotion at every minute stage, something that is usually relegated to the status of &amp;ldquo;happily ever after&amp;rdquo; in most novels and stories.
 The author&amp;rsquo;s shrewd observations and the relative ease with which he picks up each and every emotion and doubt that crosses his mind amidst the whole ordeal make for an interesting read. The nuggets of philosophy strategically interspersed between episodes of his own relationship with Chloe adds to the whole experience.
@@ -512,33 +512,33 @@ While the story of the author&amp;rsquo;s relationship is a rather grim one, he 
     </item>
     <item>
       <title>Book Review: My Man Jeeves (Jeeves, #1)</title>
-      <link>//localhost:1313/posts/book-review-my-man-jeeves/</link>
+      <link>/posts/book-review-my-man-jeeves/</link>
       <pubDate>Thu, 15 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-my-man-jeeves/</guid>
+      <guid>/posts/book-review-my-man-jeeves/</guid>
       <description>&lt;p&gt;Unacquainted with British comedy, my first dip into Wodehouse proved tiresome. Although, there were a few quips that made me chortle, I found the whole thing a bit too dull for my, perhaps plebeian, sense of humor.&lt;/p&gt;
 &lt;p&gt;Different people, different tastes, I suppose.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Lullabies (Volume 2) (Lang Leav)</title>
-      <link>//localhost:1313/posts/book-review-lullabies/</link>
+      <link>/posts/book-review-lullabies/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-lullabies/</guid>
+      <guid>/posts/book-review-lullabies/</guid>
       <description>&lt;p&gt;A book I&amp;rsquo;ll re-read on lazy afternoons.&lt;/p&gt;
 &lt;p&gt;As an amateur poetry aficionado, this book was my real dip into poems that dealt with the themes of love and companionship.&lt;/p&gt;
 &lt;p&gt;It is said that a proper review must weigh both the good and the bad, the pros and the cons. Being the amateur that I am, I will not even bother to come up with the cons. The small, imaginatively worded poems with the simple rhyme schemes were a joy to recite. They brought to the forefront feelings I did not expect to be evoked using mere arrangement of words.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: Breakfast of Champions</title>
-      <link>//localhost:1313/posts/book-review-breakfast-of-champions/</link>
+      <link>/posts/book-review-breakfast-of-champions/</link>
       <pubDate>Mon, 06 Oct 2014 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/book-review-breakfast-of-champions/</guid>
+      <guid>/posts/book-review-breakfast-of-champions/</guid>
       <description>&lt;p&gt;Because it&amp;rsquo;s a soigné thing to do.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Books</title>
-      <link>//localhost:1313/books/</link>
+      <link>/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/books/</guid>
+      <guid>/books/</guid>
       <description>Book reviews and notes.</description>
     </item>
   </channel>
