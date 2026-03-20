@@ -23,6 +23,8 @@ func run(args []string) error {
 	switch command {
 	case "sync":
 		return blogsync.Sync(".")
+	case "fetch-book-covers":
+		return blogsync.FetchBookCovers(".")
 	case "import-goodreads":
 		return blogsync.ImportGoodreads(".", "")
 	case "import-legacy":

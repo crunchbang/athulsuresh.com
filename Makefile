@@ -7,13 +7,14 @@ GOCACHE ?= /tmp/blog-gocache
 BLOGSYNC := env GOCACHE=$(GOCACHE) $(GO) run ./cmd/blogsync
 TODAY := $(shell date +%F)
 
-.PHONY: help test sync build serve publish import-goodreads import-legacy verify-org new-post new-review
+.PHONY: help test sync build serve publish import-goodreads fetch-book-covers import-legacy verify-org new-post new-review
 
 help:
 	@printf "Common workflows:\n"
 	@printf "  make new-post TITLE='Title'\n"
 	@printf "  make new-review TITLE='Book Title'\n"
 	@printf "  make import-goodreads\n"
+	@printf "  make fetch-book-covers\n"
 	@printf "  make sync\n"
 	@printf "  make build\n"
 	@printf "  make serve\n"
@@ -36,6 +37,9 @@ publish: test build
 
 import-goodreads:
 	@$(BLOGSYNC) import-goodreads
+
+fetch-book-covers:
+	@$(BLOGSYNC) fetch-book-covers
 
 import-legacy:
 	@$(BLOGSYNC) import-legacy

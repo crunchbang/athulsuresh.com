@@ -1,0 +1,122 @@
+.books-header {
+    margin-bottom: 2rem;
+}
+
+.books-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.books-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.9rem;
+    margin: 0 0 2rem;
+}
+
+.book-stat {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--entry);
+}
+
+.book-stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.book-stat-label {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--secondary);
+    font-size: 0.92rem;
+}
+
+.book-entry {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.book-entry:first-child {
+    padding-top: 0;
+}
+
+.book-entry:last-child {
+    border-bottom: 0;
+}
+
+.book-entry-cover a {
+    display: block;
+    box-shadow: none;
+}
+
+.book-entry-cover img,
+.book-cover-placeholder {
+    width: 96px;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.book-entry-cover img {
+    object-fit: cover;
+    background: var(--entry);
+}
+
+.book-cover-placeholder {
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background: linear-gradient(160deg, var(--entry), var(--theme));
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.book-entry-header h2 {
+    margin-bottom: 0.35rem;
+    font-size: 1.3rem;
+}
+
+.book-entry-header h2 a {
+    box-shadow: none;
+}
+
+.book-entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.book-entry-summary {
+    margin-top: 0.85rem;
+}
+
+.book-entry-summary p {
+    margin: 0;
+}
+
+.book-entry-links {
+    margin-top: 0.8rem;
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .book-entry {
+        grid-template-columns: 72px minmax(0, 1fr);
+    }
+
+    .book-entry-cover img,
+    .book-cover-placeholder {
+        width: 72px;
+    }
+}

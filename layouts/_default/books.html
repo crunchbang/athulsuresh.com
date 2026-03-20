@@ -1,0 +1,91 @@
+{{- define "main" }}
+
+{{- $reviews := (where site.RegularPages "Params.article_kind" "review").ByDate.Reverse -}}
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "count" 0 -}}
+{{- $scratch.Set "ratingSum" 0 -}}
+{{- $scratch.Set "ratingCount" 0 -}}
+{{- $scratch.Set "pageSum" 0 -}}
+{{- $scratch.Set "withDateRead" 0 -}}
+
+{{- range $reviews }}
+  {{- if hasPrefix .Title "Book Review:" }}
+    {{- $scratch.Add "count" 1 -}}
+    {{- with .Params.goodreads_rating }}{{- $scratch.Add "ratingSum" (int .) -}}{{- $scratch.Add "ratingCount" 1 -}}{{- end -}}
+    {{- with .Params.goodreads_pages }}{{- $scratch.Add "pageSum" (int .) -}}{{- end -}}
+    {{- with .Params.goodreads_date_read }}{{- $scratch.Add "withDateRead" 1 -}}{{- end -}}
+  {{- end }}
+{{- end }}
+
+{{- $count := $scratch.Get "count" -}}
+{{- $ratingCount := $scratch.Get "ratingCount" -}}
+{{- $ratingAverage := 0.0 -}}
+{{- if gt $ratingCount 0 -}}
+  {{- $ratingAverage = div (float ($scratch.Get "ratingSum")) (float $ratingCount) -}}
+{{- end -}}
+
+<header class="page-header books-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Content }}
+  <div class="post-description">
+    {{ .Content }}
+  </div>
+  {{- end }}
+</header>
+
+<section class="books-stats">
+  <div class="book-stat">
+    <span class="book-stat-value">{{ $count }}</span>
+    <span class="book-stat-label">books reviewed</span>
+  </div>
+  <div class="book-stat">
+    <span class="book-stat-value">{{ lang.FormatNumber 2 $ratingAverage }}</span>
+    <span class="book-stat-label">average rating</span>
+  </div>
+  <div class="book-stat">
+    <span class="book-stat-value">{{ $scratch.Get "pageSum" }}</span>
+    <span class="book-stat-label">pages across rated books</span>
+  </div>
+  <div class="book-stat">
+    <span class="book-stat-value">{{ $scratch.Get "withDateRead" }}</span>
+    <span class="book-stat-label">with read dates</span>
+  </div>
+</section>
+
+<section class="books-list">
+  {{- range $reviews }}
+  {{- if hasPrefix .Title "Book Review:" }}
+  <article class="book-entry">
+    <div class="book-entry-cover">
+      <a href="{{ .Permalink }}" aria-label="cover for {{ .Title }}">
+        {{- $cover := printf "book-covers/%s.jpg" .Slug -}}
+        <img src="{{ printf "/%s" $cover }}" alt="Cover of {{ .Title }}">
+      </a>
+    </div>
+    <div class="book-entry-body">
+    <header class="book-entry-header">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <p class="book-entry-meta">
+        {{- with .Params.book_author }}<span>By {{ . }}</span>{{ end -}}
+        {{- with .Params.goodreads_date_read }}<span>Date read: {{ . }}</span>{{ end -}}
+        {{- with .Params.goodreads_rating }}<span>Rating: {{ . }}/5</span>{{ end -}}
+      </p>
+    </header>
+
+    {{- if .Summary }}
+    <div class="book-entry-summary">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end }}
+
+    <p class="book-entry-links">
+      <a href="{{ .Permalink }}">Read my notes</a>
+    </p>
+    </div>
+  </article>
+  {{- end }}
+  {{- end }}
+</section>
+
+{{- end }}

@@ -44,6 +44,7 @@ make help
 make new-post TITLE="My New Post"
 make new-review TITLE="Example Title"
 make import-goodreads
+make fetch-book-covers
 make build
 make serve
 make publish
@@ -83,6 +84,12 @@ The Goodreads importer:
 - uses `Date Read` as the post date, falling back to `Date Added`
 - stores Goodreads metadata in front matter
 - refuses to overwrite existing article directories
+
+Download book covers into `static/book-covers/`:
+
+```sh
+make fetch-book-covers
+```
 
 ## Generated Content
 
