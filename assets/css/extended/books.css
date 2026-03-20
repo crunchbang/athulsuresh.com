@@ -18,7 +18,7 @@
     padding: 1rem 1.1rem;
     border: 1px solid var(--border);
     border-radius: 10px;
-    background: var(--entry);
+    background: transparent;
 }
 
 .book-stat-value {
@@ -66,7 +66,7 @@
 
 .book-entry-cover img {
     object-fit: cover;
-    background: var(--entry);
+    background: var(--theme);
 }
 
 .book-cover-placeholder {

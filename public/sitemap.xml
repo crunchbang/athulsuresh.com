@@ -2,187 +2,187 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/book-review-eleanor-oliphant-is-completely-fine/</loc>
+    <loc>//localhost:1313/posts/book-review-eleanor-oliphant-is-completely-fine/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-end-of-the-affair/</loc>
+    <loc>//localhost:1313/posts/book-review-the-end-of-the-affair/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</loc>
+    <loc>//localhost:1313/posts/book-review-house-of-huawei-the-secret-history-of-china-s-most-powerful-company/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-a-short-stay-in-hell/</loc>
+    <loc>//localhost:1313/posts/book-review-a-short-stay-in-hell/</loc>
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-small-things-like-these/</loc>
+    <loc>//localhost:1313/posts/book-review-small-things-like-these/</loc>
     <lastmod>2025-03-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-pachinko/</loc>
+    <loc>//localhost:1313/posts/book-review-pachinko/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-girl-who-played-with-fire/</loc>
+    <loc>//localhost:1313/posts/book-review-the-girl-who-played-with-fire/</loc>
     <lastmod>2024-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-perks-of-being-a-wallflower/</loc>
+    <loc>//localhost:1313/posts/book-review-the-perks-of-being-a-wallflower/</loc>
     <lastmod>2022-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-life-for-sale/</loc>
+    <loc>//localhost:1313/posts/book-review-life-for-sale/</loc>
     <lastmod>2022-12-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/erlang/</loc>
+    <loc>//localhost:1313/tags/erlang/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/notes-erlang/</loc>
+    <loc>//localhost:1313/posts/notes-erlang/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-educated/</loc>
+    <loc>//localhost:1313/posts/book-review-educated/</loc>
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-stoner/</loc>
+    <loc>//localhost:1313/posts/book-review-stoner/</loc>
     <lastmod>2021-09-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-kafka-on-the-shore/</loc>
+    <loc>//localhost:1313/posts/book-review-kafka-on-the-shore/</loc>
     <lastmod>2021-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/multitasking-hammerspoon/</loc>
+    <loc>//localhost:1313/posts/multitasking-hammerspoon/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/go/</loc>
+    <loc>//localhost:1313/tags/go/</loc>
     <lastmod>2021-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/sneaky-defers-in-go/</loc>
+    <loc>//localhost:1313/posts/sneaky-defers-in-go/</loc>
     <lastmod>2021-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/writers-block/</loc>
+    <loc>//localhost:1313/posts/writers-block/</loc>
     <lastmod>2021-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-normal-people/</loc>
+    <loc>//localhost:1313/posts/book-review-normal-people/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/back-after-hiatus/</loc>
+    <loc>//localhost:1313/posts/back-after-hiatus/</loc>
     <lastmod>2021-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/unimplementable-interfaces-go/</loc>
+    <loc>//localhost:1313/posts/unimplementable-interfaces-go/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-invisible-life-of-addie-larue/</loc>
+    <loc>//localhost:1313/posts/book-review-the-invisible-life-of-addie-larue/</loc>
     <lastmod>2021-05-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-imperium/</loc>
+    <loc>//localhost:1313/posts/book-review-imperium/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-a-gentleman-in-moscow/</loc>
+    <loc>//localhost:1313/posts/book-review-a-gentleman-in-moscow/</loc>
     <lastmod>2020-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</loc>
+    <loc>//localhost:1313/posts/book-review-how-innovation-works-serendipity-energy-and-the-saving-of-time/</loc>
     <lastmod>2020-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-illicit-happiness-of-other-people/</loc>
+    <loc>//localhost:1313/posts/book-review-the-illicit-happiness-of-other-people/</loc>
     <lastmod>2020-09-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-eye-of-the-world/</loc>
+    <loc>//localhost:1313/posts/book-review-the-eye-of-the-world/</loc>
     <lastmod>2020-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-contact/</loc>
+    <loc>//localhost:1313/posts/book-review-contact/</loc>
     <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-you-deserve-each-other/</loc>
+    <loc>//localhost:1313/posts/book-review-you-deserve-each-other/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-east-of-eden/</loc>
+    <loc>//localhost:1313/posts/book-review-east-of-eden/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-dutch-house/</loc>
+    <loc>//localhost:1313/posts/book-review-the-dutch-house/</loc>
     <lastmod>2020-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/tale-of-two-dbs/</loc>
+    <loc>//localhost:1313/posts/tale-of-two-dbs/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-a-man-called-ove/</loc>
+    <loc>//localhost:1313/posts/book-review-a-man-called-ove/</loc>
     <lastmod>2020-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/notes-linux-dev/</loc>
+    <loc>//localhost:1313/posts/notes-linux-dev/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-jonathan-livingston-seagull/</loc>
+    <loc>//localhost:1313/posts/book-review-jonathan-livingston-seagull/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-night-circus/</loc>
+    <loc>//localhost:1313/posts/book-review-the-night-circus/</loc>
     <lastmod>2020-06-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</loc>
+    <loc>//localhost:1313/posts/book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/</loc>
     <lastmod>2020-06-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/wrong-tool/</loc>
+    <loc>//localhost:1313/posts/wrong-tool/</loc>
     <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/bug-ttl/</loc>
+    <loc>//localhost:1313/posts/bug-ttl/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/hello-world/</loc>
+    <loc>//localhost:1313/posts/hello-world/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/life/</loc>
+    <loc>//localhost:1313/tags/life/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-musashi/</loc>
+    <loc>//localhost:1313/posts/book-review-musashi/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-rogue-protocol/</loc>
+    <loc>//localhost:1313/posts/book-review-rogue-protocol/</loc>
     <lastmod>2020-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-artificial-condition/</loc>
+    <loc>//localhost:1313/posts/book-review-artificial-condition/</loc>
     <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-all-systems-red/</loc>
+    <loc>//localhost:1313/posts/book-review-all-systems-red/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-shogun/</loc>
+    <loc>//localhost:1313/posts/book-review-shogun/</loc>
     <lastmod>2020-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</loc>
+    <loc>//localhost:1313/posts/book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-sum-tales-from-the-afterlives/</loc>
+    <loc>//localhost:1313/posts/book-review-sum-tales-from-the-afterlives/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-boy-in-the-striped-pyjamas/</loc>
+    <loc>//localhost:1313/posts/book-review-the-boy-in-the-striped-pyjamas/</loc>
     <lastmod>2019-05-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-norwegian-wood/</loc>
+    <loc>//localhost:1313/posts/book-review-norwegian-wood/</loc>
     <lastmod>2018-11-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-princess-bride/</loc>
+    <loc>//localhost:1313/posts/book-review-the-princess-bride/</loc>
     <lastmod>2016-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-on-love/</loc>
+    <loc>//localhost:1313/posts/book-review-on-love/</loc>
     <lastmod>2016-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/on-love/</loc>
+    <loc>//localhost:1313/posts/on-love/</loc>
     <lastmod>2016-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-my-man-jeeves/</loc>
+    <loc>//localhost:1313/posts/book-review-my-man-jeeves/</loc>
     <lastmod>2015-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-lullabies/</loc>
+    <loc>//localhost:1313/posts/book-review-lullabies/</loc>
     <lastmod>2015-01-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-breakfast-of-champions/</loc>
+    <loc>//localhost:1313/posts/book-review-breakfast-of-champions/</loc>
     <lastmod>2014-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/archive/</loc>
+    <loc>//localhost:1313/archive/</loc>
   </url><url>
-    <loc>/books/</loc>
+    <loc>//localhost:1313/books/</loc>
   </url><url>
-    <loc>/search/</loc>
+    <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>

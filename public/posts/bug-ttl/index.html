@@ -13,7 +13,7 @@ Background
 In our production cluster, we use Aerospike as the primary data store, with data being synced to MySQL for long term storage. For the uninitiated, Aerospike is a high speed, distributed key-value NoSQL database which provides a lot of cool features. Check it out if you haven&rsquo;t already. In our cluster, all transactional data gets written to or read from AS, with MySQL being used only as a fallback option. We have a dedicated service that sync data from AS to MySQL and keeps things in check. The speed of access and the ability to scale by adding new nodes helps us keep the pressure off our central MySQL datastore.">
 <meta name="author" content="Athul Suresh">
 <link rel="canonical" href="//localhost:1313/posts/bug-ttl/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e261bc4709a999c4e45ab48a73f1b24fbc40a5c4a8f5a49e6f350bff2b3216b3.css" integrity="sha256-4mG8RwmpmcTkWrSKc/GyT7xApcSo9aSebzUL/ysyFrM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c9af3ecea9435a1651236f685e0414ec2828bdd63c129eba71167cd58f52c4ee.css" integrity="sha256-ya8&#43;zqlDWhZRI29oXgQU7CgovdY8Ep66cRZ81Y9SxO4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="//localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
@@ -263,6 +263,7 @@ expect when you plug it into a script. Always err on the side of verbosity and a
     
 <footer class="footer">
         <span>&copy; 2026 <a href="//localhost:1313/">Core Dump</a></span> · 
+        <a href="https://github.com/crunchbang/athulsuresh.com">Source</a> · 
 
     <span>
         Powered by

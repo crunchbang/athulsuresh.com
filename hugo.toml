@@ -30,6 +30,7 @@ ShowCodeCopyButtons = true
 env = "production"
 social = true
 author = { name = "Athul Suresh" }
+footer = { text = "[Source](https://github.com/crunchbang/athulsuresh.com)" }
 socialIcons = [
   {name = "github", url = "https://github.com/crunchbang"},
   {name = "rss", url = "index.xml"},
@@ -47,14 +48,10 @@ threshold = 0.0
 
 [params.homeInfoParams]
 Content = """
-I'm athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल)!
+I’m athul (ah-THUL, Malayalam: അതുൽ, Hindi: अतुल), a programmer from a small town in Kerala in the southern part of India.
 
-
-I'm a programmer from a small town in Kerala, in the southern part of India.
-
-
-There is no grand theme or unifying thread that ties these posts together. They are mostly anecdotes, experiences, and notes that I’ve collected over the years while I tinkered around with telephony systems and payment platforms.
+There is no grand theme tying these posts together. They are mostly anecdotes, experiences, and notes collected over the years while I tinkered with telephony systems, payment platforms, and whatever else held my attention long enough to write down.
 
 Caveat emptor.
   """
-Title = "Hello!"
+Title = "Hello."
