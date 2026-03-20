@@ -1,0 +1,31 @@
++++
+id = "book-review-lullabies"
+title = "Book Review: Lullabies (Volume 2) (Lang Leav)"
+author = ["Athul Suresh"]
+date = "2015-01-13"
+slug = "book-review-lullabies"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Lang Leav"
+goodreads_book_id = "22151696"
+goodreads_rating = "4"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2015-01-13"
+goodreads_date_added = "2015-01-13"
+goodreads_isbn = "1449461077"
+goodreads_isbn13 = "9781449461072"
+goodreads_publisher = "Andrews McMeel Publishing"
+goodreads_binding = "Paperback"
+goodreads_pages = "248"
+goodreads_publication_year = "2014"
+goodreads_original_publication_year = "2014"
++++
+
+A book I'll re-read on lazy afternoons.
+
+As an amateur poetry aficionado, this book was my real dip into poems that dealt with the themes of love and companionship.
+
+It is said that a proper review must weigh both the good and the bad, the pros and the cons. Being the amateur that I am, I will not even bother to come up with the cons. The small, imaginatively worded poems with the simple rhyme schemes were a joy to recite. They brought to the forefront feelings I did not expect to be evoked using mere arrangement of words.
+
+I would definitely recommend it to anyone who has at least a cursory understanding of poetry.

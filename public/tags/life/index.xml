@@ -4,15 +4,15 @@
     <title>Life on Core Dump</title>
     <link>//localhost:1313/tags/life/</link>
     <description>Recent content in Life on Core Dump</description>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.158.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/tags/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>//localhost:1313/posts/01-hello-world/</link>
+      <link>//localhost:1313/posts/hello-world/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/01-hello-world/</guid>
+      <guid>//localhost:1313/posts/hello-world/</guid>
       <description>&lt;p&gt;Hello!&lt;/p&gt;
 &lt;p&gt;Is there anybody out there?&lt;/p&gt;
 &lt;p&gt;Nod if you can hear me&lt;/p&gt;

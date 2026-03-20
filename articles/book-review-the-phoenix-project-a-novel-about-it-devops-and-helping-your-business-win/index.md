@@ -1,0 +1,29 @@
++++
+id = "book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win"
+title = "Book Review: The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win"
+author = ["Athul Suresh"]
+date = "2020-06-05"
+slug = "book-review-the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Gene Kim"
+goodreads_book_id = "17255186"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2020-06-05"
+goodreads_date_added = "2020-06-06"
+goodreads_isbn = "0988262592"
+goodreads_isbn13 = "9780988262591"
+goodreads_publisher = "IT Revolution Press"
+goodreads_binding = "Hardcover"
+goodreads_pages = "345"
+goodreads_publication_year = "2013"
+goodreads_original_publication_year = "2013"
++++
+
+I found this book by accident through a recommendation on Twitter. The book beautifully captures the mayhem and mismanagement that is all too familiar to IT folks who are part of an org where IT is a support system, and not seen as a core competency. Written at a time when Dev & Ops had a wide chasm between them, the story of the Phoenix Team and their enlightening struggle to reel in Dev and Ops into a single unit provides an accessible narrative that conveys the enormity of the benefits that DevOps entails.
+
+Personally, It took me an excruciatingly long time to get through this book. The enthusiasm that motivated me to pick it up waned about half way through the book when things sort of slowed down, and the story became unrelatable. Having read this book a little late and having worked in an org where DevOps was (almost) the norm made some of the problems stated in the beginning of the book hard to digest.
+
+Nonetheless, the book offers an interesting foray into a time and place where on-prem servers where the norm and packaging software was a task in itself. A recommended read for any programmer, so that they may take a moment to appreciate and value the struggles of ours predecessor who worked to enable the convenience we enjoy today.

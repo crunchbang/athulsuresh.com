@@ -1,0 +1,31 @@
++++
+id = "book-review-the-eye-of-the-world"
+title = "Book Review: The Eye of the World (The Wheel of Time, #1)"
+author = ["Athul Suresh"]
+date = "2020-09-13"
+slug = "book-review-the-eye-of-the-world"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Robert Jordan"
+goodreads_book_id = "228665"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2020-09-13"
+goodreads_date_added = "2020-09-13"
+goodreads_isbn = "0812511816"
+goodreads_isbn13 = "9780812511819"
+goodreads_publisher = "Tor Books"
+goodreads_binding = "Mass Market Paperback"
+goodreads_pages = "800"
+goodreads_publication_year = "1990"
+goodreads_original_publication_year = "1990"
++++
+
+Book 1 / 15
+
+Being the first part in a long fantasy series, a fair bit of time is spent establishing the world, the characters, and the lore. Despite this overhead, the author has managed to weave a story of adventure and suspense that swoops you in from the start. If you've read Lord Of The Rings or any of the other fantasy novels, you'll find a fair bit of similarities and a sprinkling of the most common tropes.  Refreshingly, Robert Jordan has kept his focus on the plot without delving into meaningless drivel about trees and outbursts of songs like Tolkien.
+
+The story isn't intellectual nor does it present the readers with any "serious" subjects under the garbs of magic and mystery. It is not a philosophical discourse on race and class, nor is it a reflection on human life and misery. The book does not pretend to be something it is not. It's a simple, straight-forward story of a chosen-one and the prophecy he is bound to fulfill, and it keeps that focus well until the end, without diluting itself to make it more palatable for a broader range of readers.
+
+If you're looking for an engaging fantasy novel that you can breeze through and enjoy without putting in a lot of mental effort, then you should definitely try this book, even if you do not end up following the rest of the series.

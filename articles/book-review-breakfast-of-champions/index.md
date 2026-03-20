@@ -1,0 +1,25 @@
++++
+id = "book-review-breakfast-of-champions"
+title = "Book Review: Breakfast of Champions"
+author = ["Athul Suresh"]
+date = "2014-10-06"
+slug = "book-review-breakfast-of-champions"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Kurt Vonnegut Jr."
+goodreads_book_id = "4980"
+goodreads_rating = "5"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2014-10-06"
+goodreads_date_added = "2014-10-04"
+goodreads_isbn = "0385334206"
+goodreads_isbn13 = "9780385334204"
+goodreads_publisher = "Dell Publishing"
+goodreads_binding = "Paperback"
+goodreads_pages = "303"
+goodreads_publication_year = "1999"
+goodreads_original_publication_year = "1973"
++++
+
+Because it's a soigné thing to do.

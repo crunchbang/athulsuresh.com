@@ -1,0 +1,25 @@
++++
+id = "book-review-the-girl-who-played-with-fire"
+title = "Book Review: The Girl Who Played with Fire (Millennium #2)"
+author = ["Athul Suresh"]
+date = "2024-12-14"
+slug = "book-review-the-girl-who-played-with-fire"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Stieg Larsson"
+goodreads_book_id = "5060378"
+goodreads_rating = "2"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2024-12-14"
+goodreads_date_added = "2024-12-15"
+goodreads_isbn = "0307269981"
+goodreads_isbn13 = "9780307269980"
+goodreads_publisher = "Alfred A. Knopf"
+goodreads_binding = "Hardcover"
+goodreads_pages = "503"
+goodreads_publication_year = "2009"
+goodreads_original_publication_year = "2006"
++++
+
+Great buildup with a disappointing ending. This would be the last Millennium book I pick up in a while.

@@ -1,0 +1,23 @@
++++
+id = "book-review-the-end-of-the-affair"
+title = "Book Review: The End of the Affair"
+author = ["Athul Suresh"]
+date = "2025-05-01"
+slug = "book-review-the-end-of-the-affair"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Graham Greene"
+goodreads_book_id = "29641"
+goodreads_rating = "2"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2025-05-01"
+goodreads_date_added = "2020-09-05"
+goodreads_publisher = "Vintage Classics"
+goodreads_binding = "Paperback"
+goodreads_pages = "160"
+goodreads_publication_year = "2004"
+goodreads_original_publication_year = "1951"
++++
+
+I was pleasantly surprised by the depth with which the story portrayed the feelings involved in an affair, capturing the feeling of love that can never be. The later part of the book was an utter disappointment as it devolves into (slightly) incoherent religious blabber.

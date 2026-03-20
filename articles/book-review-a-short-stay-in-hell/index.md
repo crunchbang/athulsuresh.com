@@ -1,0 +1,25 @@
++++
+id = "book-review-a-short-stay-in-hell"
+title = "Book Review: A Short Stay in Hell"
+author = ["Athul Suresh"]
+date = "2025-03-25"
+slug = "book-review-a-short-stay-in-hell"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Steven L. Peck"
+goodreads_book_id = "13456414"
+goodreads_rating = "4"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2025-03-25"
+goodreads_date_added = "2025-03-14"
+goodreads_isbn = "098374842X"
+goodreads_isbn13 = "9780983748427"
+goodreads_publisher = "Strange Violin Editions"
+goodreads_binding = "Paperback"
+goodreads_pages = "108"
+goodreads_publication_year = "2012"
+goodreads_original_publication_year = "2011"
++++
+
+Interesting take on religion, hell, eternity, and the impact on human relationships.

@@ -1,0 +1,27 @@
++++
+id = "book-review-the-illicit-happiness-of-other-people"
+title = "Book Review: The Illicit Happiness of Other People"
+author = ["Athul Suresh"]
+date = "2020-09-26"
+slug = "book-review-the-illicit-happiness-of-other-people"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Manu Joseph"
+goodreads_book_id = "13707645"
+goodreads_rating = "4"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2020-09-26"
+goodreads_date_added = "2020-09-26"
+goodreads_isbn = "0393338622"
+goodreads_isbn13 = "9780393338621"
+goodreads_publisher = "W. W. Norton & Company"
+goodreads_binding = "Paperback"
+goodreads_pages = "352"
+goodreads_publication_year = "2013"
+goodreads_original_publication_year = "2012"
++++
+
+As a reader, I have always been predisposed to seek out “happy books” - the ones with stories where things eventually work out, where the hero accomplishes his quest, where peace is restored in the realm, and where people “lived happily every after”. In these stories death, despair, and sadness caused by heinous crimes were nothing but decoy targets that were used to accentuate and make the eventual triumph of all that is good even more satisfying. They were analyzed and enjoyed merely as instruments of comparison, a convenient plot point, which would eventually be swept under the rug and forgotten in the face of the grand conclusion. This book threw all of those expectations out the window. It spat in the face of my conventional expectations and brought me face to face with some unsavory subjects which I had tried hard to avoid all my life.
+
+Manu Joseph has woven a tale of a broken family forced to deal with death, poverty, and societal snobbery. With his astute observations and scathing humor, he exposes the ugly underbelly of our otherwise cultured society. The book, with its mysterious tale sheathed in layers of wisdom and humor, might make you laugh or even cry, but it will definitely make you hate yourself and the society at large. I’d definitely recommend this to anyone thinking about bursting the delicate bubble they have created for themselves.

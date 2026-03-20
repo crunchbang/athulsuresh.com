@@ -7,7 +7,6 @@ home = ["HTML", "JSON", "RSS"]
 
 [menu]
 main = [
-  {identifier = "Books", name = "Books", url = "/books/"},
   {identifier = "Archive", name = "Archive", url = "/archive/"},
   {identifier = "Search", name = "Search", url = "/search/"},
   {identifier = "Tabs", name = "Tags", url = "/tags/"},
@@ -31,6 +30,7 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 env = "production"
 social = true
+author = { name = "Athul Suresh" }
 socialIcons = [
   {name = "github", url = "https://github.com/crunchbang"},
   {name = "rss", url = "index.xml"},

@@ -1,0 +1,33 @@
++++
+id = "book-review-eleanor-oliphant-is-completely-fine"
+title = "Book Review: Eleanor Oliphant Is Completely Fine"
+author = ["Athul Suresh"]
+date = "2026-03-10"
+slug = "book-review-eleanor-oliphant-is-completely-fine"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Gail Honeyman"
+goodreads_book_id = "35900387"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2026-03-10"
+goodreads_date_added = "2026-03-02"
+goodreads_isbn = "0008172145"
+goodreads_isbn13 = "9780008172145"
+goodreads_publisher = "HarperCollins GB"
+goodreads_binding = "Paperback"
+goodreads_pages = "390"
+goodreads_publication_year = "2018"
+goodreads_original_publication_year = "2017"
++++
+
+I haven't done these in awhile, so I'm a bit rusty on verbal flourish.
+
+Bookish snobbery, I felt, had constrained my reading diversity to a limited range, directing me to more of the same sort of books as I'd read in the past. I found that I was not reading the books that I had researched and bought, choosing to keep them in their pristine condition. I wanted to experience the joy of spontaneity and the experience of working within constraints. So, last September, I decided to only buy used books from charity shops. The added benefit was the fact that everything was quite cheap and the books were already in a "well loved" condition. This in turn ensured that I wouldn't keep these framed on my bookshelf, and would actually read them, in whatever manner I felt comfortable.
+
+This is the sort of book that I would normally avoid. 'Costa First Novel Award' is not a seal of approval that I seek out in a book store. But, in the face of the limited selection, I found this to be a better choice than 'Chicken Soup For The Soul' and 'The Monk Who Sold His Ferrari'.
+
+For me, the book at its core, was a tale of personal battle around assumed guilt and depression. The treatment of this topic interleaved amongst descriptions of normal days and normal encounters, with a little bit of dry British wit thrown in for good measure, made it an engaging read.
+
+It's not the sort of story that will leave a lasting impression on me, but it is one that I enjoyed reading and did not regret finishing.

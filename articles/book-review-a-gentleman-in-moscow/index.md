@@ -1,0 +1,26 @@
++++
+id = "book-review-a-gentleman-in-moscow"
+title = "Book Review: A Gentleman in Moscow"
+author = ["Athul Suresh"]
+date = "2020-12-21"
+slug = "book-review-a-gentleman-in-moscow"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Amor Towles"
+goodreads_book_id = "34066798"
+goodreads_rating = "4"
+goodreads_exclusive_shelf = "read"
+goodreads_date_added = "2020-12-21"
+goodreads_publisher = "Penguin Books"
+goodreads_binding = "Paperback"
+goodreads_pages = "495"
+goodreads_publication_year = "2019"
+goodreads_original_publication_year = "2016"
++++
+
+I've observed that misanthropic traits in protagonists manifest primarily in two ways - In those that are weak, in whom misanthropy arises as an effect of their inability to hold their own, and in those that are strong, in whom misanthropy arises because of their utter disregard for those who are weaker, poorer, or otherwise unfortunate than them. For me, a heart-warming story usually involves humanizing a strong misanthropic protagonist. A skilled author portrays this "thawing of the frozen heart" in an artful way, making the character more relatable and empathetic, with bits of humor thrown in along the way to tie the whole package together. In "The Man Called Ove", it's the stubborn widower who's set in his ways, and in "A Gentleman in Moscow", it's an estranged aristocrat who’s the subject of this artful dissection. Through whimsical adventures and happy little accidents, the author turns The Count into an endearing character whom we root for and relate to with the utmost passion.
+
+The emotional aspect aside, we're offered an interesting glimpse of Russia through the eyes of a man who rolled around with the upper echelons of pre-revolution Russian aristocracy. A mix of Russian history and witty dialogues make the book truly unputdownable.
+
+Through his enlightening observations and irreverent demeanor, The Count, along with his ensemble of quirky characters, will leave you ensconced in a feeling of warmth and happiness. A definite must read for those cold, cozy, Christmas nights.

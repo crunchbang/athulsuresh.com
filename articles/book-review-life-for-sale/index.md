@@ -1,0 +1,41 @@
++++
+id = "book-review-life-for-sale"
+title = "Book Review: Life for Sale"
+author = ["Athul Suresh"]
+date = "2022-12-05"
+slug = "book-review-life-for-sale"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Yukio Mishima"
+goodreads_book_id = "43685241"
+goodreads_rating = "2"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2022-12-05"
+goodreads_date_added = "2022-12-06"
+goodreads_isbn = "0241333148"
+goodreads_isbn13 = "9780241333143"
+goodreads_publisher = "Penguin Classics"
+goodreads_binding = "Paperback"
+goodreads_pages = "192"
+goodreads_publication_year = "2019"
+goodreads_original_publication_year = "1968"
++++
+
+A disappointing read that left me unfulfilled. The plot had potential, with multiple seemingly disconnected threads that I hoped would eventually converge.
+
+Hoped.
+
+The same hope of a grand reveal kept me turning the pages.
+
+The hope of something that would imbue every prior moment with new meaning; something that would make me look at the story in a new light.
+
+But alas, all I got was poor attempt at reconciliation. A pitiful way to tie everything together. An unsatisfying ending.
+
+Maybe that's all the story was from the very beginning. An ordinary plot with potential that was doomed to remain anything utterly ordinary.
+
+Maybe it was my misplaced expectations, my deep seated need for a plot altering ending which made the book unappealing for me. You rarely get what you hope for, and in that regard, the book delivers.
+
+2/5.
+
+More of a rating of myself and my expectations from a story than of the novel itself.

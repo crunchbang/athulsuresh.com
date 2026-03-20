@@ -1,0 +1,34 @@
++++
+id = "book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds"
+title = "Book Review: Can't Hurt Me: Master Your Mind and Defy the Odds"
+author = ["Athul Suresh"]
+date = "2020-01-01"
+slug = "book-review-can-t-hurt-me-master-your-mind-and-defy-the-odds"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "David Goggins"
+goodreads_book_id = "41721428"
+goodreads_rating = "3"
+goodreads_exclusive_shelf = "read"
+goodreads_date_read = "2020-01-01"
+goodreads_date_added = "2019-12-11"
+goodreads_isbn = "1544512260"
+goodreads_publisher = "Lioncrest Publishing"
+goodreads_binding = "Kindle Edition"
+goodreads_pages = "366"
+goodreads_publication_year = "2018"
+goodreads_original_publication_year = "2018"
++++
+
+This book is a life story and motivational piece rolled up into one. It dips into excruciating detail David Goggins' painful, and at time unbelievable, journey through an abused childhood, a teenage of suffering, and an adulthood of proving himself against unrealistic odds.
+
+Each chapter details a seemingly insurmountable obstacle and his tireless journey of ups and multiples downs that got him over it. The "techniques" that he uses in each chapter is detailed in an associated section where he encourages the reader to apply them to their everyday problems.
+
+The books is by no means a literary classic. But then again you wouldn't pick this one if that's what you were looking for. At times, the book felt like it was pieced together from online motivational puff pieces, with repetitive, mainstream variations of "fucking do it" repeated over and over again.
+
+All that negativity aside, I was awed and floored by the audacity of this man as he put forth on public display all the nitty gritty nasty details that most biographies often brush over. Here is a portrait of a man, entangled in an eternal struggle to prove something - sometimes to himself, sometimes to his naysayers. The accounts of his struggle through SEAL training, and the details of his excruciating pain through his first 100 mile marathon stuck with me. You can feel the exhaustion, the gasps for air, the muscular fatigue as Goggins recalls his first 100 mile race. This man knows pain and suffering and he has communicated it well.
+
+Whether or not his pursuits were justified or even sane is another question. But I would consider myself ill equipped to judge a man who has been through so much, and still gets up every morning asking for more.
+
+I'd recommend this to anyone who feels like they're limited by their surrounding/upbringing/whatever else is out of their control. This man's story will tell you that we are in fact "leaving 60% on the table".

@@ -1,0 +1,36 @@
++++
+id = "book-review-pachinko"
+title = "Book Review: Pachinko"
+author = ["Athul Suresh"]
+date = "2025-01-08"
+slug = "book-review-pachinko"
+article_kind = "review"
+draft = false
+original_source = "Goodreads"
+book_author = "Min Jin Lee"
+goodreads_book_id = "34051011"
+goodreads_rating = "5"
+goodreads_exclusive_shelf = "read"
+goodreads_date_added = "2025-01-08"
+goodreads_publisher = "Grand Central Publishing"
+goodreads_binding = "Kindle Edition"
+goodreads_pages = "496"
+goodreads_publication_year = "2017"
+goodreads_original_publication_year = "2017"
++++
+
+5/5 - The best book I've read this year.
+
+The story taught me a great deal about the fractured history of Korea - life under Japanese rule, the division into North and South after the second world war and so much more. The history of the land is seamlessly interwoven with the history of its people.
+
+The writing style is fluid and unique, with subtle writing choices that made it easy to digest and follow along the plot and the characters across this 900 something page behemoth of a book.
+
+It is a multigenerational story with a dizzying array of characters who pop in and out across the timeline. There is a conscious choice made by the author to repeat the character names whenever they're in focus. This is immensely helpful for someone like me who tends to quickly glaze over and forget the names of characters after their first appearance.
+
+The writing seamlessly changes from the thoughts and dialogues of one character to the other. There is no explicit handoff or change of batons when it comes to narration, but it intuitively flows along with no hiccups or confusion.
+
+Most of the characters were richly detailed, with complex internal motivations and conflicts. A few character arcs are left unfinished, but it's forgivable given the scope of the story.
+
+At the core of the book, I found a deeply complex story that dealt with the question of identity and self worth, of what it means to belong, and more importantly what it means to be an outsider in your own land.
+
+At the end, I wished there were 900 pages more.
