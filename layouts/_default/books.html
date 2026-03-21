@@ -9,13 +9,22 @@
 {{- $scratch.Set "ratingSum" 0 -}}
 {{- $scratch.Set "ratingCount" 0 -}}
 {{- $scratch.Set "pageSum" 0 -}}
+{{- $scratch.Set "reviewedBookIDs" (dict) -}}
+{{- $scratch.Set "reviewedTitles" (dict) -}}
 
 {{- range $reviews }}
   {{- if hasPrefix .Title "Book Review:" }}
+    {{- with .Params.goodreads_book_id }}
+      {{- $scratch.SetInMap "reviewedBookIDs" . true -}}
+    {{- end -}}
+    {{- $reviewTitle := strings.TrimSpace (strings.TrimPrefix "Book Review: " .Title) -}}
+    {{- if $reviewTitle -}}
+      {{- $scratch.SetInMap "reviewedTitles" $reviewTitle true -}}
+    {{- end -}}
     {{- $summary := "" -}}
     {{- if .Summary }}{{- $summary = printf "%s%s" (.Summary | plainify | htmlUnescape) (cond .Truncated "..." "") -}}{{- end -}}
     {{- $entry := dict
-      "title" (strings.TrimSpace (strings.TrimPrefix "Book Review: " .Title))
+      "title" $reviewTitle
       "date" (.Date.Format "2006-01-02")
       "cover_slug" .Slug
       "book_author" .Params.book_author
@@ -35,6 +44,16 @@
 {{- end }}
 
 {{- range $ratedBooks }}
+  {{- $alreadyReviewed := false -}}
+  {{- with .goodreads_book_id }}
+    {{- if isset ($scratch.Get "reviewedBookIDs") . -}}
+      {{- $alreadyReviewed = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and (not $alreadyReviewed) .title (isset ($scratch.Get "reviewedTitles") .title) -}}
+    {{- $alreadyReviewed = true -}}
+  {{- end -}}
+  {{- if not $alreadyReviewed }}
   {{- $entry := dict
     "title" .title
     "date" .date
@@ -51,6 +70,7 @@
   {{- $scratch.Add "count" 1 -}}
   {{- with .goodreads_rating }}{{- $scratch.Add "ratingSum" (int .) -}}{{- $scratch.Add "ratingCount" 1 -}}{{- end -}}
   {{- with .goodreads_pages }}{{- $scratch.Add "pageSum" (int .) -}}{{- end -}}
+  {{- end -}}
 {{- end }}
 
 {{- $entries := sort ($scratch.Get "entries") "date" "desc" -}}
