@@ -12,7 +12,15 @@
   <meta property="og:description" content="{{ . }}">
 {{- end }}
 
-{{- with or .Params.locale site.Language.Locale site.Language.Name }}
+{{- $languageLocale := .Params.locale }}
+{{- if not $languageLocale }}
+  {{- if ge hugo.Version "0.158.0" }}
+    {{- $languageLocale = or site.Language.Locale site.Language.Name }}
+  {{- else }}
+    {{- $languageLocale = or site.Language.LanguageCode site.Language.Lang }}
+  {{- end }}
+{{- end }}
+{{- with $languageLocale }}
   <meta property="og:locale" content="{{ . }}">
 {{- end }}
 

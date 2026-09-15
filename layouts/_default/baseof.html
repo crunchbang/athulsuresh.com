@@ -3,7 +3,13 @@
 {{- end -}}
 
 <!DOCTYPE html>
-<html lang="{{ site.Language }}" dir="{{ .Language.Direction | default "auto" }}">
+{{- $languageDirection := "auto" -}}
+{{- if ge hugo.Version "0.158.0" -}}
+{{- $languageDirection = .Language.Direction | default "auto" -}}
+{{- else -}}
+{{- $languageDirection = .Language.LanguageDirection | default "auto" -}}
+{{- end }}
+<html lang="{{ site.Language }}" dir="{{ $languageDirection }}">
 
 <head>
     {{- partial "head.html" . }}

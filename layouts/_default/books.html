@@ -1,7 +1,12 @@
 {{- define "main" }}
 
 {{- $reviews := (where site.RegularPages "Params.article_kind" "review").ByDate.Reverse -}}
-{{- $ratedBooks := hugo.Data.rated_books | default slice -}}
+{{- $ratedBooks := slice -}}
+{{- if ge hugo.Version "0.156.0" -}}
+  {{- $ratedBooks = hugo.Data.rated_books | default slice -}}
+{{- else -}}
+  {{- $ratedBooks = site.Data.rated_books | default slice -}}
+{{- end -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "entries" slice -}}
 {{- $scratch.Set "count" 0 -}}
