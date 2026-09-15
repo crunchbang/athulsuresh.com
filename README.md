@@ -32,8 +32,9 @@ Notes:
 
 - `id` is the stable internal identifier.
 - `slug` controls the public URL and should not change after publishing.
-- `article_kind` is `essay` or `review`.
-- Technical posts and book reviews are both articles. Hugo publishes them all under `/posts/<slug>/`.
+- `article_kind` is `essay`, `note`, or `review`.
+- Essays and reviews are published under `/posts/<slug>/`.
+- Notes are provisional workbench writing published under `/notes/<slug>/`. They have their own index and RSS feed and do not appear on the curated home page, archive, or posts feed.
 
 ## Commands
 
@@ -42,6 +43,7 @@ Common workflows through `make`:
 ```sh
 make help
 make new-post TITLE="My New Post"
+make new-note TITLE="What I learned"
 make new-review TITLE="Example Title"
 make import-goodreads
 make fetch-book-covers
@@ -52,6 +54,7 @@ make publish
 
 `make publish` runs tests and rebuilds the site.
 `make new-review` prefixes the title as `Book Review: ...` automatically.
+`make new-note` creates a publishable note with an empty body. Write whatever you want to say, then run `make publish`.
 
 Generate Hugo content from `articles/`:
 
@@ -93,7 +96,7 @@ make fetch-book-covers
 
 ## Generated Content
 
-`content/posts/` is generated. Do not edit files there manually.
+`content/posts/` and the individual Markdown files in `content/notes/` are generated. Do not edit them manually. The Notes page introduction is hand-authored in `content/notes/_index.md`.
 
 The Hugo-only pages remain hand-authored:
 

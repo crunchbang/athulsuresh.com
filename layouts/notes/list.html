@@ -1,0 +1,25 @@
+{{- define "main" }}
+
+<header class="page-header notes-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  <div class="post-description notes-description">
+    {{ .Content }}
+  </div>
+</header>
+
+{{- $notes := (where site.RegularPages "Params.article_kind" "note").ByDate.Reverse -}}
+<div class="notes-list">
+  {{- range $notes }}
+  {{- $note := . }}
+  <article class="note-entry">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.DateFormat | default "January 2, 2006") }}</time>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h2>
+    {{- with .Summary }}
+    <p>{{ . | plainify | htmlUnescape }}{{ if $note.Truncated }}…{{ end }}</p>
+    {{- end }}
+  </article>
+  {{- end }}
+</div>
+
+{{- end }}

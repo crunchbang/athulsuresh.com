@@ -48,6 +48,55 @@ draft = false`)
 	}
 }
 
+func TestValidateNoteAndRenderURL(t *testing.T) {
+	article := Article{Meta: ArticleMeta{
+		ID: "small-discovery", Title: "A small discovery", Date: "2026-09-15",
+		Slug: "small-discovery", Kind: "note",
+	}}
+	if err := validateArticles([]Article{article}); err != nil {
+		t.Fatalf("validate note: %v", err)
+	}
+
+	rendered := renderHugoArticle(article)
+	if !strings.Contains(rendered, `article_kind = "note"`) {
+		t.Fatalf("rendered note is missing article kind:\n%s", rendered)
+	}
+	if !strings.Contains(rendered, `url = "/notes/small-discovery/"`) {
+		t.Fatalf("rendered note is missing notes URL:\n%s", rendered)
+	}
+	if !strings.Contains(rendered, `layout = "note"`) {
+		t.Fatalf("rendered note is missing notes layout:\n%s", rendered)
+	}
+}
+
+func TestCleanGeneratedNotesPreservesSectionIndex(t *testing.T) {
+	notesDir := filepath.Join(t.TempDir(), "content", "notes")
+	if err := os.MkdirAll(notesDir, 0o755); err != nil {
+		t.Fatalf("create notes directory: %v", err)
+	}
+	index := []byte("---\ntitle: Notes\n---\n\nMy introduction.\n")
+	if err := os.WriteFile(filepath.Join(notesDir, "_index.md"), index, 0o644); err != nil {
+		t.Fatalf("write notes index: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(notesDir, "old-note.md"), []byte("generated"), 0o644); err != nil {
+		t.Fatalf("write generated note: %v", err)
+	}
+
+	if err := cleanGeneratedNotes(notesDir); err != nil {
+		t.Fatalf("clean generated notes: %v", err)
+	}
+	got, err := os.ReadFile(filepath.Join(notesDir, "_index.md"))
+	if err != nil {
+		t.Fatalf("read notes index: %v", err)
+	}
+	if string(got) != string(index) {
+		t.Fatalf("notes index changed:\n%s", got)
+	}
+	if _, err := os.Stat(filepath.Join(notesDir, "old-note.md")); !os.IsNotExist(err) {
+		t.Fatalf("generated note was not removed: %v", err)
+	}
+}
+
 func TestSlugifyBookTitle(t *testing.T) {
 	got := slugifyBookTitle("Shōgun (Asian Saga, #1)")
 	if got != "shogun" {

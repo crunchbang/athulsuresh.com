@@ -1,0 +1,51 @@
+{{- define "main" }}
+
+<article class="post-single workbench-note">
+  <header class="post-header">
+    <nav class="breadcrumbs" aria-label="breadcrumbs">
+      <a href="{{ "" | absLangURL }}">Home</a><span class="breadcrumbs-separator">&nbsp;»&nbsp;</span><a href="{{ "/notes/" | absLangURL }}">Notes</a>
+    </nav>
+    <h1 class="post-title entry-hint-parent">
+      {{ .Title }}
+      {{- if .Draft }}
+      <span class="entry-hint" title="Draft">Draft</span>
+      {{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+      {{- partial "edit_post.html" . -}}
+      {{- partial "post_canonical.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
+  {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+  {{- if (.Param "ShowToc") }}{{- partial "toc.html" . }}{{- end }}
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}<li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>{{- end }}
+    </ul>
+    {{- if (.Param "ShowPostNavLinks") }}{{- partial "post_nav_links.html" . }}{{- end }}
+    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}{{- partial "share_icons.html" . }}{{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}{{- partial "comments.html" . }}{{- end }}
+</article>
+
+{{- end }}

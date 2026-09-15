@@ -7,11 +7,12 @@ GOCACHE ?= /tmp/blog-gocache
 BLOGSYNC := env GOCACHE=$(GOCACHE) $(GO) run ./cmd/blogsync
 TODAY := $(shell date +%F)
 
-.PHONY: help test sync build serve publish import-goodreads fetch-book-covers import-legacy verify-org new-post new-review
+.PHONY: help test sync build serve publish import-goodreads fetch-book-covers import-legacy verify-org new-post new-note new-review
 
 help:
 	@printf "Common workflows:\n"
 	@printf "  make new-post TITLE='Title'\n"
+	@printf "  make new-note TITLE='What I learned'\n"
 	@printf "  make new-review TITLE='Book Title'\n"
 	@printf "  make import-goodreads\n"
 	@printf "  make fetch-book-covers\n"
@@ -50,6 +51,9 @@ verify-org:
 new-post:
 	@$(MAKE) _new-article ARTICLE_KIND=essay TITLE="$(TITLE)"
 
+new-note:
+	@$(MAKE) _new-article ARTICLE_KIND=note DRAFT=false TITLE="$(TITLE)"
+
 new-review:
 	@if [[ -z "$(TITLE)" ]]; then \
 		echo "TITLE is required. Example: make new-review TITLE='The Left Hand of Darkness'"; \
@@ -87,8 +91,8 @@ _new-article:
 	printf 'date = "%s"\n' "$(TODAY)" >> "$$file"; \
 	printf 'slug = "%s"\n' "$$slug" >> "$$file"; \
 	printf 'article_kind = "%s"\n' "$(ARTICLE_KIND)" >> "$$file"; \
-	printf 'draft = true\n' >> "$$file"; \
+	printf 'draft = %s\n' "$${DRAFT:-true}" >> "$$file"; \
 	printf '+++\n\n' >> "$$file"; \
-	printf '%s\n' 'Start writing here.' >> "$$file"; \
+	if [[ "$(ARTICLE_KIND)" != "note" ]]; then printf '%s\n' 'Start writing here.' >> "$$file"; fi; \
 	echo "Created $$file"; \
-	echo "Next steps: edit $$file && make build"
+	echo "Next steps: edit $$file && make publish"

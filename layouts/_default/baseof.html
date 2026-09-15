@@ -10,7 +10,7 @@
 </head>
 
 <body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`) (eq .Layout `books`) (eq .RelPermalink `/books/`)) -}}
+{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`) (eq .Layout `books`) (eq .Layout `notes`) (eq .RelPermalink `/books/`) (eq .RelPermalink `/notes/`)) -}}
 {{- print "list" -}}
 {{- end -}}
 {{- if eq site.Params.defaultTheme `dark` -}}

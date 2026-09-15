@@ -186,6 +186,8 @@
   </url><url>
     <loc>//localhost:1313/books/</loc>
   </url><url>
+    <loc>//localhost:1313/notes/</loc>
+  </url><url>
     <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>

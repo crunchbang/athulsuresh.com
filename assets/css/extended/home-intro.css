@@ -54,6 +54,32 @@
     height: 1.1rem;
 }
 
+.home-latest h2 {
+    font-size: 1.35rem;
+    margin: 0 0 0.75rem;
+}
+
+.home-latest-list {
+    display: grid;
+}
+
+.home-latest-entry {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.35rem 0;
+}
+
+.home-latest-entry time {
+    color: var(--secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.home-latest-entry:hover span {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
 @media screen and (max-width: 768px) {
     .home-intro {
         margin-bottom: var(--gap);

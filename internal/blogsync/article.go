@@ -118,15 +118,23 @@ func GenerateHugoContent(root string) error {
 		return err
 	}
 
-	outputDir := filepath.Join(root, "content", "posts")
-	if err := os.RemoveAll(outputDir); err != nil {
+	postsDir := filepath.Join(root, "content", "posts")
+	notesDir := filepath.Join(root, "content", "notes")
+	if err := os.RemoveAll(postsDir); err != nil {
 		return err
 	}
-	if err := os.MkdirAll(outputDir, 0o755); err != nil {
+	if err := os.MkdirAll(postsDir, 0o755); err != nil {
+		return err
+	}
+	if err := cleanGeneratedNotes(notesDir); err != nil {
 		return err
 	}
 
 	for _, article := range articles {
+		outputDir := postsDir
+		if article.Meta.Kind == "note" {
+			outputDir = notesDir
+		}
 		target := filepath.Join(outputDir, article.Meta.ID+".md")
 		if err := os.WriteFile(target, []byte(renderHugoArticle(article)), 0o644); err != nil {
 			return err
@@ -141,6 +149,27 @@ func GenerateHugoContent(root string) error {
 		return err
 	}
 
+	return nil
+}
+
+// cleanGeneratedNotes removes synced note pages while preserving the hand-authored
+// section index at content/notes/_index.md.
+func cleanGeneratedNotes(notesDir string) error {
+	if err := os.MkdirAll(notesDir, 0o755); err != nil {
+		return err
+	}
+	entries, err := os.ReadDir(notesDir)
+	if err != nil {
+		return err
+	}
+	for _, entry := range entries {
+		if entry.IsDir() || entry.Name() == "_index.md" || filepath.Ext(entry.Name()) != ".md" {
+			continue
+		}
+		if err := os.Remove(filepath.Join(notesDir, entry.Name())); err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
@@ -340,7 +369,7 @@ func validateArticles(articles []Article) error {
 		if article.Meta.Kind == "" {
 			return fmt.Errorf("article %q is missing kind", article.Meta.ID)
 		}
-		if article.Meta.Kind != "essay" && article.Meta.Kind != "review" {
+		if article.Meta.Kind != "essay" && article.Meta.Kind != "review" && article.Meta.Kind != "note" {
 			return fmt.Errorf("article %q has unsupported article_kind %q", article.Meta.ID, article.Meta.Kind)
 		}
 		if previous, ok := ids[article.Meta.ID]; ok {
@@ -474,6 +503,10 @@ func writeHugoMeta(buf *bytes.Buffer, meta ArticleMeta) {
 	hugoMeta := meta
 	hugoMeta.Author = defaultAuthor(meta.Author)
 	writeArticleMeta(buf, hugoMeta)
+	if meta.Kind == "note" {
+		writeStringField(buf, "url", "/notes/"+meta.Slug+"/")
+		writeStringField(buf, "layout", "note")
+	}
 }
 
 func writeOptionalStringField(buf *bytes.Buffer, key, value string) {
