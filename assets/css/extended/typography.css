@@ -1,0 +1,16 @@
+.post-title,
+.post-content {
+    font-family: ui-serif, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+}
+
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.post-content code,
+.post-content kbd,
+.post-content pre,
+.post-content samp {
+    font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
