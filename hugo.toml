@@ -34,6 +34,7 @@ author = { name = "Athul Suresh" }
 footer = { text = "[Source](https://github.com/crunchbang/athulsuresh.com)" }
 socialIcons = [
   {name = "github", url = "https://github.com/crunchbang"},
+  {name = "goodreads", url = "https://www.goodreads.com/user/show/22839574-athul-suresh"},
   {name = "rss", url = "index.xml"},
 ]
 

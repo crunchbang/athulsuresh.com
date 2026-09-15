@@ -1,16 +1,34 @@
+body {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 16px;
+}
+
+.logo a {
+    font-size: 1.25rem;
+}
+
+.page-header h1,
 .post-title,
-.post-content {
-    font-family: ui-serif, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+.post-content h1 {
+    font-size: 2rem;
 }
 
-.post-content {
-    font-size: 1.05rem;
-    line-height: 1.7;
+.post-content h2 {
+    font-size: 1.5rem;
 }
 
-.post-content code,
-.post-content kbd,
-.post-content pre,
-.post-content samp {
-    font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+.post-content h3 {
+    font-size: 1.25rem;
+}
+
+.post-content h4 {
+    font-size: 1rem;
+}
+
+.post-content h5 {
+    font-size: 0.875rem;
+}
+
+.post-content h6 {
+    font-size: 0.75rem;
 }
