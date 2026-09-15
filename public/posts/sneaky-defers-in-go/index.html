@@ -31,7 +31,7 @@ hello
 This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).">
 <meta name="author" content="Athul Suresh">
 <link rel="canonical" href="/posts/sneaky-defers-in-go/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9f02b70c575024608a64543b3f8ded6b068a0d84f4c4e3003c1665e352a34ae1.css" integrity="sha256-nwK3DFdQJGCKZFQ7P43tawaKDYT0xOMAPBZl41KjSuE=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0963dfd677c4423e7fc0d5b417176bffa608e69568fb6c877c20d7683428388d.css" integrity="sha256-CWPf1nfEQj5/wNW0Fxdr/6YI5pVo&#43;2yHfCDXaDQoOI0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -83,7 +83,7 @@ This is because the arguments are evaluated when the defer is encountered, and n
 package main import &#34;fmt&#34; func main() { input := &#34;hello&#34; TestDefer(&amp;input) } func TestDefer(input *string) { defer fmt.Println(*input) *input = &#34;world&#34; fmt.Println(*input) } Given how defer-ed functions are executed just before the parent function exits, I expected the output to be
 world world But, on execution it actually prints
 world hello This is because the arguments are evaluated when the defer is encountered, and not when the deferred function is actually called. Effective Go even has a line specifically about this behavior (which I discovered later).">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="en-US">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-07-06T00:00:00+00:00">

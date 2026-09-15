@@ -1,0 +1,39 @@
+.archive-year {
+  margin-top: 2rem;
+}
+
+.archive-year:not(:last-of-type) {
+  border-bottom: 0;
+}
+
+.archive-year-header {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.archive-count {
+  color: var(--secondary);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.archive-compact-list {
+  display: grid;
+}
+
+.archive-compact-entry {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+
+.archive-compact-entry time {
+  color: var(--secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.archive-compact-entry:hover span {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}

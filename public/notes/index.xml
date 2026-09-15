@@ -5,7 +5,17 @@
     <link>/notes/</link>
     <description>Recent content in Notes on Core Dump</description>
     <generator>Hugo -- 0.165.0</generator>
-    <language>en-us</language>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s do everything!</title>
+      <link>/notes/lets-do-everything/</link>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>/notes/lets-do-everything/</guid>
+      <description>&lt;p&gt;I just spent half a day migrating my homeserver from NixOS to NixOS hosted on Proxmox. I couldn&amp;rsquo;t resist experimenting with Proxmox after reading about all the shiny things it could do.&lt;/p&gt;
+&lt;p&gt;My ultimate goal was to have a simpler back-up and restore scheme. Currently, it was a complicated mess composed of restic and btrfs, doing god knows what, which only codex could understand.&lt;/p&gt;
+&lt;p&gt;Previously, this would&amp;rsquo;ve been a whole month worth of work, wherein I would enthusiastically read all the documentation, lose hope of ever understanding the system in all its details, and then start patching snippets from github to make things work.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -3,7 +3,7 @@
 id = "book-review-the-dutch-house"
 title = "Book Review: The Dutch House"
 author = ["Athul Suresh"]
-date = "2020-07-29"
+date = "2025-11-28"
 slug = "book-review-the-dutch-house"
 article_kind = "review"
 draft = false

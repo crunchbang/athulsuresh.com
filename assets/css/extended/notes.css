@@ -5,33 +5,3 @@
 .notes-description p {
   margin-bottom: 0;
 }
-
-.notes-list {
-  display: grid;
-  gap: 0;
-  margin-top: 2.5rem;
-}
-
-.note-entry {
-  border-top: 1px solid var(--border);
-  padding: 1.25rem 0;
-}
-
-.note-entry time {
-  color: var(--secondary);
-  font-size: 0.8rem;
-}
-
-.note-entry h2 {
-  font-size: 1.15rem;
-  margin: 0.2rem 0 0;
-}
-
-.note-entry h2 a {
-  box-shadow: none;
-}
-
-.note-entry p {
-  color: var(--secondary);
-  margin: 0.45rem 0 0;
-}

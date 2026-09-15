@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/book-review-klara-and-the-sun/</loc>
-    <lastmod>2026-03-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/notes/lets-do-everything/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/notes/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/book-review-klara-and-the-sun/</loc>
     <lastmod>2026-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
@@ -13,6 +19,9 @@
   </url><url>
     <loc>/posts/book-review-eleanor-oliphant-is-completely-fine/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/book-review-the-dutch-house/</loc>
+    <lastmod>2025-11-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/book-review-the-end-of-the-affair/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
@@ -104,9 +113,6 @@
     <loc>/posts/book-review-east-of-eden/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/book-review-the-dutch-house/</loc>
-    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/posts/tale-of-two-dbs/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -185,8 +191,6 @@
     <loc>/archive/</loc>
   </url><url>
     <loc>/books/</loc>
-  </url><url>
-    <loc>/notes/</loc>
   </url><url>
     <loc>/search/</loc>
   </url>

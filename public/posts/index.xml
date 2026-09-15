@@ -5,7 +5,7 @@
     <link>/posts/</link>
     <description>Recent content in Posts on Core Dump</description>
     <generator>Hugo -- 0.165.0</generator>
-    <language>en-us</language>
+    <language>en-US</language>
     <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -23,6 +23,13 @@
       <guid>/posts/book-review-eleanor-oliphant-is-completely-fine/</guid>
       <description>&lt;p&gt;I haven&amp;rsquo;t done these in awhile, so I&amp;rsquo;m a bit rusty on verbal flourish.&lt;/p&gt;
 &lt;p&gt;Bookish snobbery, I felt, had constrained my reading diversity to a limited range, directing me to more of the same sort of books as I&amp;rsquo;d read in the past. I found that I was not reading the books that I had researched and bought, choosing to keep them in their pristine condition. I wanted to experience the joy of spontaneity and the experience of working within constraints. So, last September, I decided to only buy used books from charity shops. The added benefit was the fact that everything was quite cheap and the books were already in a &amp;ldquo;well loved&amp;rdquo; condition. This in turn ensured that I wouldn&amp;rsquo;t keep these framed on my bookshelf, and would actually read them, in whatever manner I felt comfortable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Book Review: The Dutch House</title>
+      <link>/posts/book-review-the-dutch-house/</link>
+      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/book-review-the-dutch-house/</guid>
+      <description>&lt;p&gt;The best book I&amp;rsquo;ve read this year.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book Review: The End of the Affair</title>
@@ -334,13 +341,6 @@ hello
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/posts/book-review-east-of-eden/</guid>
       <description>&lt;p&gt;A gripping tale of an entire valley that covers the lives and thoughts of 3 generations. In under 700 pages, Steinbeck has managed to capture the imagination with characters so real and flushed out that you see a part of yourself in everyone. He has masterfully woven a story that sucks you in from the very beginning, where the characters seem real to the point where you get emotionally invested in them. For me, this was a masterclass in the study on human character, particularly how we deal with feelings of virtue and guilt.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Book Review: The Dutch House</title>
-      <link>/posts/book-review-the-dutch-house/</link>
-      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/posts/book-review-the-dutch-house/</guid>
-      <description>&lt;p&gt;The best book I&amp;rsquo;ve read this year.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Tale Of Two DBs</title>

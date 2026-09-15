@@ -9,17 +9,24 @@
 </header>
 
 {{- $notes := (where site.RegularPages "Params.article_kind" "note").ByDate.Reverse -}}
-<div class="notes-list">
-  {{- range $notes }}
-  {{- $note := . }}
-  <article class="note-entry">
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.DateFormat | default "January 2, 2006") }}</time>
-    <h2><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h2>
-    {{- with .Summary }}
-    <p>{{ . | plainify | htmlUnescape }}{{ if $note.Truncated }}…{{ end }}</p>
+{{- range $notes.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="archive-year">
+  {{- $year := replace .Key "0001" "" }}
+  <h2 class="archive-year-header" id="{{ $year }}">
+    <a class="archive-header-link" href="#{{ $year }}">{{- $year -}}</a>
+    <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+  </h2>
+  <div class="archive-compact-list">
+    {{- range .Pages }}
+    <a class="archive-compact-entry" href="{{ .RelPermalink }}">
+      <time datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span>{{ .Title | markdownify }}</span>
+    </a>
     {{- end }}
-  </article>
-  {{- end }}
+  </div>
 </div>
+{{- end }}
+{{- end }}
 
 {{- end }}
