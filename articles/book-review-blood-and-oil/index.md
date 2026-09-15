@@ -7,7 +7,7 @@ goodreads_rating = "5"
 date = "2026-07-21"
 slug = "book-review-blood-and-oil"
 article_kind = "review"
-draft = true
+draft = false
 +++
 
 I picked up this book purely by chance after coming across it on my goodreads feed. As a lover of fiction, history, and especially the contemporary history of a country that's been frequenting the news, was way down on the list of things I wanted to read. 

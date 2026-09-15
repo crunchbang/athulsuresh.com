@@ -6,7 +6,7 @@ author = ["Athul Suresh"]
 date = "2026-07-21"
 slug = "book-review-blood-and-oil"
 article_kind = "review"
-draft = true
+draft = false
 book_author = "Manucher Farmanfarmaian"
 goodreads_rating = "5"
 +++
