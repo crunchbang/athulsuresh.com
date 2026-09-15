@@ -44,7 +44,7 @@ Common workflows through `make`:
 make help
 make new-post TITLE="My New Post"
 make new-note TITLE="What I learned"
-make new-review TITLE="Example Title"
+make new-review TITLE="Example Title" BOOK_AUTHOR="Author Name"
 make import-goodreads
 make fetch-book-covers
 make build
@@ -53,7 +53,7 @@ make publish
 ```
 
 `make publish` runs tests and rebuilds the site.
-`make new-review` prefixes the title as `Book Review: ...` automatically.
+`make new-review` prefixes the title as `Book Review: ...` automatically and adds its `BOOK_AUTHOR` value as `book_author` in the front matter.
 `make new-note` creates a publishable note with an empty body. Write whatever you want to say, then run `make publish`.
 
 Generate Hugo content from `articles/`:

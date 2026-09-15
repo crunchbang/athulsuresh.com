@@ -13,7 +13,7 @@ help:
 	@printf "Common workflows:\n"
 	@printf "  make new-post TITLE='Title'\n"
 	@printf "  make new-note TITLE='What I learned'\n"
-	@printf "  make new-review TITLE='Book Title'\n"
+	@printf "  make new-review TITLE='Book Title' BOOK_AUTHOR='Author Name'\n"
 	@printf "  make import-goodreads\n"
 	@printf "  make fetch-book-covers\n"
 	@printf "  make sync\n"
@@ -41,6 +41,7 @@ import-goodreads:
 
 fetch-book-covers:
 	@$(BLOGSYNC) fetch-book-covers
+	@printf 'Manual cover: save the image as static/book-covers/<article-slug>.jpg\n'
 
 import-legacy:
 	@$(BLOGSYNC) import-legacy
@@ -91,6 +92,7 @@ _new-article:
 	printf 'date = "%s"\n' "$(TODAY)" >> "$$file"; \
 	printf 'slug = "%s"\n' "$$slug" >> "$$file"; \
 	printf 'article_kind = "%s"\n' "$(ARTICLE_KIND)" >> "$$file"; \
+	if [[ "$(ARTICLE_KIND)" == "review" ]]; then printf 'book_author = "%s"\n' "$(BOOK_AUTHOR)" >> "$$file"; fi; \
 	printf 'draft = %s\n' "$${DRAFT:-true}" >> "$$file"; \
 	printf '+++\n\n' >> "$$file"; \
 	if [[ "$(ARTICLE_KIND)" != "note" ]]; then printf '%s\n' 'Start writing here.' >> "$$file"; fi; \
